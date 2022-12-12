@@ -1,0 +1,32 @@
+title: Longevity2
+version: 0.3.0
+type: reporter
+description: Create report with longevity ralated information (pre alpha version). It deppends on postagregators .
+output_filename_schema:
+- '{run_name}.longevity2.html'
+developer:
+  name: DNA-seq
+  organization: DNA-seq
+  email: karmazinalex@gmail.com
+  website: https://github.com/dna-seq/opencravat-longevity
+  citation: ''
+requires:
+  - just_cancer
+  - just_coronary
+  - just_drugs
+  - just_longevitymap
+  - just_prs
+tags:
+- input/output
+- reporters
+- longevity
+data_version: 0.1.3
+release_note:
+0.1.0: initial version
+0.1.1: added prs support
+0.1.2: bugfix rsid for prs, template improved
+0.1.3: added Coronary arthery disease sub reporter, fixed bugs in prs sub report
+0.1.4: in coranary sub report added color signaling and sorted by weight results
+0.1.5: fixed bug in column acces for new version of oakvar
+0.2.0: changed to fit new oakvar, not compatible with previuse versions of oak var
+0.3.0: rebuilded reporter for new version of oakvar and postagregators

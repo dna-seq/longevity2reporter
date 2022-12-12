@@ -1,0 +1,727 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style >
+		*{
+			box-sizing: border-box;
+			scroll-behavior: smooth;
+		}
+		table.ui{
+			border-radius: 0.28571429rem;
+			font-size: 1em;
+			background: white;
+			width: 100%;
+			border-radius: 0.28571429rem;
+			padding: 0.78571429em 0.78571429em;
+			text-align: left;
+			border-collapse: collapse;
+			vertical-align: middle;
+			margin: 1em 0;
+    		border: 1px solid rgba(34,36,38,.15);
+			line-height: 1.4285em;
+		}
+		table.ui th{
+			background: #f9fafb;
+			cursor: auto;
+			text-align: inherit;
+			color: rgba(0,0,0,.87);
+			padding: 0.92857143em 0.78571429em;
+			vertical-align: inherit;
+			font-style: none;
+			font-weight: 700;
+			text-transform: none;
+			border-bottom: 1px solid rgba(34,36,38,.1);
+			border-right: 1px solid rgba(34,36,38,.1);
+		}
+		table.ui.selectable.celled.teal.table tr:hover{
+			background-color: #eef1f5;
+		}
+		table.ui td{
+			padding: 0.92857143em 0.9571429em;
+			border-bottom: 1px solid rgba(34,36,38,.1);
+			border-top: none;
+			border-left: 1px solid rgba(34,36,38,.1);
+			padding: 10px 10px 10px 10px;
+		}
+		table.ui td:first-child{
+			border-left: none;
+		}
+		a {
+			color: #4183c4;
+			text-decoration: none;
+		}
+		a:hover{
+			color: #3b77b3;
+		}
+		body{
+			background-image: linear-gradient(to left bottom, #f9f6f0, #f8f6ec, #f6f6e8, #f2f7e6, #edf8e4, #e5f9e8, #dff9ec, #d9f9f2, #d8f7fb, #def5ff, #e7f1ff, #f0eefd) !important;
+			background-repeat: no-repeat !important;
+			background-attachment: fixed !important;
+			color:rgb(66, 92, 88) !important;
+			font-family: Arial, Helvetica, sans-serif !important;
+		}
+		.intro{
+			max-width: 90%;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			line-height: 3;
+			font-size: 24px;
+		}
+		.intro p{
+			color:rgb(84, 85, 110);
+			line-height: 2em;
+			font-size: 1.3em;
+			font-weight: 400;
+		}
+		.intro a{
+			word-wrap: break-word;
+		}
+		.intro ul{
+			padding-left: 0;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			font-weight: 500;
+			margin-top: 40px;
+			list-style-type: none;
+			margin-bottom: 120px;
+		}
+		.li1{
+			font-weight: 400;
+			font-size: 30px;
+		}
+		.board{
+			max-width: 97%;
+			margin-top: 40px;
+			padding-top: 10px;
+			color:rgb(84, 85, 110);
+			padding: 20px;
+		}
+		.board p{
+			line-height: 1.7;
+			font-size: 1.5em;
+			font-weight: 400;
+		}
+		.board .how_to{
+			margin-top: 25px;
+			font-size: 1.7em;
+			font-weight: 300;
+		}
+		.board.prs{
+		}
+		.board.prs .how_to{
+			margin-top: 0px;
+		}
+		.board.variants{
+			word-wrap: break-word;
+			margin-top: 0px;
+		}
+		.board.cancer{
+			padding-top: 0px;
+		}
+		.board.drugs{
+			margin-top: 0px;
+		}
+		.board .how_to{
+			margin-top: 10px;
+			font-size: 2.2em;
+			font-weight: 300;
+		}
+		.board.prs{
+			padding-top: 10px;
+		}
+		.board.prs .how_to{
+			margin-top: 0px;
+		}
+		h2{
+			margin-top: 150px;
+			margin-bottom: 20px;
+		}
+		h2, h1{
+			text-align: center;
+			font-size: 3em !important;
+			font-weight: 300 !important;
+		}
+		div.ui.tiny.circular.compact.positive.button {
+			border-radius: 10em;
+			background-color: #21ba45;
+			color: #fff;
+			text-shadow: none;
+			background-image: none;
+			padding: 0.58928571em 1.125em 0.58928571em;
+			cursor: pointer;
+			display: inline-block;
+			min-height: 1em;
+			outline: 0;
+			border: none;
+			vertical-align: baseline;
+			font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+			margin: 0 0.25em 0 0;
+			text-transform: none;
+			font-weight: 700;
+			line-height: 1em;
+			font-style: normal;
+			text-align: center;
+			text-decoration: none;
+			}
+			div.ui.tiny.circular.compact.negative.button {
+				border-radius: 10em;
+				background-color: #da1f1f;
+				color: #fff;
+				text-shadow: none;
+				background-image: none;
+				padding: 0.58928571em 1.125em 0.58928571em;
+				cursor: pointer;
+				display: inline-block;
+				min-height: 1em;
+				outline: 0;
+				border: none;
+				vertical-align: baseline;
+				font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+				margin: 0 0.25em 0 0;
+				text-transform: none;
+				font-weight: 700;
+				line-height: 1em;
+				font-style: normal;
+				text-align: center;
+				text-decoration: none;
+			}
+		.acordiv {
+			padding-left: 20px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			align-content: center;
+			margin-top: 0px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 20px;
+
+		}
+		.acordiv h1{
+			font-size: 2.3em !important;
+			font-weight: 300;
+			display: inline-block;
+			text-align: center;
+		}
+
+		.triangles{
+			margin-left: 30px;
+			display: inline-block;
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-top: 7px solid #25574e;
+			transition: scale, transform 0.7s;
+			transition-delay: 0.2s;
+			transition-duration: 0.8s;
+		}
+		.triangleActive{
+			margin-left: 26px;
+			display: inline-block;
+			border-left: 11px solid transparent;
+			border-right: 11px solid transparent;
+			border-bottom: 11px solid #25574e;
+			transition: scale 0.7s;
+			transition-delay: 2s;
+			transition-duration: 1s;
+		}
+		.acordiv:hover .triangleActive{
+			transform: scale(1)
+
+		}
+		.acordiv:hover .triangles{
+			transform: scale(1.6)
+			rotate(180deg);
+
+		}
+		.acordiv:hover {cursor:pointer;background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(179,242,238,1) 0%, rgba(185,226,242,1) 100%);}
+		thead {font-weight: bold; }
+		.ui.celled.teal.table.prs
+		{
+			margin-left:auto;
+			margin-right: auto;
+			color:rgb(66, 92, 88) !important;
+			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+			border-top: 0.4em solid #56C3BD;
+		}
+		.ui.selectable.celled.teal.table.table.variants{
+			margin-left:auto;
+			margin-right: auto;
+			color:rgb(66, 92, 88) !important;
+			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+			margin-bottom: 80px !important;
+			border-top: 0.4em solid #7ece34;
+		}
+		.ui.celled.teal.table.table.drugs{
+			margin-left:auto;
+			margin-right: auto;
+			color:rgb(66, 92, 88) !important;
+			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+			margin-bottom: 80px !important;
+
+			border-top: 0.4em solid #00A75C;
+			}
+		.ui.selectable.celled.teal.table.table.cancer{
+			margin-left:auto;
+			margin-right: auto;
+			color:rgb(66, 92, 88) !important;
+			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+			margin-bottom: 80px !important;
+			border-top: 0.4em solid #EE3330;
+		}
+		th, td {
+		  padding: 2px;
+		}
+		p {
+			font-size:12pt;
+		}
+		.content{
+			margin-left: auto;
+			margin-right: auto;
+			max-height: 0;
+			overflow: hidden;
+			overflow-x: auto;
+			transition: max-height 0.5s ease-in;
+		}
+
+</style>
+<script>
+function expand(obj){
+	var tdEl = obj.children[0];
+	var el = obj.nextSibling;
+	if (el.nodeName == "#text")
+		el = el.nextSibling;
+	var parent = el.parentElement;
+	parent = parent.parentElement.parentElement;
+	parent.style.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) + 1300 + "px";
+	el.style.display = "";
+	tdEl.innerHTML = "<div class=\"ui tiny circular compact negative button\">-</div>";
+	parent.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) + el.style.height + "px";
+	//obj.style.backgroundColor = "#e0e0e0";
+}
+
+
+
+
+function collapse(obj){
+	var tdEl = obj.children[0];
+	var el = obj.nextSibling;
+	if (el.nodeName == "#text")
+		el = el.nextSibling;
+	var parent = el.parentElement;
+	parent = parent.parentElement.parentElement;
+	parent.style.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) - 1300 + "px";
+	el.style.display = "none";
+	tdEl.innerHTML = "<div class=\"ui tiny circular compact positive button\">+</div>";
+	//obj.style.backgroundColor = "#eeeeee";
+}
+
+function doOnClick(obj){
+	var tdEl = obj.children[0];
+	var el = obj.nextSibling;
+	if (el.nodeName == "#text")
+		el = el.nextSibling;
+
+	if(el.style.display == "none")
+		expand(obj);
+		 /*el.parentElement.maxHeight += el.clientHeight;*/
+	else
+		collapse(obj);
+}
+
+function collapseExpandAll(obj, id){
+	var el = document.getElementById(id);
+	if(obj.innerHTML == "<div class=\"ui tiny circular compact positive button\">+</div>"){
+		for(var i in el.children)
+			if(el.children[i].children && el.children[i].children.length > 3)
+				expand(el.children[i]);
+		obj.innerHTML = "<div class=\"ui tiny circular compact negative button\">-</div>";
+	} else {
+		for(var i in el.children)
+			if(el.children[i].children && el.children[i].children.length > 3)
+				collapse(el.children[i]);
+		obj.innerHTML = "<div class=\"ui tiny circular compact positive button\">+</div>";
+	}
+}
+
+
+
+var normalData = {'x': {'max': 2.82, 'min': -2.794, 'data': [-2.794, -2.569, -2.428, -2.323, -2.238, -2.167, -2.106, -2.052, -2.003, -1.958, -1.917, -1.879, -1.844, -1.811, -1.779, -1.75, -1.721, -1.694, -1.669, -1.644, -1.62, -1.597, -1.575, -1.554, -1.533, -1.513, -1.494, -1.475, -1.457, -1.439, -1.421, -1.404, -1.388, -1.372, -1.356, -1.34, -1.325, -1.31, -1.295, -1.281, -1.267, -1.253, -1.239, -1.226, -1.213, -1.2, -1.187, -1.174, -1.162, -1.15, -1.138, -1.126, -1.114, -1.103, -1.091, -1.08, -1.069, -1.058, -1.047, -1.036, -1.025, -1.015, -1.004, -0.994, -0.984, -0.974, -0.964, -0.954, -0.944, -0.934, -0.925, -0.915, -0.906, -0.896, -0.887, -0.878, -0.868, -0.859, -0.85, -0.841, -0.832, -0.824, -0.815, -0.806, -0.797, -0.789, -0.78, -0.772, -0.763, -0.755, -0.747, -0.739, -0.73, -0.722, -0.714, -0.706, -0.698, -0.69, -0.682, -0.674, -0.666, -0.659, -0.651, -0.643, -0.635, -0.628, -0.62, -0.613, -0.605, -0.597, -0.59, -0.583, -0.575, -0.568, -0.56, -0.553, -0.546, -0.539, -0.531, -0.524, -0.517, -0.51, -0.503, -0.496, -0.488, -0.481, -0.474, -0.467, -0.46, -0.453, -0.447, -0.44, -0.433, -0.426, -0.419, -0.412, -0.405, -0.399, -0.392, -0.385, -0.378, -0.372, -0.365, -0.358, -0.352, -0.345, -0.338, -0.332, -0.325, -0.318, -0.312, -0.305, -0.299, -0.292, -0.286, -0.279, -0.273, -0.266, -0.26, -0.253, -0.247, -0.24, -0.234, -0.227, -0.221, -0.214, -0.208, -0.202, -0.195, -0.189, -0.182, -0.176, -0.17, -0.163, -0.157, -0.151, -0.144, -0.138, -0.132, -0.125, -0.119, -0.113, -0.106, -0.1, -0.094, -0.088, -0.081, -0.075, -0.069, -0.062, -0.056, -0.05, -0.044, -0.037, -0.031, -0.025, -0.019, -0.012, -0.006, 0.0, 0.007, 0.013, 0.019, 0.025, 0.032, 0.038, 0.044, 0.05, 0.057, 0.063, 0.069, 0.076, 0.082, 0.088, 0.094, 0.101, 0.107, 0.113, 0.12, 0.126, 0.132, 0.139, 0.145, 0.151, 0.158, 0.164, 0.17, 0.177, 0.183, 0.189, 0.196, 0.202, 0.209, 0.215, 0.221, 0.228, 0.234, 0.241, 0.247, 0.254, 0.26, 0.267, 0.273, 0.28, 0.286, 0.293, 0.299, 0.306, 0.312, 0.319, 0.326, 0.332, 0.339, 0.345, 0.352, 0.359, 0.365, 0.372, 0.379, 0.386, 0.392, 0.399, 0.406, 0.413, 0.42, 0.426, 0.433, 0.44, 0.447, 0.454, 0.461, 0.468, 0.475, 0.482, 0.489, 0.496, 0.503, 0.51, 0.518, 0.525, 0.532, 0.539, 0.546, 0.554, 0.561, 0.568, 0.576, 0.583, 0.591, 0.598, 0.606, 0.613, 0.621, 0.628, 0.636, 0.644, 0.651, 0.659, 0.667, 0.675, 0.683, 0.691, 0.699, 0.707, 0.715, 0.723, 0.731, 0.739, 0.747, 0.756, 0.764, 0.773, 0.781, 0.79, 0.798, 0.807, 0.815, 0.824, 0.833, 0.842, 0.851, 0.86, 0.869, 0.878, 0.888, 0.897, 0.906, 0.916, 0.925, 0.935, 0.945, 0.955, 0.964, 0.975, 0.985, 0.995, 1.005, 1.016, 1.026, 1.037, 1.048, 1.059, 1.07, 1.081, 1.092, 1.104, 1.115, 1.127, 1.139, 1.151, 1.163, 1.175, 1.188, 1.201, 1.214, 1.227, 1.24, 1.254, 1.268, 1.282, 1.297, 1.311, 1.326, 1.341, 1.357, 1.373, 1.389, 1.406, 1.423, 1.44, 1.458, 1.477, 1.495, 1.515, 1.535, 1.556, 1.577, 1.599, 1.622, 1.646, 1.671, 1.696, 1.723, 1.752, 1.782, 1.813, 1.847, 1.882, 1.92, 1.962, 2.007, 2.056, 2.111, 2.173, 2.245, 2.33, 2.437, 2.583, 2.82]}, 'y': {'max': 0.399, 'min': 0.007, 'data': [0.008, 0.015, 0.021, 0.027, 0.033, 0.038, 0.043, 0.049, 0.054, 0.059, 0.063, 0.068, 0.073, 0.077, 0.082, 0.086, 0.091, 0.095, 0.099, 0.103, 0.107, 0.111, 0.115, 0.119, 0.123, 0.127, 0.131, 0.134, 0.138, 0.142, 0.145, 0.149, 0.152, 0.156, 0.159, 0.163, 0.166, 0.169, 0.172, 0.176, 0.179, 0.182, 0.185, 0.188, 0.191, 0.194, 0.197, 0.2, 0.203, 0.206, 0.209, 0.212, 0.214, 0.217, 0.22, 0.223, 0.225, 0.228, 0.231, 0.233, 0.236, 0.238, 0.241, 0.243, 0.246, 0.248, 0.251, 0.253, 0.256, 0.258, 0.26, 0.262, 0.265, 0.267, 0.269, 0.271, 0.274, 0.276, 0.278, 0.28, 0.282, 0.284, 0.286, 0.288, 0.29, 0.292, 0.294, 0.296, 0.298, 0.3, 0.302, 0.304, 0.306, 0.307, 0.309, 0.311, 0.313, 0.314, 0.316, 0.318, 0.32, 0.321, 0.323, 0.324, 0.326, 0.328, 0.329, 0.331, 0.332, 0.334, 0.335, 0.337, 0.338, 0.34, 0.341, 0.342, 0.344, 0.345, 0.346, 0.348, 0.349, 0.35, 0.352, 0.353, 0.354, 0.355, 0.356, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364, 0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376, 0.377, 0.378, 0.378, 0.379, 0.38, 0.381, 0.382, 0.382, 0.383, 0.384, 0.384, 0.385, 0.386, 0.386, 0.387, 0.388, 0.388, 0.389, 0.389, 0.39, 0.39, 0.391, 0.391, 0.392, 0.392, 0.393, 0.393, 0.394, 0.394, 0.394, 0.395, 0.395, 0.395, 0.396, 0.396, 0.396, 0.397, 0.397, 0.397, 0.397, 0.398, 0.398, 0.398, 0.398, 0.398, 0.398, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.398, 0.398, 0.398, 0.398, 0.398, 0.398, 0.397, 0.397, 0.397, 0.397, 0.396, 0.396, 0.396, 0.395, 0.395, 0.395, 0.394, 0.394, 0.394, 0.393, 0.393, 0.392, 0.392, 0.391, 0.391, 0.39, 0.39, 0.389, 0.389, 0.388, 0.388, 0.387, 0.386, 0.386, 0.385, 0.384, 0.384, 0.383, 0.382, 0.381, 0.381, 0.38, 0.379, 0.378, 0.378, 0.377, 0.376, 0.375, 0.374, 0.373, 0.372, 0.371, 0.37, 0.369, 0.368, 0.367, 0.366, 0.365, 0.364, 0.363, 0.362, 0.361, 0.36, 0.359, 0.358, 0.356, 0.355, 0.354, 0.353, 0.351, 0.35, 0.349, 0.348, 0.346, 0.345, 0.344, 0.342, 0.341, 0.339, 0.338, 0.337, 0.335, 0.334, 0.332, 0.331, 0.329, 0.327, 0.326, 0.324, 0.323, 0.321, 0.319, 0.318, 0.316, 0.314, 0.313, 0.311, 0.309, 0.307, 0.305, 0.304, 0.302, 0.3, 0.298, 0.296, 0.294, 0.292, 0.29, 0.288, 0.286, 0.284, 0.282, 0.28, 0.278, 0.276, 0.273, 0.271, 0.269, 0.267, 0.265, 0.262, 0.26, 0.258, 0.255, 0.253, 0.251, 0.248, 0.246, 0.243, 0.241, 0.238, 0.236, 0.233, 0.23, 0.228, 0.225, 0.222, 0.22, 0.217, 0.214, 0.211, 0.209, 0.206, 0.203, 0.2, 0.197, 0.194, 0.191, 0.188, 0.185, 0.182, 0.179, 0.175, 0.172, 0.169, 0.166, 0.162, 0.159, 0.155, 0.152, 0.149, 0.145, 0.141, 0.138, 0.134, 0.13, 0.127, 0.123, 0.119, 0.115, 0.111, 0.107, 0.103, 0.099, 0.095, 0.09, 0.086, 0.082, 0.077, 0.073, 0.068, 0.063, 0.058, 0.053, 0.048, 0.043, 0.038, 0.032, 0.026, 0.02, 0.014, 0.007]}, 'p': [0.003, 0.005, 0.008, 0.01, 0.013, 0.015, 0.018, 0.02, 0.023, 0.025, 0.028, 0.03, 0.033, 0.035, 0.038, 0.04, 0.043, 0.045, 0.048, 0.05, 0.053, 0.055, 0.058, 0.06, 0.063, 0.065, 0.068, 0.07, 0.073, 0.075, 0.078, 0.08, 0.083, 0.085, 0.088, 0.09, 0.093, 0.095, 0.098, 0.1, 0.103, 0.105, 0.108, 0.11, 0.113, 0.115, 0.118, 0.12, 0.123, 0.125, 0.128, 0.13, 0.133, 0.135, 0.138, 0.14, 0.143, 0.145, 0.148, 0.15, 0.153, 0.155, 0.158, 0.16, 0.163, 0.165, 0.168, 0.17, 0.173, 0.175, 0.178, 0.18, 0.183, 0.185, 0.188, 0.19, 0.193, 0.195, 0.198, 0.2, 0.203, 0.205, 0.208, 0.21, 0.213, 0.215, 0.218, 0.22, 0.223, 0.225, 0.228, 0.23, 0.233, 0.235, 0.238, 0.24, 0.243, 0.245, 0.248, 0.25, 0.253, 0.255, 0.258, 0.26, 0.263, 0.265, 0.268, 0.27, 0.273, 0.275, 0.278, 0.28, 0.283, 0.285, 0.288, 0.29, 0.293, 0.295, 0.298, 0.3, 0.303, 0.305, 0.308, 0.31, 0.313, 0.315, 0.318, 0.32, 0.323, 0.325, 0.328, 0.33, 0.333, 0.335, 0.338, 0.34, 0.343, 0.345, 0.348, 0.35, 0.353, 0.355, 0.358, 0.36, 0.363, 0.365, 0.368, 0.37, 0.373, 0.375, 0.378, 0.38, 0.383, 0.385, 0.388, 0.39, 0.393, 0.395, 0.398, 0.4, 0.403, 0.405, 0.408, 0.41, 0.413, 0.415, 0.418, 0.42, 0.423, 0.425, 0.428, 0.43, 0.433, 0.435, 0.438, 0.44, 0.443, 0.445, 0.448, 0.45, 0.453, 0.455, 0.458, 0.46, 0.463, 0.465, 0.468, 0.47, 0.473, 0.475, 0.478, 0.48, 0.483, 0.485, 0.488, 0.49, 0.493, 0.495, 0.498, 0.5, 0.503, 0.505, 0.508, 0.51, 0.513, 0.515, 0.518, 0.52, 0.523, 0.525, 0.528, 0.53, 0.533, 0.535, 0.538, 0.54, 0.543, 0.545, 0.548, 0.55, 0.553, 0.555, 0.558, 0.56, 0.563, 0.565, 0.568, 0.57, 0.573, 0.575, 0.578, 0.58, 0.583, 0.585, 0.588, 0.59, 0.593, 0.595, 0.598, 0.6, 0.603, 0.605, 0.608, 0.61, 0.613, 0.615, 0.618, 0.62, 0.623, 0.625, 0.628, 0.63, 0.633, 0.635, 0.638, 0.64, 0.643, 0.645, 0.648, 0.65, 0.653, 0.655, 0.658, 0.66, 0.663, 0.665, 0.668, 0.67, 0.673, 0.675, 0.678, 0.68, 0.683, 0.685, 0.688, 0.69, 0.693, 0.695, 0.698, 0.7, 0.703, 0.705, 0.708, 0.71, 0.713, 0.715, 0.718, 0.72, 0.723, 0.725, 0.728, 0.73, 0.733, 0.735, 0.738, 0.74, 0.743, 0.745, 0.748, 0.75, 0.753, 0.755, 0.758, 0.76, 0.763, 0.765, 0.768, 0.77, 0.773, 0.775, 0.778, 0.78, 0.783, 0.785, 0.788, 0.79, 0.793, 0.795, 0.798, 0.8, 0.803, 0.805, 0.808, 0.81, 0.813, 0.815, 0.818, 0.82, 0.823, 0.825, 0.828, 0.83, 0.833, 0.835, 0.838, 0.84, 0.843, 0.845, 0.848, 0.85, 0.853, 0.855, 0.858, 0.86, 0.863, 0.865, 0.868, 0.87, 0.873, 0.875, 0.878, 0.88, 0.883, 0.885, 0.888, 0.89, 0.893, 0.895, 0.898, 0.9, 0.903, 0.905, 0.908, 0.91, 0.913, 0.915, 0.918, 0.92, 0.923, 0.925, 0.928, 0.93, 0.933, 0.935, 0.938, 0.94, 0.943, 0.945, 0.948, 0.95, 0.953, 0.955, 0.958, 0.96, 0.963, 0.965, 0.968, 0.97, 0.973, 0.975, 0.978, 0.98, 0.983, 0.985, 0.988, 0.99, 0.993, 0.995, 0.998]}
+
+function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledColor, invers=0){
+
+	if (invers == 1){
+		if (p <= 0.25){
+			var filledColor = '#ff9b00';
+			var strokeColor = '#895510';
+		} else if (p > 0.25 && p <= 0.45){
+			var filledColor = '#ffdb33';
+			var strokeColor = '#846925';
+		} else {
+			var filledColor = '#b4ea54';
+			var strokeColor = '#097050';
+		}
+	}else{
+		if (p <= 0.55){
+			var filledColor = '#b4ea54';
+			var strokeColor = '#097050';
+		} else if (p > 0.55 && p <= 0.75){
+			var filledColor = '#ffdb33';
+			var strokeColor = '#846925';
+		} else {
+			var filledColor = '#ff9b00';
+			var strokeColor = '#895510';
+		}
+	}
+
+	var gausianStrokeColor = '#165863';
+
+	var percColor = {0.05: '#146d40', 0.25: '#1faa5d', 0.5: '#aaaa5d', 0.75: '#b45b5d', 0.95: '#680000'};
+	if (invers == 1)
+		percColor = {0.05: '#680000', 0.25: '#b45b5d', 0.5: '#aaaa5d', 0.75:  '#1faa5d', 0.95: '#146d40'};
+
+
+	var canvas = document.getElementById(cnvasId);
+	//ctx.fillStyle = "blue";
+	//ctx.fillRect(0, 0, , canvas.height);
+	var width = canvas.width;
+	var height = canvas.height;
+
+	var xdata = normalData['x']['data'];
+	var ydata = normalData['y']['data'];
+	var paddingH = 50;
+	var paddingT = 5;
+	var bottomShift = 2;
+	var xRatio = width / (normalData['x']['max'] - normalData['x']['min'])
+	var yRatio = (height - paddingH) / (normalData['y']['max'] - normalData['y']['min'])
+
+	var fillVal = 0;
+	var pdata = normalData['p'];
+	var pindex = -1;
+	for (var i in pdata){
+		if (pdata[i] >= p){
+			fillVal = xdata[i]*xRatio + width/2;
+			pindex = i;
+			break;
+		}
+	}
+
+	var ctx = canvas.getContext("2d");
+	ctx.save();
+
+	ctx.fillStyle=bgColor;
+	ctx.fillRect(0,0,width,height);
+
+
+	for (var i in pdata){
+		if(pdata[i] == 0.05 || pdata[i] == 0.25 || pdata[i] == 0.5 || pdata[i] == 0.75 || pdata[i] == 0.95){
+			ctx.strokeStyle = percColor[pdata[i]];
+			ctx.fillStyle = percColor[pdata[i]];
+			ctx.lineWidth = 2;
+			ctx.beginPath();
+			ctx.moveTo(xdata[i]*xRatio + width/2, 32);
+			ctx.lineTo(xdata[i]*xRatio + width/2, height);
+			ctx.stroke();
+			ctx.font = "14px serif";
+			ctx.fillText((pdata[i]*100) + "%", xdata[i]*xRatio + width/2 + paddingT - 15, paddingT*2 + 12);
+		}
+	}
+
+	ctx.fillStyle=gausianColor;
+	ctx.strokeStyle=gausianStrokeColor;
+
+    ctx.beginPath();
+	ctx.lineWidth = 2.5;
+	ctx.moveTo(xdata[0]*xRatio + width/2, ydata[0]*-yRatio + height + bottomShift);
+	for (var i in xdata){
+		ctx.lineTo(xdata[i]*xRatio + width/2, ydata[i]*-yRatio + height + bottomShift);
+	}
+	ctx.lineTo(width,height);
+	ctx.lineTo(0,height);
+	ctx.closePath();
+	ctx.fill();
+	ctx.stroke();
+
+	ctx.fillStyle = filledColor;
+	ctx.strokeStyle = strokeColor;
+    ctx.beginPath();
+	ctx.lineWidth = 2.5;
+	ctx.moveTo(xdata[0]*xRatio + width/2, ydata[0]*-yRatio + height + bottomShift);
+	for (var i = 1; i <= pindex; i++){
+		ctx.lineTo(xdata[i]*xRatio + width/2, ydata[i]*-yRatio + height + bottomShift);
+	}
+	--i;
+	ctx.lineTo(xdata[i]*xRatio + width/2, height);
+	ctx.lineTo(0,height);
+	ctx.closePath();
+	ctx.fill();
+	ctx.stroke();
+
+	ctx.fillStyle = strokeColor;
+	ctx.font = "bold 20px serif";
+	var textX = xdata[pindex]*xRatio + width/2 + paddingT - 50;
+	if (textX < 0)
+		textX = 0;
+	ctx.fillText(Math.round(p*100) + "%", textX, height - paddingT*2 - 5);
+
+    ctx.restore();
+}
+</script>
+</head>
+
+<body style="padding:5%;">
+<h1 align="center" style="font-size:30pt;">Longevity Report</h1>
+<br/>
+<div class="intro">
+<p></p>
+<p><This report provides data about your longevity genetics. Longevity and healthy lifespan are among the most complex phenotypes, with the heritability of age at death in adulthood being approximately 25 %. So, other 75 % is highly dependent on your lifestyle.
+</p>
+<p></p>
+<p>This report is based on your raw file genome&rsquo;s data cross-referencing against available genetic databases and constructing a report based on interpretations in these databases. Variant annotations were made with OakVar
+	[<a href="https://www.google.com/url?q=https://github.com/rkimoakbioinformatics/oakvar&amp;sa=D&amp;source=editors&amp;ust=1664211538639281&amp;usg=AOvVaw2gx4MtnFu7gwqNOIPdAyzf">https://github.com/rkimoakbioinformatics/oakvar</a>]. Annotation databases that was used for report generating: cadd_exome, gnomAD, pubmed, clinpred, clinvar, ncbigene, omim, prec, provean, revel, sift, LongevityMap.
+</p>
+<p></p>
+<p ><strong>Attention!</strong>The information provided is just for informational purposes. Its clinical implementation is possible just after consulting your healthcare practitioner. All drugs, vitamins and lifestyle changes may be prescribed just by your healthcare practitioner, based on clinical blood test results, family history etc. Genetical testing just provides additional information about possible health risk and risk management.
+</p>
+<p></p>
+<p>The report consists of:</p>
+<ul>
+    <li><a href="#prs" class=" li1 first_li">Longevity polygenic risk scores (PRSs)</a></li>
+	<li><a href="#variants" class="li1 second_li">Longevity variants</a></li>
+	<li><a href="#drugs" class="li1 third_li">Longevity drugs</a></li>
+	<li><a href="#cancer" class="li1 forth_li">Major risks</a></li>
+</ul>
+<p></p>
+</div>
+<h2 id="prs">Longevity Polygenic Risk Scores (PRSs)</h2>
+<p></p>
+<div class="board prs">
+<p>There is data on <u>Polygenic risk scores (PRSs)</u> for gaining longevity.</p>
+<p>PRSs aggregate the effect of many common genetic variants to estimate a person&rsquo;s chances of gaining extreme longevity. Each variant on its own tends little to the total outcome, but when added together, these differences can have a more significant impact.
+</p>
+<p></p>
+<p>PRS results are highly dependent on the population. PPS is calculated as a weighted sum of trait-associated alleles. PRS gives an estimate of how likely an individual is to have a given trait
+       <u>only based on genetics, without taking environmental factors into account</u>.</p>
+<p></p>
+<p class="how_to">How to read the result?</p>
+<p></p>
+<p>PRS is represented as a <u>percentile</u> within a given population. For example, you have the 95th percentile, which means your genetic chances to gain extreme longevity is higher than 95 out of every 100 people in a chosen population.
+</p>
+<p></p>
+<p>So percentile &#65310;50 shows an increased genetic predisposition to longevity, &#65308;50 - decreased one.
+</p>
+<p></p>
+<p></p>
+<p></p>
+</div>
+<div class="intro" style="text-align: left;">
+<table>
+    <tr>
+        <td colspan="1" rowspan="1"><p>PRS info</p></td>
+        <td colspan="1" rowspan="1"><p>This PRS includes an analysis of 332 variants that significantly discriminated between centenarians and older adults.</p>
+            <p>PRS source: <a style="word-wrap: break-word;;" href="https://www.google.com/url?q=https://doi.org/10.1093/gerona/glaa289&amp;sa=D&amp;source=editors&amp;ust=1664211538645453&amp;usg=AOvVaw3xUB1M87YH6DdNAFu4Oipq">https://doi.org/10.1093/gerona/glaa289</a></p></td>
+    </tr>
+</table>
+</div>
+<p></p>
+<% g = 0 %>
+<table class="ui celled teal table prs">
+	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
+    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
+    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
+    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
+    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
+</table>
+<br/>
+<script>
+	window.addEventListener('load', function() {
+	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
+})
+</script>
+<p></p>
+<h2>Health Risk Polygenic Risk Scores (PRSs)</h2>
+<div class="board prs">
+<p class="how_to">How to read the result?</p>
+<p></p>
+<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
+</p>
+<p></p>
+<p>So percentile &#65310;50 shows an increased risk, &#65308;50 - decreased one.</p>
+</div>
+<p></p>
+<% i = [1,2,3,4] %>
+    % for row in i:
+            <table class="ui celled teal table prs">
+                <tr><td>Title</td><td  style="width:100%">${data['prs'][row]['title']} (${data['prs'][row]['name']})</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][row]['name']}_canvas"></canvas></td></tr>
+                <tr><td>Sum</td><td>${data['prs'][row]['sum']}</td></tr>
+                <tr><td>Count/total</td><td>${data['prs'][row]['count']}/${data['prs'][row]['total']}</td></tr>
+                <tr><td>Average</td><td>${data['prs'][row]['avg']}</td></tr>
+                <tr><td>Percentile</td><td>${data['prs'][row]['percent']}%</td></tr>
+            </table>
+            <br/>
+            <script>
+                window.addEventListener('load', function() {
+                drawGausian("${data['prs'][row]['name']}_canvas", ${data['prs'][row]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][row]['invers']});
+            })
+            </script>
+    % endfor
+<div>
+<h2 id="variants">Longevity variants</h2>
+<div style="margin-bottom: 20px;" class="board variants">
+<p></p>
+<p>This report estimates how many significant longevity variations you have and whether its &quot;a lot&quot; or &quot;not so&quot; for your population. The data for this report is obtained mainly by studying centenarians&rsquo; genomes.
+</p>
+<p></p>
+<p>The longevity variants report is based on 1900 variants from LongevityMap (https://genomics.senescence.info/longevity/) and other data sources which are scored and prioritized according to multiple criteria. It also depends on ClinGene, dbSNP and ClinVar modules.
+</p>
+<p></p>
+<p>In the table you can see, how many significant for your population variants were found in your genome. Positively longevity-associated variants are marked with green, negatively associated - with red.
+</p></div>
+<p></p>
+	<div class="acordiv">
+	<% l = len(data['longevitymap']) %>
+	<h1 align="center">Longevity significant variations (${l}).</h1> <span class="triangles"></span>
+	</div>
+
+	<div class="content" style="max-height: max-content">
+	<table class="ui selectable celled teal table table variants">
+		<thead>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+				<th>RSID</th><th>Population</th><th>Gene</th>
+				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
+				<th>Weight</th>
+			</tr>
+		</thead>
+		<tbody id="longTBody">
+			% for row in data['longevitymap']:
+			<tr class="clickable" onclick="doOnClick(this)">
+				<td><div class="ui tiny circular compact positive button">+</div></td>
+				<td><a href="https://www.ncbi.nlm.nih.gov/snp/${row['snp']}">${row['snp']}</a></td><td>${row['population']}</td>
+				<td><a href="https://genomics.senescence.info/longevity/gene.php?id=${row['gene']}">${row['gene']}</a></td>
+				<td>${row['nucleotides']}</td><td>${row['ref']}</td><td>${row['alt']}</td><td>${row['zegot']}</td><td style="background-color:#${row['weightcolor']}">${row['weight']}</td>
+			</tr>
+			<tr class="hidden" style="display:none;"><td colspan="8">
+				<table class="ui padded table">
+				<tr><th>cDNA change</th><td>${row['cdnachange']}</td></tr>
+				<tr><th>Substitution frequency (GnomAD)</th><td>${row['alelfreq']}</td></tr>
+				<tr><td colspan="2">${row['description']}</td></tr>
+				<tr><th>Gene Description (${row['gene']})</th><td>${row['ncbidesc']}</td></tr>
+				</table>
+			</td></tr>
+			% endfor
+		</tbody>
+	</table>
+	</div>
+	<p></p>
+	<h2 id="drugs">Longevity drugs</h2>
+	<div style="margin-bottom: 20px;"class="board drugs">
+	<p>Plenty of drugs are frequently prescribed at an older age. Moreover, some drugs are known to have geroprotective action (e.g. statins, metformin, rapamycin, etc.). Drug metabolism to a large extent depends on a person&rsquo;s genetic polymorphisms, affecting the activity of xenobiotics-transforming enzymes. So it&rsquo;s a common situation when individual dose correction is needed, or even another drug has to be taken in order to avoid adverse effects. Longevity-drugs report is mainly based on data from PharmGKB database (
+			<a href="https://www.google.com/url?q=https://www.pharmgkb.org/&amp;sa=D&amp;source=editors&amp;ust=1664211538648790&amp;usg=AOvVaw0_aiXtrV8uDwT1_Vh57zSO">https://www.pharmgkb.org/</a>
+			) and DrugAge.</p>
+	<p></p>
+	<p>In the table you can find data about your genome&rsquo;s gene variants, associated with a changed response to the drugs.
+	</p></div>
+	<div class="acordiv">
+	<h1 align="center">Drugs Report</h1>  <span class="triangles"></span>
+	</div>
+
+	<div class="content" style="max-height: max-content">
+	<table width="80%" align="center" class="ui celled teal table table drugs">
+		<thead>
+		<tr><th>#</th>
+				<th>Variant/Haplotypes</th><th>Drug(s)</th><th>Phenotype Category</th><th>Significance</th><th>Sentence</th><th>Allele Of Frequency In Cases</th>
+				<th>Allele Of Frequency In Controls</th><th>Ratio Stat Type</th><th>Effect</th></tr>
+		</thead>
+		<tbody id="drugsTBody">
+            <% i = 1 %>
+			% for rows in data['drugs']:
+			<tr><td>${i}</td><td>${rows['rsid']}</td>
+				<td>${rows['drugs']}</td><td>${rows['phencat']}</td>
+				<td>${rows['significance']}</td>
+				<td>${rows['sentence']}</td><td>${rows['freqcases']}</td><td>${rows['freqcontrols']}</td>
+				<td>${rows['type']}</td><td>${rows['effect']}</td></tr>
+				<% i += 1 %>
+			% endfor
+		</tbody>
+	</table>
+	</div>
+	<p></p>
+	<h2 id="cancer">Major risks</h2>
+	<p></p>
+	<div style="margin-bottom: 20px;"class = "board cancer">
+	<p>It is not enough to have &quot;centenarian&quot; genes to become one: You have to cut down Your health risks before. This section contains information about the risk of developing chronic age-related diseases: cardiovascular, cancer, mental health, chronic inflammation, bone and muscle diseases, and lung diseases.
+	</p></div>
+	<div class="acordiv" onclick="acordion(this);">
+	<h1 align="center">Cancer Report</h1>  <span class="triangles"></span>
+	</div>
+	<div class="content" style="max-height: max-content">
+	<table width="80%" align="center" class="ui selectable celled teal table table cancer">
+		<thead>
+		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'cancTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
+				<th>Chrom</th><th>Position</th><th>Gene</th><th>RSID</th><th>cDNA Change</th><th>Zygosity</th>
+				<th>Allele Frequency</th><th>Phenotype Name</th><th>Significance</th></tr>
+		</thead>
+		<tbody id="cancTBody">
+			<% i = 1 %>
+			% for row in data['cancer']:
+				<tr class="clickable" onclick="doOnClick(this)"><td><div class="ui tiny circular compact positive button">+</div></td><td>${i}</td><td>${row['chrom']}</td>
+					<td>${row['pos']}</td><td><a href="https://genomics.senescence.info/longevity/gene.php?id=${row['gene']}">${row['gene']}</a></td>
+					<td><a href="https://www.ncbi.nlm.nih.gov/snp/${row['rsid']}">${row['rsid']}</a></td>
+					<td>${row['cdnachange']}</td><td>${row['zegot']}</td><td>${row['alelfreq']}</td>
+					<td>${row['phenotype']}</td><td>${row['significance']}</td></tr>
+				<tr class="hidden" style="display:none;"><td colspan="11">${row['ncbi']}</td></tr>
+				<% i += 1 %>
+			% endfor
+		</tbody>
+	</table>
+	</div>
+	<div class="acordiv" onclick="acordion(this);">
+	<h1 align="center">Coronary arthery disease</h1>  <span class="triangles"></span>
+	</div>
+	<div class="content" style="max-height: max-content">
+	<table width="80%" align="center" class="ui selectable celled teal table  table cancer">
+		<thead>
+		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'coronaryTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
+				<th>RSID</th><th>Gene</th><th>Risck Allele</th><th>Genotype</th><th>Pubmed ID</th>
+				<th>Population</th><th>P-Value</th><th>Weight</th></tr>
+		</thead>
+		<tbody id="coronaryTBody">
+			<% i = 1 %>
+			% for row in data['coronary']:
+				<tr class="clickable" onclick="doOnClick(this)"><td><div class="ui tiny circular compact positive button">+</div></td><td>${i}</td>
+					<td><a href="https://www.ncbi.nlm.nih.gov/snp/${row['rsid']}">${row['rsid']}</a></td>
+					<td><a href="https://genomics.senescence.info/longevity/gene.php?id=${row['gene']}">${row['gene']}</a></td>
+					<td>${row['risk']}</td>
+					<td>${row['genotype']}</td><td>${row['pmid']}</td><td>${row['population']}</td>
+					<td>${row['pvalue']}</td><td style="background-color:#${row['weightcolor']}">${row['weight']}</td></tr>
+				<tr class="hidden" style="display:none;"><td colspan="11"><b>Conclusion: </b>${row['conclusion']}<br/><b>Study design: </b>${row['studydesign']}</td></tr>
+				<% i += 1 %>
+			% endfor
+		</tbody>
+	</table>
+</div>
+</div>
+<script>
+	var acc = document.getElementsByClassName("acordiv");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+	var panel = acc[i].nextElementSibling;
+	panel.style.maxHeight = panel.scrollHeight + "px";
+	acc[i].addEventListener("click", function() {
+	this.classList.toggle("active");
+	var panel = this.nextElementSibling;
+	if (panel.style.maxHeight) {
+	panel.style.maxHeight = null;
+	this.children[1].className = "triangleActive";
+	} else {
+		panel.style.maxHeight = panel.scrollHeight + "px";
+	this.children[1].className = "triangles";
+}
+});
+}
+</script>
+</body>
+</html>
