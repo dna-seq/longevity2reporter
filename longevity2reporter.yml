@@ -30,3 +30,4 @@ release_note:
 0.1.5: fixed bug in column acces for new version of oakvar
 0.2.0: changed to fit new oakvar, not compatible with previuse versions of oak var
 0.3.0: rebuilded reporter for new version of oakvar and postagregators
+0.3.1: fixed yml settings to publish in oakvar
