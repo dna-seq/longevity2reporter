@@ -20,7 +20,7 @@ tags:
 - input/output
 - reporters
 - longevity
-data_version: 0.1.3
+no_data: true
 release_note:
 0.1.0: initial version
 0.1.1: added prs support
