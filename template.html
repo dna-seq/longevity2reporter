@@ -146,7 +146,7 @@
 		}
 		div.ui.tiny.circular.compact.positive.button {
 			border-radius: 10em;
-			background-color: #21ba45;
+			background-color: #86caf7;
 			color: #fff;
 			text-shadow: none;
 			background-image: none;
@@ -168,7 +168,7 @@
 			}
 			div.ui.tiny.circular.compact.negative.button {
 				border-radius: 10em;
-				background-color: #da1f1f;
+				background-color: #a6f069;
 				color: #fff;
 				text-shadow: none;
 				background-image: none;
@@ -479,8 +479,8 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 <p><This report provides data about your longevity genetics. Longevity and healthy lifespan are among the most complex phenotypes, with the heritability of age at death in adulthood being approximately 25 %. So, other 75 % is highly dependent on your lifestyle.
 </p>
 <p></p>
-<p>This report is based on your raw file genome&rsquo;s data cross-referencing against available genetic databases and constructing a report based on interpretations in these databases. Variant annotations were made with OakVar
-	[<a href="https://www.google.com/url?q=https://github.com/rkimoakbioinformatics/oakvar&amp;sa=D&amp;source=editors&amp;ust=1664211538639281&amp;usg=AOvVaw2gx4MtnFu7gwqNOIPdAyzf">https://github.com/rkimoakbioinformatics/oakvar</a>]. Annotation databases that was used for report generating: cadd_exome, gnomAD, pubmed, clinpred, clinvar, ncbigene, omim, prec, provean, revel, sift, LongevityMap.
+<p>This report is based on your raw file genome&rsquo;s data cross-referencing against available genetic databases and constructing a report based on interpretations in these databases. Variant annotations were made with 
+	<a href="https://github.com/rkimoakbioinformatics/oakvar">OakVar</a>. Annotation databases that was used for report generating: cadd_exome, gnomAD, pubmed, clinpred, clinvar, ncbigene, omim, prec, provean, revel, sift, LongevityMap.
 </p>
 <p></p>
 <p ><strong>Attention!</strong>The information provided is just for informational purposes. Its clinical implementation is possible just after consulting your healthcare practitioner. All drugs, vitamins and lifestyle changes may be prescribed just by your healthcare practitioner, based on clinical blood test results, family history etc. Genetical testing just provides additional information about possible health risk and risk management.
@@ -604,10 +604,62 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 			</tr>
 			<tr class="hidden" style="display:none;"><td colspan="8">
 				<table class="ui padded table">
+				% if row['cdnachange']:
 				<tr><th>cDNA change</th><td>${row['cdnachange']}</td></tr>
+				% endif
+				% if row['alelfreq']:
 				<tr><th>Substitution frequency (GnomAD)</th><td>${row['alelfreq']}</td></tr>
-				<tr><td colspan="2">${row['description']}</td></tr>
-				<tr><th>Gene Description (${row['gene']})</th><td>${row['ncbidesc']}</td></tr>
+				% endif
+				<tr><td colspan="2">
+				% if row['conflicted_rows']:
+				<table class="ui selectable celled teal table table variants">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Association</th>
+							<th>Population</th>
+							<th>Identifier</th>
+							<th>Gene</th>
+							<th>Pubmed ID</th>
+						</tr>
+					</thead>
+					<tbody>
+						% for item in row['conflicted_rows']:
+						<tr>
+							% for element in item:
+							<th style="font-weight: normal; background-color: rgb(255, 251, 251)smoke;">${item[element]}</th>
+							% endfor
+						</tr>
+						% endfor
+					</tbody>
+				</table>
+				% endif
+				</td></tr>
+				<tr><td colspan="2">
+				% if row['description']:
+				<table class="ui selectable celled teal table table variants">
+					<thead>
+						<tr>
+							<th>Pubmed ID</th>
+							<th>Study design</th>
+							<th>Conclusions</th>
+						</tr>
+					</thead>
+					<tbody>
+						% for item in row['description']:
+						<tr>
+							% for element in item:
+							<th style="font-weight: normal; background-color: rgb(255, 251, 251)smoke;">${item[element]}</th>
+							% endfor
+						</tr>
+						% endfor
+					</tbody>
+				</table>
+				% endif
+				</td></tr>
+				% if row['ncbidesc']:
+					<tr><th>Gene Description (${row['gene']})</th><td>${row['ncbidesc']}</td></tr>
+				% endif
 				</table>
 			</td></tr>
 			% endfor

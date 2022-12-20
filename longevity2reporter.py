@@ -56,7 +56,7 @@ class Reporter(CravatReport):
                         if len(lst) == 0:
                             tmp[item[0]] = ""
                         else:
-                            tmp[item[0]] = lst[0]
+                            tmp[item[0]] = lst
                     else:
                         tmp[item[0]] = row[i]
                 res.append(tmp)
@@ -69,9 +69,9 @@ class Reporter(CravatReport):
         # self.data = {"test1":[1,2,3], "test2":["aa", "bbb", "cccc"]}
         self.data = {}
         self.write_table("prs", [], "id", True)
-        self.write_table("longevitymap", ["conflicted_rows", "description"], "weight", False)
+        self.write_table("longevitymap", ["conflicted_rows", "description"], "weight", True)
         self.write_table("cancer", [], "id", True)
-        self.write_table("coronary", [], "weight", False)
+        self.write_table("coronary", [], "weight", True)
         self.write_table("drugs", [], "id", True)
 
 
