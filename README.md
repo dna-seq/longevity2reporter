@@ -1,6 +1,6 @@
 # longevity2reporter
 
-Longevity2 reporter (pre alpha version) displays your genome analysis related to longevity and disease risks.
+Longevity2 reporter (pre alpha version) displays your genome analysis related to longevity and disease risks. It is a part of [Oakvar-Longevity](https://github.com/dna-seq/oakvar-longevity) module.
 
 It consist now of 5 parts:
 
