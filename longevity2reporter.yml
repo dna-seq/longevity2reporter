@@ -16,6 +16,8 @@ requires:
   - just_drugs
   - just_longevitymap
   - just_prs
+pypi_dependencies:
+- mako
 tags:
 - input/output
 - reporters
