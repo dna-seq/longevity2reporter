@@ -551,10 +551,10 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 <p>So percentile &#65310;50 shows an increased risk, &#65308;50 - decreased one.</p>
 </div>
 <p></p>
-<% i = [1,2,3,4] %>
+<% i = range(1, len(data['prs'])) %>
     % for row in i:
             <table class="ui celled teal table prs">
-                <tr><td>Title</td><td  style="width:100%">${data['prs'][row]['title']} (${data['prs'][row]['name']})</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][row]['name']}_canvas"></canvas></td></tr>
+                <tr><td>Title</td><td  style="width:100%">${data['prs'][row]['title']} (<a href="https://www.pgscatalog.org/score/${data['prs'][row]['name']}/">${data['prs'][row]['name']}</a>)</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][row]['name']}_canvas"></canvas></td></tr>
                 <tr><td>Sum</td><td>${data['prs'][row]['sum']}</td></tr>
                 <tr><td>Count/total</td><td>${data['prs'][row]['count']}/${data['prs'][row]['total']}</td></tr>
                 <tr><td>Average</td><td>${data['prs'][row]['avg']}</td></tr>
