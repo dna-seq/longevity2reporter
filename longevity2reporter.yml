@@ -1,5 +1,5 @@
 title: Longevity2
-version: 0.3.0
+version: 0.3.1
 type: reporter
 description: Create report with longevity ralated information (pre alpha version). It deppends on postagregators .
 output_filename_schema:
