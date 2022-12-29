@@ -1,5 +1,5 @@
 title: Longevity2
-version: 0.3.0
+version: 0.3.1
 type: reporter
 description: Create report with longevity ralated information (pre alpha version). It deppends on postagregators .
 output_filename_schema:
@@ -16,6 +16,8 @@ requires:
   - just_drugs
   - just_longevitymap
   - just_prs
+pypi_dependencies:
+- mako
 tags:
 - input/output
 - reporters
@@ -30,4 +32,4 @@ release_note:
 0.1.5: fixed bug in column acces for new version of oakvar
 0.2.0: changed to fit new oakvar, not compatible with previuse versions of oak var
 0.3.0: rebuilded reporter for new version of oakvar and postagregators
-0.3.1: fixed yml settings to publish in oakvar
+0.3.1: fixed yml settings to publish in oakvar, changes in template
