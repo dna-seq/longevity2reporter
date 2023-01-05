@@ -756,6 +756,48 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 		</tbody>
 	</table>
 </div>
+<h2 id="drugs">Cardio Hereditary</h2>
+	<div style="margin-bottom: 20px;"class="board drugs">
+	<p>Timely detection and diagnosis of heart disorders can lead to enhanced treatment options, help to prevent sudden cardiac death, and improve prognosis. This report analyzes the most relevant genes for arrhythmias, congenital heart disease, and cardiomyopathies. 
+Analyzed gene abnormalities may cause the following syndromes: Long and short QT, Brugada syndrome, catecholaminergic polymorphic ventricular tachycardia, cardiomyopathies dilated and hypertrophic, and congenital heart defects. In addition, this panel includes vascular abnormalities, such as dolichoectasia and hereditary hemorrhagic telangiectasia.
+</p>
+<p></p></div>
+<div class="acordiv" onclick="acordion(this);">
+	<h1 align="center">Hereditary cardiovascular diseases</h1>  <span class="triangles"></span>
+	</div>
+	<div class="content" style="max-height: max-content">
+	<table width="80%" align="center" class="ui selectable celled teal table table cancer">
+		<thead>
+		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'cardioTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
+				<th>Gene</th><th>rsID</th><th>cDNA change</th><th>Your genotype</th><th>Sequence ontology</th><th>SIFT prediction</th>
+				<th>Allele Frequency</th><th>Phenotype Name</th><th>Significance</th><th>ClinVar ID</th><th>OMIM</th></tr>
+		</thead>
+		<tbody id="cardioTBody">
+			<% i = 1 %>
+			% for row in data['cardio']:
+				<tr class="clickable" onclick="doOnClick(this)"><td><div class="ui tiny circular compact positive button">+</div></td><td>${i}</td><td><a href="https://genomics.senescence.info/longevity/gene.php?id=${row['gene']}">${row['gene']}</a></td>
+					<td>${row['rsid']}</td></a></td>
+					<td>${row['cdnachange']}</td>
+					<td>${row['genotype']}</td><td>${row['sequence_ontology']}</td><td>${row['sift_pred']}</td>
+					<td>${row['alelfreq']}</td><td>${row['phenotype']}</td>
+					<td>${row['significance']}</td>
+					% if row['clinvarid']:
+					<td><a href="https://www.ncbi.nlm.nih.gov/clinvar/variation/${row['clinvarid']}/">${row['clinvarid']}</a></td>
+					% else:
+					<td>${row['clinvarid']}</td>
+					% endif
+					% if row['omimid']:
+					<td><a href="https://www.omim.org/entry/${row['omimid']}">${row['omimid']}</a></td>
+					% else:
+					<td>${row['clinvarid']}</td>
+					% endif
+					</tr>
+					<tr class="hidden" style="display:none;"><td colspan="11">NCBI gene: ${row['ncbi']}</td></tr>
+				<% i += 1 %>
+			% endfor
+		</tbody>
+	</table>
+	</div>
 </div>
 <script>
 	var acc = document.getElementsByClassName("acordiv");

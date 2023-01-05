@@ -109,6 +109,7 @@ class Reporter(CravatReport):
         data["cancer"] = self.write_table("cancer", [], "id", True)
         data["coronary"] = self.write_table("coronary", [], "weight", False)
         data["drugs"] = self.write_table("drugs", [], "id", True)
+        data["cardio"] = self.write_table("cardio", [], "id", True)
         self.outfile.write(self.template.render(data=data))
 
 

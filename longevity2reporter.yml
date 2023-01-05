@@ -11,6 +11,7 @@ developer:
   website: https://github.com/dna-seq/opencravat-longevity
   citation: ''
 requires:
+  - just_cardio
   - just_cancer
   - just_coronary
   - just_drugs
