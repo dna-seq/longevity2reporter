@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	
 	<style >
 		*{
 			box-sizing: border-box;
@@ -285,9 +286,70 @@
 			overflow-x: auto;
 			transition: max-height 0.5s ease-in;
 		}
+		#toTop{
+			height: 80px;
+			width: 80px;
+			background-color: #308499;
+			border-radius: 50%;
+			position: fixed;
+			right: 2.3%;
+			bottom: 10%;
+			display:none;
+		}
+		#toTop:hover{
+			background-color:#56C3BD;
+		}
+		.arrow{
+			position: absolute;
+			bottom: 10%;
+			z-index: 10;
+		}
+		.intro tbody{
+			font-size: 0.8em;
+		}
+		.bodypart{
+			width: 0;
+			height: 0;
+			border-left: 16px solid transparent;
+			border-right: 16px solid transparent;
+			border-bottom: 16px solid white;
+			right: 25px;
+			top:20%;
+		}
+		.line{
+			right: 35px;
+			bottom: 20px;
+			background: white;
+			width: 10px;
+			height: 30px;
+		}
+
+
+		@media screen and (min-width: 800px) {
+			table{
+				width:90% !important;
+				margin-left:5% !important;
+			}
+			.board{
+				width:75% !important;
+				margin-left: 13% !important;
+			}
+			.intro{
+				width: 75%;
+			}
+			.intro ul{
+				margin-top:100px;
+			}
+			.acordiv{
+				margin-left: 5%;
+				width: 90%;
+			}
+		}
+
 
 </style>
 <script>
+
 function expand(obj){
 	var tdEl = obj.children[0];
 	var el = obj.nextSibling;
@@ -472,6 +534,12 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 </head>
 
 <body style="padding:5%;">
+<div id="toTop">
+	<section class="line arrow">
+	</section>
+	<section class="bodypart arrow">
+	</section>
+</div>
 <h1 align="center" style="font-size:30pt;">Longevity Report</h1>
 <br/>
 <div class="intro">
@@ -818,6 +886,74 @@ for (i = 0; i < acc.length; i++) {
 }
 });
 }
+
+const BtnBackToTop = document.querySelector("#toTop")
+
+window.addEventListener("scroll", scrollFunction);
+
+function scrollFunction() {
+  if (window.pageYOffset > 300) { // Show backToTopButton
+    if(!BtnBackToTop.classList.contains("btnEntrance")) {
+		BtnBackToTop.classList.remove("btnExit");
+		BtnBackToTop.classList.add("btnEntrance");
+		BtnBackToTop.style.display = "block";
+    }
+  }
+  else { // Hide backToTopButton
+    if(BtnBackToTop.classList.contains("btnEntrance")) {
+		BtnBackToTop.classList.remove("btnEntrance");
+		BtnBackToTop.classList.add("btnExit");
+      	setTimeout(function() {
+        BtnBackToTop.style.display = "none";
+      }, 250);
+    }
+  }
+}
+
+
+
+BtnBackToTop.addEventListener("click", backToTop);
+
+function backToTop() {
+	window.scrollTo(0, 0);
+}
+
 </script>
+<style>
+
+.btnExit{
+			animation-duration: 0.5s;
+			animation-fill-mode: both;
+			animation-name: btnExit;
+	}
+
+@keyframes btnExit {
+	from {
+				opacity: 1;
+			}
+			to {
+				opacity: 0;
+				transform: scale3d(0.8, 0.8, 0.8);
+			}
+			}
+
+
+.btnEntrance{
+			animation-duration: 0.5s;
+			animation-fill-mode: both;
+			animation-name: btnEntrance;
+		}
+
+		@keyframes btnEntrance {
+			from {
+				opacity: 0;
+				transform: scale3d(0.3, 0.3, 0.3);
+			}
+			to {
+				opacity: 1;
+			}
+			}
+
+</style>
 </body>
 </html>
