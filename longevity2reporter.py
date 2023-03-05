@@ -43,6 +43,30 @@ class Reporter(CravatReport):
                 else:
                     sort_sql = sort_sql+" ASC"
 
+            if name == "longevitymap":
+                res = {}
+                self.db_cursor.execute("SELECT * FROM "+name+sort_sql + ", category_name")
+                rows = self.db_cursor.fetchall()
+                categories = ('other', 'tumor-suppressor', 'inflammation', 'genome_maintenance', 'mitochondria', 'lipids', 'heat-shock', 'sirtuin', 'insulin', 'antioxidant', 'renin-angiotensin', 'mtor')
+
+                for category in categories:
+                    res[category]=[]
+                    for row in rows:
+                        tmp = {}
+                        if category == row[18]:
+                            for i, item in enumerate(self.db_cursor.description):
+                                if item[0] in json_fields:
+                                    lst = json.loads(row[i])
+                                    if len(lst) == 0:
+                                        tmp[item[0]] = ""
+                                    else:
+                                        tmp[item[0]] = lst
+                                else:
+                                    tmp[item[0]] = row[i]
+                            res[category].append(tmp)
+                return res
+
+
             self.db_cursor.execute("SELECT * FROM "+name+sort_sql)
             rows = self.db_cursor.fetchall()
             res = []
@@ -110,6 +134,8 @@ class Reporter(CravatReport):
         data["coronary"] = self.write_table("coronary", [], "weight", False)
         data["drugs"] = self.write_table("drugs", [], "id", True)
         data["cardio"] = self.write_table("cardio", [], "id", True)
+        data["lipidmetabolism"] = self.write_table("lipid_metabolism", [], "weight", False)
+        data["thrombophilia"] = self.write_table("thrombophilia", [], "weight", False)
         self.outfile.write(self.template.render(data=data))
 
 

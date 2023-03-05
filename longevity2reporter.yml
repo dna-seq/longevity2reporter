@@ -1,5 +1,5 @@
 title: Longevity2
-version: 0.3.2
+version: 0.3.3
 type: reporter
 description: Create report with longevity ralated information (pre alpha version). It deppends on postagregators .
 output_filename_schema:
@@ -17,6 +17,8 @@ requires:
   - just_drugs
   - just_longevitymap
   - just_prs
+  - just_lipidmetabolism
+  - just_thrombophilia
 pypi_dependencies:
 - mako
 tags:
@@ -35,3 +37,4 @@ release_note:
 0.3.0: rebuilded reporter for new version of oakvar and postagregators
 0.3.1: fixed yml settings to publish in oakvar, changes in template
 0.3.2: added just_cardio module
+0.3.3: added just_lipidmetabolism and just_thrombophilia modules, longevitymap report devided into separate tables
