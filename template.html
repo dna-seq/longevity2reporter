@@ -1,161 +1,178 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<style >
-		*{
-			box-sizing: border-box;
-			scroll-behavior: smooth;
-		}
-		table.ui{
-			border-radius: 0.28571429rem;
-			font-size: 1em;
-			background: white;
-			width: 100%;
-			border-radius: 0.28571429rem;
-			padding: 0.78571429em 0.78571429em;
-			text-align: left;
-			border-collapse: collapse;
-			vertical-align: middle;
-			margin: 1em 0;
-    		border: 1px solid rgba(34,36,38,.15);
-			line-height: 1.4285em;
-		}
-		table.ui th{
-			background: #f9fafb;
-			cursor: auto;
-			text-align: inherit;
-			color: rgba(0,0,0,.87);
-			padding: 0.92857143em 0.78571429em;
-			vertical-align: inherit;
-			font-style: none;
-			font-weight: 700;
-			text-transform: none;
-			border-bottom: 1px solid rgba(34,36,38,.1);
-			border-right: 1px solid rgba(34,36,38,.1);
-		}
-		table.ui.selectable.celled.teal.table tr:hover{
-			background-color: #eef1f5;
-		}
-		ol{
-			font-size: 0.95vw;
-		}
-		ol li{
-			margin: 10px 0;
-		}
-		table.ui td{
-			padding: 0.92857143em 0.9571429em;
-			border-bottom: 1px solid rgba(34,36,38,.1);
-			border-top: none;
-			border-left: 1px solid rgba(34,36,38,.1);
-			padding: 10px 10px 10px 10px;
-		}
-		table.ui td:first-child{
-			border-left: none;
-		}
-		a {
-			color: #4183c4;
-			text-decoration: none;
-		}
-		a:hover{
-			color: #3b77b3;
-		}
-		body{
-			background-image: linear-gradient(to left bottom, #f9f6f0, #f8f6ec, #f6f6e8, #f2f7e6, #edf8e4, #e5f9e8, #dff9ec, #d9f9f2, #d8f7fb, #def5ff, #e7f1ff, #f0eefd) !important;
-			background-repeat: no-repeat !important;
-			background-attachment: fixed !important;
-			color:rgb(66, 92, 88) !important;
-			font-family: Arial, Helvetica, sans-serif !important;
-		}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longevity report</title>
+<style >
+
+	/*general styles*/
+    *{
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+	ol{
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        font-size: 1.1vw;
+    }
+    ol li{
+        margin: 1vw 0;
+    }
+	a {
+        color: #87cec3;
+        text-decoration: none;
+    }
+    a:hover{
+        color: #92e0d3;
+    }
+	body{
+        background-image: linear-gradient(to left bottom, #f9f6f0, #f8f6ec, #f6f6e8, #f2f7e6, #edf8e4, #e5f9e8, #dff9ec, #d9f9f2, #d8f7fb, #def5ff, #e7f1ff, #f0eefd) !important;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color:rgb(66, 92, 88);
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+	canvas{
+        width: 18vw;
+        height: 9vw;
+	}
+
+		/*style for intro section*/
 		.intro{
-			max-width: 90%;
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-			line-height: 3;
-			font-size: 24px;
-		}
-		.intro p{
-			color:rgb(84, 85, 110);
-			line-height: 2em;
-			font-size: 1.3em;
-			font-weight: 400;
-		}
-		.intro a{
-			word-wrap: break-word;
-		}
-		.intro ul{
-			padding-left: 0;
-			margin-left: auto !important;
-			margin-right: auto !important;
-			font-weight: 500;
-			margin-top: 40px;
-			list-style-type: none;
-			margin-bottom: 120px;
-		}
-		.li1{
-			font-weight: 400;
-			font-size: 30px;
-		}
-		.board{
-			max-width: 97%;
-			margin-top: 40px;
-			padding-top: 10px;
-			color:rgb(84, 85, 110);
-			padding: 20px;
-		}
-		.board p{
-			line-height: 1.7;
-			font-size: 1.5em;
-			font-weight: 400;
-		}
-		.board .how_to{
-			margin-top: 25px;
-			font-size: 1.7em;
-			font-weight: 300;
-		}
-		.board.prs{
-		}
-		.board.prs .how_to{
-			margin-top: 0px;
-		}
-		.board.variants{
-			word-wrap: break-word;
-			margin-top: 0px;
-		}
-		.board.cancer{
-			padding-top: 0px;
-		}
-		.board.drugs{
-			margin-top: 0px;
-		}
-		.board .how_to{
-			margin-top: 10px;
-			font-size: 2.2em;
-			font-weight: 300;
-		}
-		.board.prs{
-			padding-top: 10px;
-		}
-		.board.prs .how_to{
-			margin-top: 0px;
-		}
-		h2{
-			margin-top: 150px;
-			margin-bottom: 20px;
-		}
-		h2, h1{
-			text-align: center;
-			font-size: 3em !important;
-			font-weight: 300 !important;
-		}
+        width: 70%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 3;
+        font-size: 1vw;
+    }
+    .intro p{
+        color:rgb(84, 85, 110);
+        line-height: 2em;
+        font-size: 1.3em;
+        font-weight: 400;
+    }
+    .intro a{
+        word-wrap: break-word;
+    }
+    .intro ul{
+        padding-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 500;
+        margin-top: 40px;
+        list-style-type: none;
+        margin-bottom: 120px;
+    }
+    .li1{
+        font-weight: 400;
+        font-size: 1.3vw;
+    }
+	#prs, #prs1{
+		color: #b2e457;
+	}
+	.attention strong{
+		color: rgb(71, 155, 148);
+		font-size: 1.25vw;
+	}
+	.attention p{
+		color:#3a6e65;
+	}
+	.attention{
+		margin-top: 4vw;
+		margin-bottom: 4vw;
+		margin-left: auto;
+		margin-right: auto;
+		width: 65%;
+		padding: 0.8vw 1.7vw 0.8vw 1.7vw;
+		font-size: 0.8vw;
+		border:rgb(122, 189, 183)solid 5px;
+		border-radius: 30px;
+		background-color: white;
+		box-shadow: 0px 5px 5px 0px #4a887c;
+	}
+	.first{
+		margin-top: 3vw;
+		color:#269292;
+		font-size: 3vw;
+	}
+
+
+
+
+	/*table styles*/
+    table.ui{
+		transition: max-height 0.5s ease-in;
+        border-radius: 0.28571429rem;
+        font-size: 0.8vw;
+        background: white;
+		width: 85%;
+		margin-right:auto;
+		margin-left: auto;
+        border-radius: 0.28571429rem;
+        padding: 0.78571429em 0.78571429em;
+        text-align: left;
+        border-collapse: collapse;
+        vertical-align: middle;
+        border: 1px solid rgba(34,36,38,.15);
+        line-height: 1.4285em;
+    }
+    table.ui th{
+        background: #f9fafb;
+        color: rgba(0,0,0,.87);
+        padding: 0.92857143em 0.78571429em;
+        vertical-align: inherit;
+        font-style: none;
+        font-weight: 700;
+        text-transform: none;
+        border-bottom: 1px solid rgba(34,36,38,.1);
+        border-right: 1px solid rgba(34,36,38,.1);
+    }
+    table.ui.selectable.celled.teal.table tr:hover{
+        background-color: #eef1f5;
+    }
+    table.ui td{
+        border-bottom: 1px solid rgba(34,36,38,.1);
+        border-top: none;
+        border-left: 1px solid rgba(34,36,38,.1);
+        padding: 10px 10px 10px 10px;
+    }
+    table.ui td:first-child{
+        border-left: none;
+    }
+	.ui.celled.teal.table.prs
+    {
+        width: 100%;
+        margin-top: 3vw;
+        color:rgb(66, 92, 88);
+        box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+        border-top: 0.4em solid #56C3BD;
+    }
+    .ui.selectable.celled.teal.table.table.variants{
+        margin-top: 0px;
+        box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+        margin-bottom: 80px;
+        border-top: 0.4em solid orange;
+    }
+    .ui.celled.teal.table.table.drugs{
+        box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+        border-top: 0.4em solid #7db313;
+		margin-top:0;
+        }
+    .ui.selectable.celled.teal.table.table.cancer{
+        box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
+        margin-bottom: 80px ;
+        border-top: 0.4em solid #577de4;
+    }
+
+		/*button style*/
 		div.ui.tiny.circular.compact.positive.button {
 			border-radius: 10em;
 			background-color: #86caf7;
 			color: #fff;
-			text-shadow: none;
-			background-image: none;
 			padding: 0.58928571em 1.125em 0.58928571em;
 			cursor: pointer;
 			display: inline-block;
@@ -163,195 +180,558 @@
 			outline: 0;
 			border: none;
 			vertical-align: baseline;
-			font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 			margin: 0 0.25em 0 0;
-			text-transform: none;
 			font-weight: 700;
 			line-height: 1em;
 			font-style: normal;
 			text-align: center;
-			text-decoration: none;
 			}
-			div.ui.tiny.circular.compact.negative.button {
-				border-radius: 10em;
-				background-color: #a6f069;
-				color: #fff;
-				text-shadow: none;
-				background-image: none;
-				padding: 0.58928571em 1.125em 0.58928571em;
-				cursor: pointer;
-				display: inline-block;
-				min-height: 1em;
-				outline: 0;
-				border: none;
-				vertical-align: baseline;
-				font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-				margin: 0 0.25em 0 0;
-				text-transform: none;
-				font-weight: 700;
-				line-height: 1em;
-				font-style: normal;
-				text-align: center;
-				text-decoration: none;
-			}
-		.acordiv {
-			padding-left: 20px;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			align-content: center;
-			margin-top: 0px;
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 20px;
-
-		}
-		.acordiv h1{
-			font-size: 2.3em !important;
-			font-weight: 300;
+		div.ui.tiny.circular.compact.negative.button {
+			border-radius: 10em;
+			background-color: #a6f069;
+			color: #fff;
+			padding: 0.58928571em 1.125em 0.58928571em;
+			cursor: pointer;
 			display: inline-block;
+			min-height: 1em;
+			outline: 0;
+			border: none;
+			vertical-align: baseline;
+			margin: 0 0.25em 0 0;
+			font-weight: 700;
+			line-height: 1em;
+			font-style: normal;
 			text-align: center;
 		}
-
-		.triangles{
-			margin-left: 30px;
-			display: inline-block;
-			border-left: 7px solid transparent;
-			border-right: 7px solid transparent;
-			border-top: 7px solid #25574e;
-			transition: scale, transform 0.7s;
-			transition-delay: 0.2s;
-			transition-duration: 0.8s;
-		}
-		.triangleActive{
-			margin-left: 26px;
-			display: inline-block;
-			border-left: 11px solid transparent;
-			border-right: 11px solid transparent;
-			border-bottom: 11px solid #25574e;
-			transition: scale 0.7s;
-			transition-delay: 2s;
-			transition-duration: 1s;
-		}
-		.acordiv:hover .triangleActive{
-			transform: scale(1)
-
-		}
-		.acordiv:hover .triangles{
-			transform: scale(1.6)
-			rotate(180deg);
-
-		}
-		.acordiv:hover {cursor:pointer;background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(179,242,238,1) 0%, rgba(185,226,242,1) 100%);}
-		thead {font-weight: bold; }
-		.ui.celled.teal.table.prs
-		{
-			margin-left:auto;
-			margin-right: auto;
-			color:rgb(66, 92, 88) !important;
-			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
-			border-top: 0.4em solid #56C3BD;
-		}
-		.ui.selectable.celled.teal.table.table.variants{
-			margin-left:auto;
-			margin-right: auto;
-			color:rgb(66, 92, 88) !important;
-			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
-			margin-bottom: 80px !important;
-			border-top: 0.4em solid #7ece34;
-		}
-		.ui.celled.teal.table.table.drugs{
-			margin-left:auto;
-			margin-right: auto;
-			color:rgb(66, 92, 88) !important;
-			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
-			margin-bottom: 80px !important;
-
-			border-top: 0.4em solid #00A75C;
-			}
-		.ui.selectable.celled.teal.table.table.cancer{
-			margin-left:auto;
-			margin-right: auto;
-			color:rgb(66, 92, 88) !important;
-			box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
-			margin-bottom: 80px !important;
-			border-top: 0.4em solid #EE3330;
-		}
-		th, td {
-		  padding: 2px;
-		}
-		p {
-			font-size:12pt;
-		}
-		.content{
-			margin-left: auto;
-			margin-right: auto;
-			max-height: 0;
-			overflow: hidden;
-			overflow-x: auto;
-			transition: max-height 0.5s ease-in;
-		}
-		#toTop{
-			height: 70px;
-			width: 70px;
-			background-color: #308499;
-			border-radius: 50%;
-			position: fixed;
-			right: 2.3%;
-			bottom: 10%;
-			display:none;
-		}
-		#toTop:hover{
-			background-color:#56C3BD;
-		}
-		.arrow{
-			position: absolute;
-			bottom: 10%;
-			z-index: 10;
-		}
-		.intro tbody{
-			font-size: 0.8em;
-		}
-		.bodypart{
-			width: 0;
-			height: 0;
-			border-left: 16px solid transparent;
-			border-right: 16px solid transparent;
-			border-bottom: 16px solid white;
-			right: 20px;
-			top:20%;
-		}
-		.line{
-			right: 31px;
-			bottom: 18px;
-			background: white;
-			width: 8px;
-			height: 33px;
-		}
+	th, td {
+      padding: 2px;
+    }
 
 
-		@media screen and (min-width: 800px) {
-			table{
-				width:90% !important;
-				margin-left:5% !important;
-			}
-			.board{
-				width:75% !important;
-				margin-left: 13% !important;
-			}
-			.intro{
-				width: 75%;
-			}
-			.intro ul{
-				margin-top:100px;
-			}
-			.acordiv{
-				margin-left: 5%;
-				width: 90%;
-			}
+
+
+	/* accordions styles*/
+	.accordion0{
+		position: relative;
+		border:orange  solid 6px;
+		border-bottom: none;
+		width: 70%;
+		margin-left: 15%;
+		margin-right: 15%;
+		text-align: left;
+		padding-left: 2vw;
+		height: 4vw;
+		font-size: 1.5vw;
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 10px 10px 10px 10px;
+		margin-top: 0.01vw;
+		color: rgb(219, 156, 38);
+		margin-top: 0.7vw;
+	}
+	.accordion0::after{
+		content: "";
+		position: absolute;
+		bottom: 0; top: 0; left: 0; right: 0;
+		border-bottom:9px solid orange;
+	}
+	.active, .accordion:hover{
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	.accordion1{
+		margin-top: 3vw;
+	}
+
+	.accordion2{
+		border:#577de4 solid 5px;
+	}
+    /* accordion heading styles*/
+	.accordion-heading{
+		width: 70%;
+		margin-left: 15%;
+		margin-right: 15%;
+		user-select: none;
+		height: 5vw;
+		padding-top: 1vw;
+		padding-bottom: 1vw;
+		cursor: pointer;
+		border:orange solid 8px;
+		background-color: white;
+		font-size: 2vw;
+		border-radius: 15px;
+		margin-top: 2vw;
+		transition-property: width, margin-left, margin-right;
+		transition-duration: 0.2s, 0.2s, 0.2s;
+		color:rgb(107, 87, 37);
+	}
+	.accordion-heading:hover{
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+
+
+
+
+			
+
+/*used in each div after description and recommendation buttons*/
+    
+	/*exist in both descr and rec*/
+	.board{
+        width: 70%;
+        margin-top: 40px;
+        padding-top: 10px;
+        color:rgb(84, 85, 110);
+        margin-right:auto;
+        margin-left:auto;
+		font-size: 1.1vw;
+    }
+    .board p{
+        line-height: 1.7;
+        font-weight: 400;
+    }
+    .board .how_to{
+        font-size: 1.3vw;
+		color:#29332f
+    }
+
+
+	.panel{
+		padding: 1.5vw 2.5vw 1.5vw 2.5vw;
+		display: none;
+		border:rgb(66, 92, 88)solid 3px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		border-top: none;
+		background-color: white;
+		margin-top: 0px;
+	}
+
+	/*just styles to colour panels for results and descriptions*/
+	.variants.panel{
+		border: orange 6px solid;
+		border-top:none;
+	}
+	.panel-results{
+		border: #a0cf47 6px solid;
+		border-top:none;
+	}
+
+
+    /* only appears after results*/
+    .content{
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: auto;
+        transition: max-height 0.5s ease-in;
+		display: none;
+    }
+
+
+	.hidden{
+		max-height: 0;
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height 0.5s ease-in;
+	}
+
+	/*styles for accordion to work*/
+	.basic-panel, .panel, .content{
+		max-height: 0;
+		overflow: hidden;
+		transition-property: max-height, width;
+		transition-duration: 0.2s, 0.5s;
+	}
+	.basic-panel{
+		background-color: rgba(255, 252, 243, 0.5);
+		margin-left: auto;
+		margin-right: auto;
+		width: 85%;
+		border-right: rgb(226, 215, 196, 0.4) solid 20px;
+		border-left: rgb(226, 215, 196, 0.4)  solid 20px;
+		border-bottom-left-radius: 3%;
+		border-bottom-right-radius: 3%;
+	}
+
+	/*animation styles*/
+	.accordion-result, .accordion-result.active{
+		transition-property: width, margin-left, margin-right;
+		transition-duration: 0.2s, 0.2s, 0.2s;
+	}
+
+
+	/*styles for buttons inside basic-panel*/
+	.basic-panel .accordion1, .basic-panel .accordion1 +.panel-description{
+		width: 70%;
+		margin-left: 15%;
+		margin-right:15%;
+	}
+
+
+	/* styles to color names of modules*/
+	#variants{
+		color: #ffcb5a;
+	}
+	
+	/*colors for drugs module*/
+	.accordion.accordion0.accordion1.accord_drugs, .accordion.accordion0.accordion-result.accord_drugs{
+		color: #7db313;
+	}
+	.accord_drugs{
+		border: #a0cf47 6px solid;
+	}
+	.accord_drugs:after{
+		border-bottom:7px solid #a0cf47;
+	}
+
+
+	/* styles for arrow */
+	.accordion0 div{
+		border-top: orange solid 0.3vw;
+		border-right: orange solid 0.3vw;
+		border-radius: 5px;
+		height: 1vw;
+		width:1vw;
+		margin-right: 1vw;
+		display: inline-block;
+		transform: rotate(45deg);
+		transition: transform 0.5s;
+	}
+	.accordion.accordion0.accordion1.accord_drugs div, .accordion.accordion0.accordion-result.accord_drugs div{
+		border-top: #a0cf47 solid 0.3vw;
+		border-right: #a0cf47 solid 0.3vw;
+	}
+	.accordion-heading.major-risk{
+		border: #577de4 solid 7px;
+		color: #49557a;
+	}
+	.accordion0.major-risk div{
+		border-top: #4565be solid 0.3vw;
+		border-right: #4565be solid 0.3vw;
+	}
+	.accordion0.active div{
+		transform: rotate(135deg);
+	}
+	.prs-panel{
+		margin-top: 0.7vw;
+	}
+
+
+/* styles for drug module*/
+	.accordion1.accord_drugs, .panel-description.accord_drugs{
+		border: #a0cf47 6px solid;
+	}
+	.panel-description.accord_drugs{
+		border-top: none;
+	}
+	.accordion1.accord_drugs::after{
+		border-bottom:7px solid #a0cf47;
+	}
+
+
+
+/*styles for major risks module*/
+	.major-risk, .variants.panel.major-risk{
+		border: #577de4 6px solid;
+	}
+	.variants.panel.major-risk{
+		border-top:none;
+	}
+	.major-risk:after{
+		border-bottom:6px solid rgb(87, 125, 228);
+	}
+	.accordion0.major-risk{
+		color:#2c50b4;
+ 	}
+	.content-variants.major-risk{
+		border:none;
+	}
+	.basic-panel.major-risk{
+		border-top: none;
+		border-bottom: none;
+		background-color: rgba(231, 237, 253, 0.5);
+		border-right: rgba(203, 214, 241, 0.5) solid 20px;
+		border-left: rgba(203, 214, 241, 0.5)  solid 20px;
+	}
+
+	
+
+	.last.inside, .last{
+		height:4vw;
+	}
+	.last.outside{
+		height: 6vw;
+	}
+
+
+    h2{
+        margin-top: 4vw;
+        margin-bottom: 20px;
+    }
+	
+
+	
+    h2, h1{
+        text-align: center;
+		font-size: 2.5vw;
+        font-weight: 500;
+    }
+
+
+	
+
+    /* below is style for navigation button */
+    #toTop{
+		z-index: 100;
+        height: 70px;
+        width: 70px;
+        background-color: #308499;
+        border-radius: 50%;
+        position: fixed;
+        right: 2.35%;
+        bottom: 10%;
+        display:none;	
+		box-shadow: 3px 3px 15px rgb(30, 77, 88, 0.7);
+    }
+    #toTop:hover{
+        background-color:#56C3BD;
+    }
+    .arrow{
+        position: absolute;
+        bottom: 10%;
+        z-index: 10;
+    }
+    .bodypart{
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-bottom: 16px solid white;
+        right: 20px;
+        top:20%;
+    }
+    .line{
+        right: 31px;
+        bottom: 18px;
+        background: white;
+        width: 8px;
+        height: 33px;
+    }
+
+
+	@media only screen and (max-width: 1400px) {
+		.intro{
+			width: 75%;
+			font-size: 1.4vw;
+		}
+		.first{
+			font-size: 4.5vw;
+		}
+		.attention p{
+			font-size: 1.6vw;
+		}
+		.attention{
+			margin-top: 7vw;
+			margin-bottom:7vw;
+			width: 90%;
+		}
+		.attention strong{
+			font-size: 1.8vw;
+		}
+		.first{
+			margin-top: 8vw;
+		}
+		h2{
+			line-height: 5vw;
+			font-size: 4vw;
+		}
+		.li1{
+			font-size: 2.2vw;
+		}
+		.accordion0, .accordion-heading, .accordion0.accordion.accordion1{
+			width:80%;
+			margin-left:10%;
+			margin-right:10%;
+			height: 8vw;
+			font-size: 2.5vw;
+		}
+		.panel,.accordion0.accordion.accordion1 +.panel-description{
+			width:80%;
+			margin-left: 10%;
+			margin-right: 10%;
+			font-size: 1.7vw;
+			padding: 2.5vw 3.5vw 2.5vw 3.5vw;
 		}
 
+		.accordion0 div{
+		height: 2vw;
+		width:2vw;
+		border-top: orange solid 0.6vw;
+		border-right: orange solid 0.6vw;
+		margin-right: 2vw;
+		}
+		.accordion.accordion0.accordion1.accord_drugs div, .accordion.accordion0.accordion-result.accord_drugs div{
+		border-top: #a0cf47 solid 0.6vw;
+		border-right: #a0cf47 solid 0.6vw;
+	}
+	.accordion0.major-risk div{
+		border-top: #4565be solid 0.6vw;
+		border-right: #4565be solid 0.6vw;
+	}
+	.basic-panel{
+		width: 98%;
+	}
 
+
+		ol{
+			margin-top:6vw;
+			margin-bottom: 6vw;
+			font-size: 1.7vw;
+		}
+		ol li{
+			margin-top: 2vw;
+		}
+		table.ui{
+			font-size: 1.3vw;
+		}
+		table.prs{
+			width: 100%;
+			font-size: 1.2vw;
+		}
+		.board .how_to{
+		font-size: 2.2vw;
+		}
+
+		canvas{
+        width: 36vw;
+        height: 18vw;
+    }
+	#variants > button .module-button{
+		width: 70%;
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	/*styles for button to top*/
+	#toTop{
+		right: 4%;
+	}
+	.acordiv{
+		width:85%
+	}
+	.ui.celled.teal.table.table.drugs td, .ui.selectable.celled.teal.table.table.cancer td{
+			padding: 5px;
+		}
+		.ui.selectable.celled.teal.table.table.cancer.cancer1 td, .ui.selectable.celled.teal.table.table.cancer.cardio th{
+			padding: 5px;
+		}
+		.ui.celled.teal.table.table.drugs, .ui.selectable.celled.teal.table.table.cancer,.ui.selectable.celled.teal.table.table.variants{
+			width: 98%;
+	}
+	/*.ui.selectable.celled.teal.table.table.cancer.cardio{
+		width: 90%;
+	}*/
+	.ui.selectable.celled.teal.table.table.cancer.cardio td{
+		padding: 2px;
+	}
+
+h2{
+	margin-top:18vw;
+}
+}
+	@media only screen and (max-width: 600px){
+		.intro{
+			width: 90%;
+			font-size: 3.1vw;
+		}
+		.attention p{
+			font-size: 3.1vw;
+		}
+		.attention strong{
+			font-size: 4vw;
+		}
+		.attention{
+			padding: 3vw 4vw 3vw 4vw;
+		}
+		.basic-panel, .basic-panel.major-risk{
+			background: none;
+			border: none;
+			width:100%;
+		}
+		.accordion0, .accordion.accordion-heading{
+			height: 12vw;
+			font-size: 4vw;
+			width: 95%;
+			margin-left: 2.5%;
+			margin-right: 2.5%;
+		}
+		.accordion.accordion-heading{
+			height: 16vw;
+		}
+		.first{
+			font-size: 8vw;
+		}
+		.li1{
+			font-size: 4.8vw;
+		}
+		.attention{
+			margin-top: 10vw;
+			margin-bottom: 10vw;
+			width: 90%;
+			border: rgb(71, 194, 184) solid  2px;
+			border-radius: 13px;
+		}
+		.acordiv h1{
+			font-size: 5vw;
+		}
+		.first{
+			margin-top: 15vw;
+		}
+		table  .ui{
+			margin-bottom: 1vw;
+		}
+		h2{
+			line-height: 8vw;
+			font-size: 7vw;
+		}
+		h1{
+			line-height: 9vw;
+			font-size: 6vw;
+		}
+		h2{
+			margin-top: 20vw;
+		}
+		ol li{
+			margin-top: 4vw;
+		}
+		ol{
+			margin-top: 10vw;
+			margin-bottom: 10vw;
+		}
+		.intro ul{
+			margin-bottom:15vw;
+		}
+		.board.prs,.board.drugs,.board.cancer, .board.variants, .board.variants ol{
+			font-size: 2.7vw;
+			width: 90%;
+		}
+		.board.variants{
+			margin-bottom: 15vw;
+		}
+		.how_to{
+			font-size: 4vw;
+		}
+		
+		.ui.celled.teal.table.table.drugs td, .ui.selectable.celled.teal.table.table.cancer td{
+			padding: 5px;
+		}
+		.ui.selectable.celled.teal.table.table.cancer.cancer1 td{
+			padding: 3px;
+		}
+		.ui.celled.teal.table.table.drugs, .ui.selectable.celled.teal.table.table.cancer{
+			width: 100%;
+		}
+		.acordiv{
+			width:100%;
+		}
+	}
 </style>
 <script>
 
@@ -362,10 +742,14 @@ function expand(obj){
 		el = el.nextSibling;
 	var parent = el.parentElement;
 	parent = parent.parentElement.parentElement;
-	parent.style.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) + 1300 + "px";
+	board = parent.parentElement;
 	el.style.display = "";
+	el.style.maxHeight = el.scrollHeight + "px";
+	if (board.classList.contains("basic-panel")){
+		board.style.maxHeight= Number(board.style.maxHeight.slice(0, -2)) + el.scrollHeight + "px";
+	}
+	parent.style.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) + el.scrollHeight + "px";
 	tdEl.innerHTML = "<div class=\"ui tiny circular compact negative button\">-</div>";
-	parent.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) + el.style.height + "px";
 	//obj.style.backgroundColor = "#e0e0e0";
 }
 
@@ -379,8 +763,15 @@ function collapse(obj){
 		el = el.nextSibling;
 	var parent = el.parentElement;
 	parent = parent.parentElement.parentElement;
-	parent.style.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) - 1300 + "px";
-	el.style.display = "none";
+	board = parent.parentElement;
+	if (board.classList.contains("basic-panel")){
+		board.style.maxHeight= Number(board.style.maxHeight.slice(0, -2)) - el.scrollHeight + "px";
+	}
+	parent.style.maxHeight= Number(parent.style.maxHeight.slice(0, -2)) - el.scrollHeigh + "px";
+	el.style.maxHeight = '0';
+	setTimeout(function() {
+		el.style.display = "none";
+	}, 150);
 	tdEl.innerHTML = "<div class=\"ui tiny circular compact positive button\">+</div>";
 	//obj.style.backgroundColor = "#eeeeee";
 }
@@ -538,14 +929,14 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 </script>
 </head>
 
-<body style="padding:5%;">
+<body>
 <div id="toTop">
 	<section class="line arrow">
 	</section>
 	<section class="bodypart arrow">
 	</section>
 </div>
-<h1 align="center" style="font-size:30pt;">Longevity Report</h1>
+<h1 class="first" align="center">Longevity Report</h1>
 <br/>
 <div class="intro">
 <p></p>
@@ -555,102 +946,27 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 <p>This report is based on your raw file genome&rsquo;s data cross-referencing against available genetic databases and constructing a report based on interpretations in these databases. Variant annotations were made with 
 	<a href="https://github.com/rkimoakbioinformatics/oakvar">OakVar</a>. Annotation databases that was used for report generating: cadd_exome, gnomAD, pubmed, clinpred, clinvar, ncbigene, omim, prec, provean, revel, sift, LongevityMap.
 </p>
-<p></p>
-<p ><strong>Attention!</strong>The information provided is just for informational purposes. Its clinical implementation is possible just after consulting your healthcare practitioner. All drugs, vitamins and lifestyle changes may be prescribed just by your healthcare practitioner, based on clinical blood test results, family history etc. Genetical testing just provides additional information about possible health risk and risk management.
-</p>
+<p></p><div class="attention">
+<p ><strong>Attention!</strong> The information provided is just for informational purposes. Its clinical implementation is possible just after consulting your healthcare practitioner. All drugs, vitamins and lifestyle changes may be prescribed just by your healthcare practitioner, based on clinical blood test results, family history etc. Genetical testing just provides additional information about possible health risk and risk management.
+</p></div>
 <p></p>
 <p>The report consists of:</p>
 <ul>
-    <li><a href="#prs" class=" li1 first_li">Longevity polygenic risk scores (PRSs)</a></li>
-	<li><a href="#variants" class="li1 second_li">Longevity variants</a></li>
-	<li><a href="#drugs" class="li1 third_li">Longevity drugs</a></li>
-	<li><a href="#cancer" class="li1 forth_li">Major risks</a></li>
+    <li><a href="#prs" class=" li1 first_li" style="color:#7ece34">Longevity polygenic risk scores (PRSs)</a></li>
+	<li><a href="#variants" class="li1 second_li" style="color:#ffcb5a;">Longevity variants</a></li>
+	<li><a href="#drugs" class="li1 third_li" style="color:#a0cf47;">Longevity drugs</a></li>
+	<li><a href="#cancer" class="li1 forth_li" style="color:#577de4;">Major risks</a></li>
 </ul>
 <p></p>
 </div>
-<h2 id="prs">Longevity Polygenic Risk Scores (PRSs)</h2>
-<p></p>
-<div class="board prs">
-<p>There is data on <u>Polygenic risk scores (PRSs)</u> for gaining longevity.</p>
-<p>PRSs aggregate the effect of many common genetic variants to estimate a person&rsquo;s chances of gaining extreme longevity. Each variant on its own tends little to the total outcome, but when added together, these differences can have a more significant impact.
-</p>
-<p></p>
-<p>PRS results are highly dependent on the population. PPS is calculated as a weighted sum of trait-associated alleles. PRS gives an estimate of how likely an individual is to have a given trait
-       <u>only based on genetics, without taking environmental factors into account</u>.</p>
-<p></p>
-<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a <u>percentile</u> within a given population. For example, you have the 95th percentile, which means your genetic chances to gain extreme longevity is higher than 95 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &#65310;50 shows an increased genetic predisposition to longevity, &#65308;50 - decreased one.
-</p>
-<p></p>
-<p></p>
-<p></p>
-</div>
-<div class="intro" style="text-align: left;">
-<table>
-    <tr>
-        <td colspan="1" rowspan="1"><p>PRS info</p></td>
-        <td colspan="1" rowspan="1"><p>This PRS includes an analysis of 332 variants that significantly discriminated between centenarians and older adults.</p>
-            <p>PRS source: <a style="word-wrap: break-word;;" href="https://www.google.com/url?q=https://doi.org/10.1093/gerona/glaa289&amp;sa=D&amp;source=editors&amp;ust=1664211538645453&amp;usg=AOvVaw3xUB1M87YH6DdNAFu4Oipq">https://doi.org/10.1093/gerona/glaa289</a></p></td>
-    </tr>
-</table>
-</div>
-<p></p>
-<% g = "PRS5" %>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-<p></p>
-<h2>Health Risk Polygenic Risk Scores (PRSs)</h2>
-<div class="board prs">
-<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &#65310;50 shows an increased risk, &#65308;50 - decreased one.</p>
-</div>
-<p></p>
-<% prs = data['prs']%>
-<% prs.pop("PRS5")%>
-    % for row in prs:
-            <table class="ui celled teal table prs">
-                <tr><td>Title</td><td  style="width:100%">${prs[row]['title']} (${prs[row]['name']})</td>
-					<td rowspan="6"><canvas style="width:400px;height:200px;" id="${prs[row]['name']}_canvas"></canvas></td></tr>
-                <tr><td>Sum</td><td>${prs[row]['sum']}</td></tr>
-                <tr><td>Count/total</td><td>${prs[row]['count']}/${prs[row]['total']}</td></tr>
-                <tr><td>Average</td><td>${prs[row]['avg']}</td></tr>
-                <tr><td>Percentile</td><td>${prs[row]['percent']}%</td></tr>
-            </table>
-            <br/>
-            <script>
-                window.addEventListener('load', function() {
-                drawGausian("${prs[row]['name']}_canvas", ${prs[row]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${prs[row]['invers']});
-            })
-            </script>
-    % endfor
-<div>
-<h2 id="variants">Longevity variants</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+<h2 id="variants"> Longevity variants</h2>
+<button class="accordion accordion0 accordion1 panel-variants module-button"><div></div> Description</button>
+<div class="board variants panel panel-description">
 <p></p>
 <p>This report estimates how many significant longevity variations you have and whether its &quot;a lot&quot; or &quot;not so&quot; for your population. The data for this report is obtained mainly by studying centenarians&rsquo; genomes.
 </p>
 <p></p>
-<p>The longevity variants report is based on 1900 variants from LongevityMap (https://genomics.senescence.info/longevity/) and other data sources which are scored and prioritized according to multiple criteria. It also depends on ClinGene, dbSNP and ClinVar modules.
-</p>
+<p>The longevity variants report is based on 1900 variants from LongevityMap (<a href="https://genomics.senescence.info/longevity/"> genomics.senescence.info/longevity </a>) and other data sources which are scored and prioritized according to multiple criteria. It also depends on ClinGene, dbSNP and ClinVar modules.</p>
 <p></p>
 <p>In the table you can see, how many significant for your population variants were found in your genome. Positively longevity-associated variants are marked with green, negatively associated - with red.
 </p>
@@ -673,26 +989,64 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 	<li>Inflammation and related pathways</li>
 	<li>Genome maintenance and post-transcriptional processes</li>
 </ol>
-<p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.
-</p>
+<p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.</p>
 </div>
+<button class="accordion accordion0 accordion1 prs-panel"><div></div>Longevity Polygenic Risk Scores (PRSs)</button>
+		<div class="board variants panel panel-description">
+			<p></p>
+<p>There is data on <u>Polygenic risk scores (PRSs)</u> for gaining longevity.</p>
+<p>PRSs aggregate the effect of many common genetic variants to estimate a person&rsquo;s chances of gaining extreme longevity. Each variant on its own tends little to the total outcome, but when added together, these differences can have a more significant impact.
+</p>
 <p></p>
-<h2>Genes involved in lipid transfer and lipid signaling</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+<p>PRS results are highly dependent on the population. PPS is calculated as a weighted sum of trait-associated alleles. PRS gives an estimate of how likely an individual is to have a given trait
+       <u>only based on genetics, without taking environmental factors into account</u>.</p>
+<p></p>
+<p class="how_to">How to read the result?</p>
+<p></p>
+<p>PRS is represented as a <u>percentile</u> within a given population. For example, you have the 95th percentile, which means your genetic chances to gain extreme longevity is higher than 95 out of every 100 people in a chosen population.
+</p>
+<p></p>
+<p>So percentile &#65310;50 shows an increased genetic predisposition to longevity, &#65308;50 - decreased one.
+</p>
+<p></p>
+<p></p>
+<p></p>
+<p class="how_to">PRS info</p>
+<p>This PRS includes an analysis of 332 variants that significantly discriminated between centenarians and older adults.</p>
+<p>PRS source: <a style="word-wrap: break-word;;" href="https://www.google.com/url?q=https://doi.org/10.1093/gerona/glaa289&amp;sa=D&amp;source=editors&amp;ust=1664211538645453&amp;usg=AOvVaw3xUB1M87YH6DdNAFu4Oipq">https://doi.org/10.1093/gerona/glaa289</a></p>
+<p></p>
+<% g = "PRS5" %>
+<table class="ui celled teal table prs">
+	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
+    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
+    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
+    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
+    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
+</table>
+<br/>
+<script>
+	window.addEventListener('load', function() {
+	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
+})
+</script>
+</div>
+<button class="accordion accordion-heading">Genes involved in lipid transfer and lipid signaling</button >
+<div class="basic-panel">
+<button class="accordion accordion0 accordion1"><div></div> Description</button>
+<div class="board variants panel panel-description">
 	<p>Lipids play crucial roles in regulating aging and longevity. Lipids are key biological molecules that contribute to cellular and organismal functions in three principal ways. First, they are fundamental structural elements of cellular membranes. Second, they are key molecules in energy metabolism to fuel the cell. Third, they play roles by acting as signaling molecules. Lipid metabolism is not considered a separate longevity pathway, but genes that regulate lipid transfer, like APOE and CETP, show the strongest association with longevity. This is a list of genes we analyzed in your genotype related to lipid transfer: </p>
 	</div>
-
-
-	<div class="content" style="max-height: max-content">
+<button class="accordion accordion0 accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longlipidsTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longlipidsTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -773,8 +1127,8 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 		</tbody>
 	</table>
 	</div>
-
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion"><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p> From ${positive+negative} gene variants involved in lipid metabolism and longevity pathways, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
 	<br>
 	<p>If your genetic testing reveals that you have unfavorable forms of genes involved in lipid and cholesterol transfer, there are several things you can do to manage your risk and improve your health: </p>
@@ -788,27 +1142,27 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 	<p><b>Look at pharmacogenetics:</b> If your biochemical lipid profile is disturbed, consider that variations in these genes may be associated with differences in response to statin therapy.
  </p>
 	</div>
-
-	
-	<h2>Genes involved in the insulin/IGF-1 signaling pathway
-</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<div class="last inside"></div>
+</div>
+<button class="accordion accordion-heading">Genes involved in the insulin/IGF-1 signaling pathway
+</button>
+<div class="basic-panel">
+<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>The insulin/insulin-like growth factor (IGF-1) signaling pathway is a key regulator of metabolism, growth, and aging. It has been extensively studied in various model organisms, including worms, flies, and mice, and is also thought to play an important role in human aging and longevity. This pathway is also involved in glucose metabolism. This is a list of genes we analyzed in your genotype related to insulin/IGF-1 signaling pathway: 
  </p>
 	</div>
-
-
-
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longinsulinTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longinsulinTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -890,7 +1244,8 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+<button class=" accordion0 accordion"><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p> From  ${positive+negative} gene variants involved in insulin/IGF-1 signaling pathways, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
 	<br>
 	<p>If you have unfavorable variants of  insulin/IGF-1 signaling pathway genes, there are several lifestyle changes you can make to help promote healthy aging and reduce the risk of age-related diseases:
@@ -906,18 +1261,14 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 	<p><b>Biochemical markers for check-ups:</b> insulin, fasting glucose level, Hemoglobin A1c (HbA1c), and C-peptide.  It is a good idea to monitor these markers on a regular basis, at least once per year.
  </p>
 	</div>
-
-
-
-
-
-	<div style="margin-bottom: 20px;" class="board variants">
-	<p> </p>
-	</div>
+	<div class="last inside"></div>
+</div>
 
 	
-	<h2>Genes involved in antioxidant defense</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Genes involved in antioxidant defense</button>
+	<div class="basic-panel">
+<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p> Antioxidant defense plays an important role in the aging process and longevity. Oxidative stress, which is caused by an imbalance between the production of reactive oxygen species (ROS) and the body's ability to neutralize them, is a major contributor to age-related diseases and the aging process.</p>
 	<p>
 The body has various mechanisms to defend against oxidative stress, including antioxidant enzymes such as superoxide dismutase (SOD), catalase, and glutathione peroxidase, as well as non-enzymatic antioxidants such as vitamins C and E, and glutathione. These antioxidants work together to neutralize ROS and prevent damage to cells and tissues.
@@ -926,16 +1277,17 @@ The body has various mechanisms to defend against oxidative stress, including an
 	</div>
 
 
-	<div class="content" style="max-height: max-content">
+<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longantioxidantTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longantioxidantTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1017,7 +1369,8 @@ The body has various mechanisms to defend against oxidative stress, including an
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+<button class="accordion0 accordion"><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p> From ${positive+negative} gene variants involved in antioxidant defense, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
 	<p>If you have unfavorable variants of  antioxidant system genes, there are several lifestyle changes you can make to help promote healthy aging and reduce the risk of age-related diseases:
 </p>
@@ -1034,27 +1387,29 @@ The body has various mechanisms to defend against oxidative stress, including an
 	<p><b>Biochemical markers for a check-up:</b> oxidized low-density lipoprotein (oxLDL), Fe/Cu ratio, glutathione, 8-hydroxy-2’-deoxyguanosine (8-OHdG) (a marker of oxidative damage to DNA), malondialdehyde (MDA) (it is a byproduct of lipid peroxidation and is used as a marker of oxidative stress). It is a good idea to monitor these markers on a regular basis, at least once per year.
 </p>
 	</div>
-
-
+	<div class="last inside"></div>
+</div>
 	
-	<h2>Genes related to mitochondria function</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Genes related to mitochondria function</button>
+	<div class="basic-panel">
+<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>Mitochondria are the powerhouses of the cell, generating the energy (in the form of ATP) needed for cellular processes. They also play a key role in apoptosis (programmed cell death) and other cellular processes. Mitochondrial dysfunction and increased oxidative stress are believed to play a role in the aging process and age-related diseases. Several genes involved in mitochondrial function have been implicated in longevity. They include UCP genes, genes involved in respiratory chain functioning, SIRT3, PGC1a, and some other genes. 
  </p>
  <p>In general, the form of these genes determines how well you are protected from oxidative stress and how effectively your cells generate energy. This is a list of genes we analyzed in your genotype related to mitochondria function: </p>
 	</div>
 
-
-	<div class="content" style="max-height: max-content">
+<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longmitoTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longmitoTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1136,7 +1491,8 @@ The body has various mechanisms to defend against oxidative stress, including an
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion"><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p>From ${positive+negative} gene variants involved in mitochondrial function, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
 	<br>
 	<p>If you have unfavorable variants in genes involved in mitochondrial function, there are several steps you can take to improve your health outcomes potentially:</p>
@@ -1145,11 +1501,13 @@ The body has various mechanisms to defend against oxidative stress, including an
 	<p><b>Consider adequate uptake of trace elements and vitamins essential for mitochondria function:</b> magnesium, B vitamins (particularly thiamine (B1), riboflavin (B2), and niacin (B3)), selenium, iron, copper, and vitamin E.</p>
 	<p><b>Exercise:</b> Regular exercise has been shown to increase mitochondrial biogenesis (the process of creating new mitochondria) and improve mitochondrial function. This is thought to be due to increased energy demand during exercise, which triggers the body to produce more mitochondria.</p>
 	</div>
+	<div class="last inside"></div>
 
-
-	
-	<h2>Genes related to the sirtuin pathway</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+</div>
+	<button class="accordion accordion-heading"  >Genes related to the sirtuin pathway</button>
+	<div class="basic-panel">
+	<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p> The sirtuin genes (SIRT1-SIRT7) are a family of genes that are involved in regulating cellular processes such as DNA repair, metabolism, and stress response. The sirtuin pathway, which involves the activity of these genes, has been implicated in regulating longevity.
 </p>
 	<p>Studies have shown that activation of sirtuins can increase lifespan in several model organisms, including yeast, worms, and mice. This is thought to be due to the role of sirtuins in promoting cellular resilience and protecting cells from damage.
@@ -1160,17 +1518,17 @@ The body has various mechanisms to defend against oxidative stress, including an
 </p>
 	</div>
 
-
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longsirtuinTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longsirtuinTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1252,7 +1610,8 @@ The body has various mechanisms to defend against oxidative stress, including an
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p> From ${positive+negative} gene variants involved in the sirtuin pathway, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
 	<br>
 	<p>There are several ways to activate the sirtuin pathway if your genes are not favorable:</p>
@@ -1263,12 +1622,14 @@ The body has various mechanisms to defend against oxidative stress, including an
 	<p><b>Intermittent fasting:</b> Intermittent fasting is a dietary strategy that involves cycling between periods of fasting and non-fasting. Intermittent fasting has been shown to increase sirtuin activity in multiple tissues and may activate the sirtuin pathway.
 </p>
 	</div>
-
-
+	<div class="last inside"></div>
+</div>
 
 	
-	<h2>Genes related to mTOR pathway</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Genes related to mTOR pathway</button>
+	<div class="basic-panel">
+<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>
 MTOR, also known as the mechanistic target of rapamycin, is a gene that encodes for a protein kinase involved in multiple cellular processes, including growth, metabolism, and aging. The mTOR pathway plays a complex role in aging and longevity. On the one hand, activation of the mTOR pathway has been shown to promote cellular growth and proliferation, which may be beneficial for tissue repair and regeneration during early life stages. On the other hand, chronic activation of the mTOR pathway has been implicated in age-related diseases such as cancer, metabolic disorders, and neurodegeneration.
  </p>
@@ -1279,17 +1640,17 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 </p>
 	</div>
 
-
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longmTORTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longmTORTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1371,7 +1732,8 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p> From ${positive+negative} gene variants involved in mTOR pathway, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
 
 	<br>
@@ -1386,10 +1748,12 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 </p>
 	</div>
 
-
-	
-	<h2>Tumor-suppressor genes</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<div class="last inside"></div>
+</div>
+	<button class="accordion accordion-heading"  >Tumor-suppressor genes</button>
+	<div class="basic-panel">
+	<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>Tumor suppressor genes and cell cycle regulators are not typically considered as "longevity genes" per se, but they do play an important role in the aging process and the development of age-related diseases, including cancer.
  </p>
 	<p>One well-known tumor suppressor gene is TP53, which has been shown to play a role in regulating cellular senescence and preventing the accumulation of damaged cells. 
@@ -1398,16 +1762,17 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</div>
 
 
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTumorTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longTumorTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1489,24 +1854,29 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p>From ${positive+negative} gene variants of tumor-suppressive genes, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable <b>regarding their impact on longevity</b>*.  </p>
 <br>
 <p>If you have unfavorable variants in genes involved in genome maintenance, there are several steps you can take to improve your health outcomes potentially:
 </p>
 <br>
-	<p><b>Ensure methylation processes in your body work well:</b> monitor blood levels of B12, B9, B2, B6, Zn, and Co. These components are needed for methylation enzymes' appropriate work. Methylation is important for genome maintenance because it is involved in the regulation of gene expression and DNA repair.</p>
+	<p><b>Ensure methylation processes in your body work well:</b> monitor blood levels of B12, B9, B2, B6, Zn, and Co[PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/31601260/">31601260</a>, PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36203899/">36203899</a>]. These components are needed for methylation enzymes' appropriate work. Methylation is important for genome maintenance because it is involved in the regulation of gene expression and DNA repair [PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34209979/">34209979</a>].</p>
 	<p><b>Reduce exposure to environmental toxins</b>, such as pollution, pesticides, and chemicals. Air-control indoor systems can help with this point.</p>
 	<p><b>Protect the skin</b> from UV radiation by wearing protective clothing and using sunscreen.</p>
+	<p><b>Avoid tobacco:</b> Tobacco use is a leading cause of cancer, so avoiding tobacco in all forms, including smoking, vaping, and chewing, can significantly decrease the risk of cancer.</p>
 	<p><i>*In our analysis, we have categorized tumor-suppressive gene variants based solely on their effect on longevity as either favorable or unfavorable. We would like to clarify that our report does not provide an assessment of whether these variants have an increased risk for cancer or not.</i></p>
 	</div>
-
+	<div class="last inside"></div>
+</div>
 
 
 
 	
-	<h2>Genes of the renin-angiotensin system</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Genes of the renin-angiotensin system</button>
+	<div class="basic-panel">
+	<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>The renin-angiotensin system (RAS) plays an important role in the regulation of blood pressure, fluid balance, and electrolyte homeostasis. However, it is also involved in the aging process and the development of age-related diseases. </p>
 	<p>One of the mechanisms by which RAS influences aging is through the activation of oxidative stress and inflammation. RAS also affects the cardiovascular system and is involved in the development of hypertension, a major risk factor for cardiovascular diseases such as heart attack and stroke. Furthermore, RAS activation has been linked to the development of insulin resistance and metabolic syndrome, which are also associated with aging and age-related diseases.
 </p>
@@ -1515,16 +1885,17 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</div>
 
 
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longreninTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longreninTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1606,7 +1977,8 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants panel">
 	<p>From ${positive+negative} gene variants of genes related to the renin-angiotensin system, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable regarding their impact on longevity. 
  </p>
  <br>
@@ -1620,27 +1992,30 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	<p><b>Diet:</b> A healthy diet can help prevent hypertension and improve overall cardiovascular health. Here are some dietary tips to follow: limit processed and high-fat foods, as well as sugary drinks and snacks; reduce your salt intake by using herbs and spices to flavor your food instead of salt, and avoid high-sodium packaged and processed foods; incorporate calcium-rich foods such as low-fat dairy products, tofu, and leafy greens into your diet.
 </p>
 	</div>
-
+	<div class="last inside"></div>
+	</div>
 
 
 	
-	<h2>Heat-shock protein genes</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Heat-shock protein genes</button>
+	<div class="basic-panel">
+	<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>The HSP (heat shock protein) genes are a group of genes that encode heat shock proteins, which are a class of chaperone proteins that help to protect cells from stress-induced damage. HSPs have been shown to play a role in a variety of cellular processes, including protein folding, DNA repair, and apoptosis. While the exact mechanisms by which HSPA genes influence aging and longevity are not yet fully understood, it is believed that they may help to protect cells from the accumulation of damage caused by stress and other environmental factors. As such, HSPs and their associated genes may be a promising target for interventions aimed at promoting healthy aging and extending lifespan. Some unfavorable variants in HSP genes have been shown to reduce the ability of cells to respond to stress, leading to increased damage and inflammation.
  </p>
 	</div>
 
-
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longHeatTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longHeatTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1722,7 +2097,8 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p> From ${positive+negative} gene variants related to heat-shock proteins, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. 
 </p><br>
 <p>If you have unfavorable heat shock protein (HSP) gene variants, there are several things you can do to reduce cell stress:
@@ -1732,11 +2108,14 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 <p><b>Sleep:</b> Getting adequate sleep is important for reducing cellular stress and promoting cellular repair and regeneration.
 </p>
 	</div>
-
+	<div class="last inside"></div>
+</div>
 
 	
-	<h2>Inflammation and related pathways</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Inflammation and related pathways</button>
+	<div class="basic-panel">
+	<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p> Chronic inflammation is a major contributor to the aging process. Inflammation is a natural response of the immune system to harmful stimuli, such as pathogens or tissue damage. However, if this response becomes chronic, it can lead to tissue damage and the development of age-related diseases such as Alzheimer's disease, cardiovascular disease, and cancer.
 </p>
 <p>Chronic inflammation is characterized by the sustained activation of the immune system and the release of pro-inflammatory molecules, such as cytokines, chemokines, and reactive oxygen species (ROS). These molecules can damage cellular components, including DNA, proteins, and lipids, leading to cellular dysfunction and death.
@@ -1748,16 +2127,17 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</div>
 
 
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longInflamTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longInflamTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1839,7 +2219,8 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p>From ${positive+negative} gene variants related to inflammation, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable.  </p>
 	<br>
 	<p>If you have unfavorable variants in genes involved in chronic inflammation, there are several steps you can take to improve your health outcomes potentially:
@@ -1855,28 +2236,29 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 
 	</p>
 	</div>
-
+	<div class="last inside"></div>
+</div>
 	
-	<h2>Genome maintenance and post-transcriptional processes
-</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Genome maintenance and post-transcriptional processes
+</button>
+<div class="basic-panel">
+<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>Genome maintenance and post-transcriptional processes are both important for maintaining cellular and organismal homeostasis, and both have been implicated in the regulation of longevity.  </p>
 	<p>Genome maintenance is essential for preventing DNA damage and mutations that can lead to age-related diseases and shortened lifespans. Post-transcriptional processes, including RNA splicing, translation, and decay, are important for regulating gene expression and ensuring that proteins are produced at the appropriate levels and times. Dysregulation of these processes can lead to age-related diseases and shortened lifespans.
 		</p>
 	</div>
-
-
-<table>
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longGenomeTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longGenomeTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -1958,17 +2340,19 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</table>
 	</div>
 
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
 	<p>From ${positive+negative} gene variants related to genome maintenance and post-transcriptional processes, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. 
  </p>
 	<br>
 	<p>If you have unfavorable variants in genes involved in genome maintenance, there are several steps you can take to improve your health outcomes potentially:
 </p>
 	<br>
-	<p><b>Ensure methylation processes in your body work well:</b> monitor blood levels of B12, B9, B2, B6, Zn, and Co. These components are needed for methylation enzymes' appropriate work. Methylation is important for genome maintenance because it is involved in the regulation of gene expression and DNA repair.
-</p>
+	<p><b>Ensure methylation processes in your body work well:</b> monitor blood levels of B12, B9, B2, B6, Zn, and Co[PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/31601260/">31601260</a>, PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36203899/">36203899</a>]. These components are needed for methylation enzymes' appropriate work. Methylation is important for genome maintenance because it is involved in the regulation of gene expression and DNA repair [PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34209979/">34209979</a>].</p>
 	<p><b>Reduce exposure to environmental toxins</b>, such as pollution, pesticides, and chemicals. Air-control indoor systems can help with this point. 
 </p>
+<p><b>Check vitamin D level: </b>Vitamin D plays a role in DNA repair and has been shown to have a protective effect regarding genome maintenance [PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11295155/">11295155</a>].
+
 	<p><b>Protect the skin</b> from UV radiation by wearing protective clothing and using sunscreen.
 </p>
 	<br>
@@ -1976,28 +2360,32 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 Although genes associated with longevity can be classified into 11 definite pathways, there are other genes that do not fall into these categories, which are presented in this table.
 </p>
 	</div>
+	<div class="last inside"></div>
+</div>
 
 
 
 
-
-	<h2>Other genes associated with longevity</h2>
-<div style="margin-bottom: 20px;" class="board variants">
+	<button class="accordion accordion-heading"  >Other genes associated with longevity</button>
+	<div class="basic-panel">
+	<button class="accordion0 accordion accordion1"><div></div>Description</button>
+<div class="board variants panel panel-description">
 	<p>Although many genes associated with longevity can be classified into 11 definite pathways, there are other genes that do not fall into these categories, which are presented in this table.
  </p>
 	</div>
 
 
-	<div class="content" style="max-height: max-content">
+	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
+	<div class="content content-variants">
 	<table class="ui selectable celled teal table table variants">
 		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longOtherTBody')"><div class="ui tiny circular compact positive button">+</div></th>
 				<th>RSID</th><th>Population</th><th>Gene</th>
 				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
 				<th>Weight</th>
 			</tr>
 		</thead>
-		<tbody id="longTBody">
+		<tbody id="longOtherTBody">
 			<%
 				positive = 0
 				negative = 0
@@ -2078,22 +2466,23 @@ Although genes associated with longevity can be classified into 11 definite path
 		</tbody>
 	</table>
 	</div>
-
+	<div class="last inside"></div>
+</div>
 	<p></p>
-	<h2 id="drugs">Longevity drugs</h2>
-	<div style="margin-bottom: 20px;"class="board drugs">
+	<h2 id="drugs" style="color:#a0cf47;">Longevity drugs</h2>
+	<button class="accordion accordion0 accordion1 accord_drugs"><div></div>Description</button>
+<div class="board variants panel panel-description accord_drugs">
+
 	<p>Plenty of drugs are frequently prescribed at an older age. Moreover, some drugs are known to have geroprotective action (e.g. statins, metformin, rapamycin, etc.). Drug metabolism to a large extent depends on a person&rsquo;s genetic polymorphisms, affecting the activity of xenobiotics-transforming enzymes. So it&rsquo;s a common situation when individual dose correction is needed, or even another drug has to be taken in order to avoid adverse effects. Longevity-drugs report is mainly based on data from PharmGKB database (
 			<a href="https://www.google.com/url?q=https://www.pharmgkb.org/&amp;sa=D&amp;source=editors&amp;ust=1664211538648790&amp;usg=AOvVaw0_aiXtrV8uDwT1_Vh57zSO">https://www.pharmgkb.org/</a>
 			) and DrugAge.</p>
 	<p></p>
 	<p>In the table you can find data about your genome&rsquo;s gene variants, associated with a changed response to the drugs.
-	</p></div>
-	<div class="acordiv">
-	<h1 align="center">Drugs Report</h1>  <span class="triangles"></span>
-	</div>
-
-	<div class="content" style="max-height: max-content">
-	<table width="80%" align="center" class="ui celled teal table table drugs">
+	</p>
+</div>
+	<button class="accordion accordion0 accordion-result accord_drugs"><div></div>Results</button>
+	<div class="content content-variants">
+	<table class="ui celled teal table table drugs">
 		<thead>
 		<tr><th>#</th>
 				<th>Variant/Haplotypes</th><th>Drug(s)</th><th>Phenotype Category</th><th>Significance</th><th>Sentence</th><th>Allele Of Frequency In Cases</th>
@@ -2111,18 +2500,26 @@ Although genes associated with longevity can be classified into 11 definite path
 			% endfor
 		</tbody>
 	</table>
-	</div>
 	<p></p>
-	<h2 id="cancer">Major risks</h2>
+</div>
+	<h2 id="cancer" style="color:#577de4;">Major risks</h2>
+	<button class="accordion accordion0 accordion1 major-risk"><div></div> Description</button>
+<div class="board variants panel panel-description major-risk">
 	<p></p>
-	<div style="margin-bottom: 20px;"class = "board cancer">
 	<p>It is not enough to have &quot;centenarian&quot; genes to become one: You have to cut down Your health risks before. This section contains information about the risk of developing chronic age-related diseases: cardiovascular, cancer, mental health, chronic inflammation, bone and muscle diseases, and lung diseases.
-	</p></div>
-	<div class="acordiv" onclick="acordion(this);">
-	<h1 align="center">Cancer Report</h1>  <span class="triangles"></span>
-	</div>
-	<div class="content" style="max-height: max-content">
-	<table width="80%" align="center" class="ui selectable celled teal table table cancer">
+	</p>
+</div>
+	<button class="accordion accordion-heading major-risk"  >Cancer Report</button> 
+
+	<div class="basic-panel major-risk">
+	<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
+	<div class="board variants panel panel-description major-risk">
+		<p>Hereditary Cancers are caused by a genetic defect that determines a higher-than-normal risk of developing cancer. Hereditary cancers can have an impact on longevity, as individuals with certain genetic mutations that increase the risk of cancer may have a shorter life expectancy. The report includes about  300 genes, related to cancer predisposition,  progression and tumor cell motility.</p>
+		</div>
+
+		<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
+		<div class="content content-variants major-risk">
+	<table class="ui selectable celled teal table table cancer cancer1">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'cancTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>Chrom</th><th>Position</th><th>Gene</th><th>RSID</th><th>cDNA Change</th><th>Zygosity</th>
@@ -2142,11 +2539,44 @@ Although genes associated with longevity can be classified into 11 definite path
 		</tbody>
 	</table>
 	</div>
-	<div class="acordiv" onclick="acordion(this);">
-	<h1 align="center">Coronary artery Disease</h1>  <span class="triangles"></span>
-	</div>
-	<div class="content" style="max-height: max-content">
-	<table width="80%" align="center" class="ui selectable celled teal table  table cancer">
+	<div class="last"></div>
+</div>
+	<button class="accordion accordion-heading major-risk"  >Coronary artery Disease</button>
+	<div class="basic-panel major-risk">
+		<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
+	<div class="board variants panel panel-description major-risk">
+		<p>Coronary artery disease (CAD) is a condition in which the blood vessels that supply the heart muscle with oxygen and nutrients become narrowed or blocked, leading to reduced blood flow to the heart. Age is a major risk factor for CAD, as the risk of developing CAD increases with age. Genetic factors plays an important role in the development of coronary artery disease (CAD).</p>
+		<p>This report contains data of PRS for coronary disease development (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>) and the list with genes, associated with an increased risk of CAD.</p>
+		<p>However, it's important to note that genetics is just one of many factors that contribute to the development of CAD, and having a genetic predisposition to the disease does not necessarily mean that an individual will develop it.</p>
+		</div>
+		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
+	<div class="board variants panel panel-description major-risk">
+		<p class="how_to">How to read the result?</p>
+<p></p>
+<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
+</p>
+<p></p>
+<p>So percentile &#65310;50 shows an increased risk, &#65308;50 - decreased one.</p>
+<p></p>
+<% g = "PGS000818"%>
+<table class="ui celled teal table prs">
+	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
+    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
+    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
+    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
+    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
+</table>
+<br/>
+<script>
+	window.addEventListener('load', function() {
+	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
+})
+</script>
+		</div>
+
+		<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
+<div class="content content-variants major-risk">
+	<table class="ui selectable celled teal table table cancer cancer1">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'coronaryTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>RSID</th><th>Gene</th><th>Risk Allele</th><th>Genotype</th><th>Pubmed ID</th>
@@ -2167,17 +2597,19 @@ Although genes associated with longevity can be classified into 11 definite path
 		</tbody>
 	</table>
 </div>
-<h2 id="drugs">Cardio Hereditary</h2>
-	<div style="margin-bottom: 20px;"class="board drugs">
+<div class="last"></div>
+</div>
+<button class="accordion accordion-heading major-risk"  >Cardio Hereditary</button>
+<div class="basic-panel major-risk">
+<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
+	<div class="board variants panel panel-description major-risk">
 	<p>Timely detection and diagnosis of heart disorders can lead to enhanced treatment options, help to prevent sudden cardiac death, and improve prognosis. This report analyzes the most relevant genes for arrhythmias, congenital heart disease, and cardiomyopathies. 
 Analyzed gene abnormalities may cause the following syndromes: Long and short QT, Brugada syndrome, catecholaminergic polymorphic ventricular tachycardia, cardiomyopathies dilated and hypertrophic, and congenital heart defects. In addition, this panel includes vascular abnormalities, such as dolichoectasia and hereditary hemorrhagic telangiectasia.
 </p>
 <p></p></div>
-<div class="acordiv" onclick="acordion(this);">
-	<h1 align="center">Hereditary cardiovascular diseases</h1>  <span class="triangles"></span>
-	</div>
-	<div class="content" style="max-height: max-content">
-	<table width="80%" align="center" class="ui selectable celled teal table table cancer">
+<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
+<div class="content content-variants major-risk">
+	<table class="ui selectable celled teal table table cancer cardio">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'cardioTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>Gene</th><th>rsID</th><th>cDNA change</th><th>Your genotype</th><th>Sequence ontology</th><th>SIFT prediction</th>
@@ -2209,11 +2641,47 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 		</tbody>
 	</table>
 	</div>
-	<div class="acordiv" onclick="acordion(this);">
-	<h1 align="center">Lipid Metabolism</h1>  <span class="triangles"></span>
-	</div>
-	<div class="content" style="max-height: max-content">
-		<table width="80%" align="center" class="ui selectable celled teal table  table cancer">
+	<div class="last"></div>
+</div>
+<button class="accordion accordion-heading major-risk"  >Lipid Metabolism</button>
+<div class="basic-panel major-risk">
+	<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
+	<div class="board variants panel panel-description major-risk">
+		<p>Lipid metabolism plays an important role in the development of heart disease, and this risk increases with age. Cholesterol is a type of lipid that is carried in the blood by lipoproteins, including low-density lipoprotein (LDL) and high-density lipoprotein (HDL). LDL is often referred to as "bad" cholesterol, as high levels of LDL are associated with an increased risk of CAD. HDL, on the other hand, is often referred to as "good" cholesterol, as it helps to remove cholesterol from the bloodstream and may have a protective effect against CAD.
+As we age, our lipid metabolism tends to change. For example, LDL cholesterol levels tend to increase, while HDL cholesterol levels tend to decrease. This can increase the risk of CAD and other heart diseases.
+</p>
+		<p>Genetics plays an important role in lipid metabolism and the development of heart disease. Genes control the production, transport, and metabolism of cholesterol and other lipids.</p>
+		<p>This report contains data of the PRS of Coronary atherosclerosis development (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>), and the list with genes, associated with an increased risk of CAD.
+It's important to note, however, that genetics is just one of many factors that contribute to lipid metabolism and the development of heart disease. Lifestyle factors, such as diet and physical activity, are also important contributors to lipid metabolism and the development of heart disease, and they can modify the effects of genetic factors.
+</p>
+		</div>
+		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
+	<div class="board variants panel panel-description major-risk">
+		<p class="how_to">How to read the result?</p>
+<p></p>
+<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
+</p>
+<p></p>
+<p>So percentile &#65310;50 shows an increased risk, &#65308;50 - decreased one.</p>
+<p></p>
+<% g = "PGS001839"%>
+<table class="ui celled teal table prs">
+	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
+    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
+    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
+    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
+    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
+</table>
+<br/>
+<script>
+	window.addEventListener('load', function() {
+	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
+})
+</script>
+		</div>
+	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
+<div class="content content-variants major-risk">
+		<table class="ui selectable celled teal table  table cancer">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'lipidmetabolismTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>RSID</th><th>Gene</th><th>Risk Allele</th><th>Genotype</th><th>Pubmed ID</th>
@@ -2238,11 +2706,44 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 		</tbody>
 	</table>
 	</div>
-	<div class="acordiv" onclick="acordion(this);">
-	<h1 align="center">Thrombophilia</h1>  <span class="triangles"></span>
+	<div class="last"></div>
 	</div>
-	<div class="content" style="max-height: max-content">
-		<table width="80%" align="center" class="ui selectable celled teal table  table cancer">
+</div>
+<button class="accordion accordion-heading major-risk"  >Thrombophilia</button>
+<div class="basic-panel major-risk">
+	<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
+	<div class="board variants panel panel-description major-risk">
+		<p>Thrombophilia is a condition in which an individual has an increased tendency to develop blood clots. This can be caused by genetic or acquired factors, and the risk of developing thrombophilia increases with age. Thrombophilia risk has a strong genetic component, as certain genetic mutations can increase the risk of developing blood clots. The most common genetic mutations associated with thrombophilia are mutations in the genes that control the production and function of clotting factors.</p>
+		<p>This report contains data of blood clot or deep vein thrombosis (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>), and the list with genes, associated with an increased risk of thrombophilia.</p>
+		<p>However, it's important to note that having a genetic mutation does not necessarily mean that an individual will develop thrombophilia. Other factors, such as lifestyle factors and medical conditions, can also contribute to the development of thrombophilia.</p>
+		</div>
+		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
+	<div class="board variants panel panel-description major-risk">
+		<p class="how_to">How to read the result?</p>
+<p></p>
+<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
+</p>
+<p></p>
+<p>So percentile &#65310;50 shows an increased risk, &#65308;50 - decreased one.</p>
+<p></p>
+<% g = "PGS000931"%>
+<table class="ui celled teal table prs">
+	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
+    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
+    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
+    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
+    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
+</table>
+<br/>
+<script>
+	window.addEventListener('load', function() {
+	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
+})
+</script>
+		</div>
+	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
+<div class="content content-variants major-risk">
+		<table class="ui selectable celled teal table  table cancer">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'thrombophiliaTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>RSID</th><th>Gene</th><th>Risk Allele</th><th>Genotype</th><th>Pubmed ID</th>
@@ -2267,27 +2768,11 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 		</tbody>
 	</table>
 	</div>
+	<div class="last"></div>
+</div>
+<div class="last outside"></div>
 </div>
 <script>
-	var acc = document.getElementsByClassName("acordiv");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-	var panel = acc[i].nextElementSibling;
-	panel.style.maxHeight = panel.scrollHeight + "px";
-	acc[i].addEventListener("click", function() {
-	this.classList.toggle("active");
-	var panel = this.nextElementSibling;
-	if (panel.style.maxHeight) {
-	panel.style.maxHeight = null;
-	this.children[1].className = "triangleActive";
-	} else {
-		panel.style.maxHeight = panel.scrollHeight + "px";
-	this.children[1].className = "triangles";
-}
-});
-}
-
 const BtnBackToTop = document.querySelector("#toTop")
 
 window.addEventListener("scroll", scrollFunction);
@@ -2318,6 +2803,100 @@ BtnBackToTop.addEventListener("click", backToTop);
 function backToTop() {
 	window.scrollTo(0, 0);
 }
+let currentWidth = document.body.clientWidth;
+
+let styles = calculatingStyles(currentWidth);
+
+window.addEventListener("resize", function(event) {
+    currentWidth = document.body.clientWidth;
+	styles = calculatingStyles(currentWidth);
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	for (i = 0; i < acc.length; i++) {
+
+	}
+})
+
+function calculatingStyles(width){
+
+let listOfStyles = {widthForActive:"", widthForClosed:"", marginForActive:"", marginForClosed:""};
+
+if (width >= 1400){
+	listOfStyles.widthForActive = "85";
+	listOfStyles.widthForClosed = "70";
+	console.log(listOfStyles)
+}else if((width < 1400) && (currentWidth >= 600)){
+		listOfStyles.widthForActive = "98";
+		listOfStyles.widthForClosed = "80";
+} else {
+	listOfStyles.widthForActive = "100";
+	listOfStyles.widthForClosed = "95";
+}
+listOfStyles.marginForActive = (100-listOfStyles.widthForActive)/2 + '%';
+listOfStyles.marginForClosed = (100-listOfStyles.widthForClosed)/2 + '%';
+listOfStyles.widthForActive = listOfStyles.widthForActive + "%";
+listOfStyles.widthForClosed = listOfStyles.widthForClosed + "%";
+
+return listOfStyles
+
+};
+
+
+
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+	if (acc[i].nextElementSibling.classList.contains("panel-description")){
+		acc[i].classList.toggle("active");
+		acc[i].style.borderRadius = "10px 10px 0px 0px"
+		var panel = acc[i].nextElementSibling;
+		panel.style.display="block"
+		panel.style.maxHeight = panel.scrollHeight + 30 + "px";
+	}
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+	let button = this;
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+		let height = panel.style.maxHeight;
+		let time = parseInt((height.slice(0,-2)))/7;
+		if (time>300){
+			time =200;
+		}
+        panel.style.maxHeight = null;
+	    setTimeout(function() {
+			panel.style.display = "none"
+			button.style.borderRadius = "10px";
+			if (button.classList.contains("accordion-result") || button.classList.contains("accordion-heading")){
+				button.style.width = styles.widthForClosed;
+				button.style.marginRight = styles.marginForClosed;
+				button.style.marginLeft = styles.marginForClosed;
+	}
+      }, time);
+    } else {
+		if (button.classList.contains("accordion-result") || button.classList.contains("accordion-heading")){
+			button.style.width =  styles.widthForActive;
+			button.style.marginRight = styles.marginForActive;
+			button.style.marginLeft = styles.marginForActive;
+			setTimeout(function() {
+			panel.style.display = "block"
+			panel.style.maxHeight = panel.scrollHeight + "px";
+			panel.parentElement.style.maxHeight = Number(panel.parentElement.style.maxHeight.slice(0, -2)) + panel.scrollHeight + "px";
+			button.style.borderRadius = "10px 10px 0px 0px";
+		}, 150);}
+		else{
+			panel.style.display = "block"
+			panel.style.maxHeight = panel.scrollHeight + "px";
+			panel.parentElement.style.maxHeight = Number(panel.parentElement.style.maxHeight.slice(0, -2)) + panel.scrollHeight + "px";
+			button.style.borderRadius = "10px 10px 0px 0px"
+		}
+	}
+  });
+}
+
 
 </script>
 <style>

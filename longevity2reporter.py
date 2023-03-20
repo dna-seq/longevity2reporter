@@ -12,9 +12,9 @@ from mako.template import Template
 
 class Reporter(CravatReport):
 
-    def __init__(self, args):
-        super().__init__(args)
-        self.savepath = args['savepath']
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.savepath = kwargs["savepath"]
 
 
     async def run(self):
