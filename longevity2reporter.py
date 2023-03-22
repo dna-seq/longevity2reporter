@@ -132,7 +132,7 @@ class Reporter(CravatReport):
         data["longevitymap"] = self.write_table("longevitymap", ["conflicted_rows", "description"], "weight", False)
         data["cancer"] = self.write_table("cancer", [], "id", True)
         data["coronary"] = self.write_table("coronary", [], "weight", False)
-        data["drugs"] = self.write_table("drugs", [], "id", True)
+        data["drugs"] = self.write_table("drugs", [], "effect", True)
         data["cardio"] = self.write_table("cardio", [], "id", True)
         data["lipidmetabolism"] = self.write_table("lipid_metabolism", [], "weight", False)
         data["thrombophilia"] = self.write_table("thrombophilia", [], "weight", False)

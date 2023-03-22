@@ -28,7 +28,7 @@
         color: #92e0d3;
     }
 	body{
-        background-image: linear-gradient(to left bottom, #f9f6f0, #f8f6ec, #f6f6e8, #f2f7e6, #edf8e4, #e5f9e8, #dff9ec, #d9f9f2, #d8f7fb, #def5ff, #e7f1ff, #f0eefd) !important;
+        background-image: linear-gradient(to left bottom, rgb(249, 246, 240), #f8f6ec, #f6f6e8, #f2f7e6, #edf8e4, #e5f9e8, #dff9ec, #d9f9f2, #d8f7fb, #def5ff, #e7f1ff, #f0eefd) !important;
         background-repeat: no-repeat;
         background-attachment: fixed;
         color:rgb(66, 92, 88);
@@ -155,17 +155,17 @@
         margin-top: 0px;
         box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
         margin-bottom: 80px;
-        border-top: 0.4em solid orange;
+        border-top: 0.4em solid rgb(101, 189, 162);
     }
     .ui.celled.teal.table.table.drugs{
         box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
-        border-top: 0.4em solid #7db313;
+        border-top: 0.4em solid rgb(101, 189, 162);
 		margin-top:0;
         }
     .ui.selectable.celled.teal.table.table.cancer{
         box-shadow: 0 1px 3px 1px rgba(118, 49, 40, 0.3);
         margin-bottom: 80px ;
-        border-top: 0.4em solid #577de4;
+        border-top: 0.4em solid rgb(101, 189, 162);
     }
 
 		/*button style*/
@@ -213,29 +213,28 @@
 	/* accordions styles*/
 	.accordion0{
 		position: relative;
-		border:orange  solid 6px;
+		border:rgb(101, 189, 162)  solid 6px;
 		border-bottom: none;
-		width: 70%;
-		margin-left: 15%;
-		margin-right: 15%;
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
 		text-align: left;
 		padding-left: 2vw;
 		height: 4vw;
 		font-size: 1.5vw;
-		background-color: rgba(255, 255, 255, 0.8);
+		background-color: rgba(255, 255, 255, 0.5);
 		border-radius: 10px 10px 10px 10px;
 		margin-top: 0.01vw;
-		color: rgb(219, 156, 38);
+		color: rgb(81, 139, 122);
 		margin-top: 0.7vw;
+		border-bottom: none;
+		cursor: pointer;
 	}
-	.accordion0::after{
-		content: "";
-		position: absolute;
-		bottom: 0; top: 0; left: 0; right: 0;
-		border-bottom:9px solid orange;
+	.accordion.accordion-heading.active, .accordion:hover{
+		background-color: rgba(255, 255, 255, 0.2);
 	}
-	.active, .accordion:hover{
-		background-color: rgba(255, 255, 255, 0.1);
+	.accordion.accordion-heading:hover, .accordion.accordion-heading.active:hover{
+		color:rgb(127, 201, 182);
 	}
 	.accordion1{
 		margin-top: 3vw;
@@ -246,23 +245,23 @@
 	}
     /* accordion heading styles*/
 	.accordion-heading{
-		width: 70%;
-		margin-left: 15%;
-		margin-right: 15%;
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
 		user-select: none;
 		height: 5vw;
 		padding-top: 1vw;
 		padding-bottom: 1vw;
 		cursor: pointer;
-		border:orange solid 8px;
-		background-color: white;
-		font-size: 2vw;
+		border:rgb(101, 189, 162, 0.5)  solid 6px;
+		background-color: rgba(255, 255, 255, 0.5);
+		font-size: 1.7vw;
 		border-radius: 15px;
 		margin-top: 2vw;
 		transition-property: width, margin-left, margin-right;
 		transition-duration: 0.2s, 0.2s, 0.2s;
-		color:rgb(107, 87, 37);
-	}
+		color:rgb(47, 116, 106);
+		border-bottom: none;}
 	.accordion-heading:hover{
 		background-color: rgba(255, 255, 255, 0.5);
 	}
@@ -276,7 +275,7 @@
     
 	/*exist in both descr and rec*/
 	.board{
-        width: 70%;
+        width: 50%;
         margin-top: 40px;
         padding-top: 10px;
         color:rgb(84, 85, 110);
@@ -297,7 +296,7 @@
 	.panel{
 		padding: 1.5vw 2.5vw 1.5vw 2.5vw;
 		display: none;
-		border:rgb(66, 92, 88)solid 3px;
+		border:rgb(66, 92, 88) solid 3px;
 		border-bottom-left-radius: 15px;
 		border-bottom-right-radius: 15px;
 		border-top: none;
@@ -307,7 +306,7 @@
 
 	/*just styles to colour panels for results and descriptions*/
 	.variants.panel{
-		border: orange 6px solid;
+		border: rgb(101, 189, 162) 6px solid;
 		border-top:none;
 	}
 	.panel-results{
@@ -341,12 +340,12 @@
 		transition-duration: 0.2s, 0.5s;
 	}
 	.basic-panel{
-		background-color: rgba(255, 252, 243, 0.5);
+		background-color: rgba(255, 255, 255, 0.2);
 		margin-left: auto;
 		margin-right: auto;
 		width: 85%;
-		border-right: rgb(226, 215, 196, 0.4) solid 20px;
-		border-left: rgb(226, 215, 196, 0.4)  solid 20px;
+		border-right: rgb(101, 189, 162, 0.5) solid 6px;
+		border-left: rgb(101, 189, 162, 0.5)  solid 6px;
 		border-bottom-left-radius: 3%;
 		border-bottom-right-radius: 3%;
 	}
@@ -359,34 +358,35 @@
 
 
 	/*styles for buttons inside basic-panel*/
-	.basic-panel .accordion1, .basic-panel .accordion1 +.panel-description{
-		width: 70%;
-		margin-left: 15%;
-		margin-right:15%;
+	.basic-panel {
+		width: 85%;
+	}
+	.accordion1, .basic-panel .accordion1 +.panel-description{
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
 	}
 
 
 	/* styles to color names of modules*/
 	#variants{
-		color: #ffcb5a;
+		color: rgb(57, 145, 123);
 	}
 	
 	/*colors for drugs module*/
 	.accordion.accordion0.accordion1.accord_drugs, .accordion.accordion0.accordion-result.accord_drugs{
-		color: #7db313;
+		color: rgb(81, 139, 122);
 	}
 	.accord_drugs{
-		border: #a0cf47 6px solid;
-	}
-	.accord_drugs:after{
-		border-bottom:7px solid #a0cf47;
+		border: rgb(101, 189, 162) 6px solid;
+		border-bottom: none;
 	}
 
 
 	/* styles for arrow */
 	.accordion0 div{
-		border-top: orange solid 0.3vw;
-		border-right: orange solid 0.3vw;
+		border-top: rgba(61, 128, 119, 0.7) solid 0.3vw;
+		border-right:rgba(61, 128, 119, 0.7) solid 0.3vw;
 		border-radius: 5px;
 		height: 1vw;
 		width:1vw;
@@ -395,64 +395,43 @@
 		transform: rotate(45deg);
 		transition: transform 0.5s;
 	}
-	.accordion.accordion0.accordion1.accord_drugs div, .accordion.accordion0.accordion-result.accord_drugs div{
-		border-top: #a0cf47 solid 0.3vw;
-		border-right: #a0cf47 solid 0.3vw;
-	}
-	.accordion-heading.major-risk{
-		border: #577de4 solid 7px;
-		color: #49557a;
-	}
-	.accordion0.major-risk div{
-		border-top: #4565be solid 0.3vw;
-		border-right: #4565be solid 0.3vw;
-	}
 	.accordion0.active div{
 		transform: rotate(135deg);
-	}
-	.prs-panel{
-		margin-top: 0.7vw;
 	}
 
 
 /* styles for drug module*/
 	.accordion1.accord_drugs, .panel-description.accord_drugs{
-		border: #a0cf47 6px solid;
+		border: rgb(101, 189, 162)  6px solid;
+
+	}
+	.accordion1.accord_drugs{
+		border-bottom: none;
 	}
 	.panel-description.accord_drugs{
 		border-top: none;
-	}
-	.accordion1.accord_drugs::after{
-		border-bottom:7px solid #a0cf47;
 	}
 
 
 
 /*styles for major risks module*/
-	.major-risk, .variants.panel.major-risk{
-		border: #577de4 6px solid;
-	}
+	.variants.panel.major-risk{
+		border: rgb(101, 189, 162)  6px solid;
+		border-bottom: none;}
+		
 	.variants.panel.major-risk{
 		border-top:none;
 	}
-	.major-risk:after{
-		border-bottom:6px solid rgb(87, 125, 228);
-	}
 	.accordion0.major-risk{
-		color:#2c50b4;
+		color:rgb(81, 139, 122);
  	}
 	.content-variants.major-risk{
 		border:none;
 	}
 	.basic-panel.major-risk{
-		border-top: none;
 		border-bottom: none;
-		background-color: rgba(231, 237, 253, 0.5);
-		border-right: rgba(203, 214, 241, 0.5) solid 20px;
-		border-left: rgba(203, 214, 241, 0.5)  solid 20px;
+		border-top: none;
 	}
-
-	
 
 	.last.inside, .last{
 		height:4vw;
@@ -476,7 +455,6 @@
     }
 
 
-	
 
     /* below is style for navigation button */
     #toTop{
@@ -553,6 +531,7 @@
 			height: 8vw;
 			font-size: 2.5vw;
 		}
+
 		.panel,.accordion0.accordion.accordion1 +.panel-description{
 			width:80%;
 			margin-left: 10%;
@@ -564,18 +543,10 @@
 		.accordion0 div{
 		height: 2vw;
 		width:2vw;
-		border-top: orange solid 0.6vw;
-		border-right: orange solid 0.6vw;
+		border-top: rgba(61, 128, 119, 0.7)  solid 0.6vw;
+		border-right: rgba(61, 128, 119, 0.7) solid 0.6vw;
 		margin-right: 2vw;
 		}
-		.accordion.accordion0.accordion1.accord_drugs div, .accordion.accordion0.accordion-result.accord_drugs div{
-		border-top: #a0cf47 solid 0.6vw;
-		border-right: #a0cf47 solid 0.6vw;
-	}
-	.accordion0.major-risk div{
-		border-top: #4565be solid 0.6vw;
-		border-right: #4565be solid 0.6vw;
-	}
 	.basic-panel{
 		width: 98%;
 	}
@@ -628,8 +599,9 @@
 	/*.ui.selectable.celled.teal.table.table.cancer.cardio{
 		width: 90%;
 	}*/
-	.ui.selectable.celled.teal.table.table.cancer.cardio td{
+	.ui.selectable.celled.teal.table.table.cancer.cardio td, .ui.celled.teal.table.table.drugs td{
 		padding: 2px;
+		font-size: 1.1vw;
 	}
 
 h2{
@@ -651,16 +623,30 @@ h2{
 			padding: 3vw 4vw 3vw 4vw;
 		}
 		.basic-panel, .basic-panel.major-risk{
-			background: none;
-			border: none;
 			width:100%;
 		}
-		.accordion0, .accordion.accordion-heading{
+		.accordion0, .accordion-heading, .accordion0.accordion.accordion1{
 			height: 12vw;
 			font-size: 4vw;
 			width: 95%;
 			margin-left: 2.5%;
 			margin-right: 2.5%;
+		}
+		.panel, .accordion0.accordion.accordion1 +.panel-description, .accordion0.accordion.accordion1 + .prs-panel {
+			margin-left:2.5%;
+			margin-right:2.5%;
+			width:95%;
+			font-size: 3vw;;
+			margin-bottom: 1vw;
+			margin-top: 0;
+		}
+		.accordion0 div{
+		height: 3.5vw;
+		width:3.5vw;
+		border-top: rgba(61, 128, 119, 0.7)  solid 1vw;
+		border-right: rgba(61, 128, 119, 0.7) solid 1vw;
+		margin-right: 2vw;
+		margin-left: 1vw;
 		}
 		.accordion.accordion-heading{
 			height: 16vw;
@@ -677,9 +663,6 @@ h2{
 			width: 90%;
 			border: rgb(71, 194, 184) solid  2px;
 			border-radius: 13px;
-		}
-		.acordiv h1{
-			font-size: 5vw;
 		}
 		.first{
 			margin-top: 15vw;
@@ -710,27 +693,59 @@ h2{
 		}
 		.board.prs,.board.drugs,.board.cancer, .board.variants, .board.variants ol{
 			font-size: 2.7vw;
-			width: 90%;
+			width: 95%;
 		}
 		.board.variants{
 			margin-bottom: 15vw;
 		}
-		.how_to{
-			font-size: 4vw;
+		.board .how_to{
+			font-size: 3.7vw;
 		}
-		
-		.ui.celled.teal.table.table.drugs td, .ui.selectable.celled.teal.table.table.cancer td{
-			padding: 5px;
+		.ui.celled.teal.table.prs{
+			font-size: 2.1vw;
+		}
+		.ui.celled.teal.table.table.drugs td, .ui.selectable.celled.teal.table.table.cancer td, .ui.celled.teal.table.table.drugs th, .ui.selectable.celled.teal.table.table.cancer th{
+			padding: 2px;
+			font-size: 1.3vw;
+			line-height: 2.5vw;
+		}
+		.ui.selectable.celled.teal.table.table.variants td, .ui.selectable.celled.teal.table.table.variants th{
+			font-size: 1.5vw;
+			padding: 3px;
+			line-height: 2.3vw;
+		}
+		.ui.selectable.celled.teal.table.table.variants{
+			margin-bottom: 1vw;
+		}
+		.ui.padded.table{
+			font-size: 1.5vw;
+			line-height: 2.3vw;.ui.selectable.celled.teal.table.table.cancer.card
 		}
 		.ui.selectable.celled.teal.table.table.cancer.cancer1 td{
-			padding: 3px;
+			padding: 2px;
+			font-size: 1.4vw;
 		}
 		.ui.celled.teal.table.table.drugs, .ui.selectable.celled.teal.table.table.cancer{
 			width: 100%;
 		}
+		.ui.celled.teal.table.table.drugs{
+			font-size: 1.4;
+		}
+
+		.ui.selectable.celled.teal.table.table.cancer.bigger th, .ui.selectable.celled.teal.table.table.cancer.bigger td{
+			font-size: 1.5vw;
+			line-height: 2.6vw;
+		}
+		.ui.selectable.celled.teal.table.table.cancer.cardio td{
+			font-size: 1.3vw;
+		}
 		.acordiv{
 			width:100%;
 		}
+		canvas{
+        width: 34vw;
+        height: 17vw;
+    }
 	}
 </style>
 <script>
@@ -952,10 +967,9 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 <p></p>
 <p>The report consists of:</p>
 <ul>
-    <li><a href="#prs" class=" li1 first_li" style="color:#7ece34">Longevity polygenic risk scores (PRSs)</a></li>
-	<li><a href="#variants" class="li1 second_li" style="color:#ffcb5a;">Longevity variants</a></li>
-	<li><a href="#drugs" class="li1 third_li" style="color:#a0cf47;">Longevity drugs</a></li>
-	<li><a href="#cancer" class="li1 forth_li" style="color:#577de4;">Major risks</a></li>
+	<li><a href="#variants" class="li1 second_li">Longevity variants</a></li>
+	<li><a href="#drugs" class="li1 third_li">Longevity drugs</a></li>
+	<li><a href="#cancer" class="li1 forth_li">Major risks</a></li>
 </ul>
 <p></p>
 </div>
@@ -991,8 +1005,8 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 </ol>
 <p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.</p>
 </div>
-<button class="accordion accordion0 accordion1 prs-panel"><div></div>Longevity Polygenic Risk Scores (PRSs)</button>
-		<div class="board variants panel panel-description">
+<button class="accordion accordion0 accordion1 prs-panel module-button"><div></div>Longevity Polygenic Risk Scores (PRSs)</button>
+		<div class="board variants prs-panel panel">
 			<p></p>
 <p>There is data on <u>Polygenic risk scores (PRSs)</u> for gaining longevity.</p>
 <p>PRSs aggregate the effect of many common genetic variants to estimate a person&rsquo;s chances of gaining extreme longevity. Each variant on its own tends little to the total outcome, but when added together, these differences can have a more significant impact.
@@ -1017,7 +1031,7 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 <p></p>
 <% g = "PRS5" %>
 <table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas style="width:400px;height:200px;" id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
+	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
     <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
     <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
     <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
@@ -2469,8 +2483,8 @@ Although genes associated with longevity can be classified into 11 definite path
 	<div class="last inside"></div>
 </div>
 	<p></p>
-	<h2 id="drugs" style="color:#a0cf47;">Longevity drugs</h2>
-	<button class="accordion accordion0 accordion1 accord_drugs"><div></div>Description</button>
+	<h2 id="drugs" style="color:rgb(57, 145, 123);">Longevity drugs</h2>
+	<button class="accordion accordion0 accordion1 module-button"><div></div>Description</button>
 <div class="board variants panel panel-description accord_drugs">
 
 	<p>Plenty of drugs are frequently prescribed at an older age. Moreover, some drugs are known to have geroprotective action (e.g. statins, metformin, rapamycin, etc.). Drug metabolism to a large extent depends on a person&rsquo;s genetic polymorphisms, affecting the activity of xenobiotics-transforming enzymes. So it&rsquo;s a common situation when individual dose correction is needed, or even another drug has to be taken in order to avoid adverse effects. Longevity-drugs report is mainly based on data from PharmGKB database (
@@ -2480,12 +2494,12 @@ Although genes associated with longevity can be classified into 11 definite path
 	<p>In the table you can find data about your genome&rsquo;s gene variants, associated with a changed response to the drugs.
 	</p>
 </div>
-	<button class="accordion accordion0 accordion-result accord_drugs"><div></div>Results</button>
+	<button class="accordion accordion0 accordion-result accord_drugs module-button"><div></div>Results</button>
 	<div class="content content-variants">
 	<table class="ui celled teal table table drugs">
 		<thead>
 		<tr><th>#</th>
-				<th>Variant/Haplotypes</th><th>Drug(s)</th><th>Phenotype Category</th><th>Significance</th><th>Sentence</th><th>Allele Of Frequency In Cases</th>
+				<th>Variant/</br>Haplotypes</th><th>Drug(s)</th><th>Phenotype Category</th><th>Significance</th><th>Sentence</th><th>Allele Of Frequency In Cases</th>
 				<th>Allele Of Frequency In Controls</th><th>Ratio Stat Type</th><th>Effect</th></tr>
 		</thead>
 		<tbody id="drugsTBody">
@@ -2502,8 +2516,8 @@ Although genes associated with longevity can be classified into 11 definite path
 	</table>
 	<p></p>
 </div>
-	<h2 id="cancer" style="color:#577de4;">Major risks</h2>
-	<button class="accordion accordion0 accordion1 major-risk"><div></div> Description</button>
+	<h2 id="cancer" style="color:rgb(57, 145, 123);;">Major risks</h2>
+	<button class="accordion accordion0 accordion1 major-risk module-button"><div></div> Description</button>
 <div class="board variants panel panel-description major-risk">
 	<p></p>
 	<p>It is not enough to have &quot;centenarian&quot; genes to become one: You have to cut down Your health risks before. This section contains information about the risk of developing chronic age-related diseases: cardiovascular, cancer, mental health, chronic inflammation, bone and muscle diseases, and lung diseases.
@@ -2544,13 +2558,13 @@ Although genes associated with longevity can be classified into 11 definite path
 	<button class="accordion accordion-heading major-risk"  >Coronary artery Disease</button>
 	<div class="basic-panel major-risk">
 		<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
-	<div class="board variants panel panel-description major-risk">
+	<div class="board variants panel prs-panel major-risk">
 		<p>Coronary artery disease (CAD) is a condition in which the blood vessels that supply the heart muscle with oxygen and nutrients become narrowed or blocked, leading to reduced blood flow to the heart. Age is a major risk factor for CAD, as the risk of developing CAD increases with age. Genetic factors plays an important role in the development of coronary artery disease (CAD).</p>
 		<p>This report contains data of PRS for coronary disease development (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>) and the list with genes, associated with an increased risk of CAD.</p>
 		<p>However, it's important to note that genetics is just one of many factors that contribute to the development of CAD, and having a genetic predisposition to the disease does not necessarily mean that an individual will develop it.</p>
 		</div>
 		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel panel-description major-risk">
+	<div class="board variants panel prs-panel major-risk">
 		<p class="how_to">How to read the result?</p>
 <p></p>
 <p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
@@ -2656,7 +2670,7 @@ It's important to note, however, that genetics is just one of many factors that 
 </p>
 		</div>
 		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel panel-description major-risk">
+	<div class="board variants panel prs-panel major-risk">
 		<p class="how_to">How to read the result?</p>
 <p></p>
 <p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
@@ -2681,7 +2695,7 @@ It's important to note, however, that genetics is just one of many factors that 
 		</div>
 	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
-		<table class="ui selectable celled teal table  table cancer">
+		<table class="ui selectable celled teal table  table cancer bigger">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'lipidmetabolismTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>RSID</th><th>Gene</th><th>Risk Allele</th><th>Genotype</th><th>Pubmed ID</th>
@@ -2743,7 +2757,7 @@ It's important to note, however, that genetics is just one of many factors that 
 		</div>
 	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
-		<table class="ui selectable celled teal table  table cancer">
+		<table class="ui selectable celled teal table table cancer bigger">
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'thrombophiliaTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>RSID</th><th>Gene</th><th>Risk Allele</th><th>Genotype</th><th>Pubmed ID</th>
@@ -2813,7 +2827,13 @@ window.addEventListener("resize", function(event) {
 	var acc = document.getElementsByClassName("accordion");
 	var i;
 	for (i = 0; i < acc.length; i++) {
-
+		if (acc[i].classList.contains("panel-description")){
+		acc[i].classList.toggle("active");
+		acc[i].style.borderRadius = "10px 10px 0px 0px"
+		var panel = acc[i].nextElementSibling;
+		panel.style.display="block"
+		panel.style.maxHeight = panel.scrollHeight + "px";
+	}
 	}
 })
 
@@ -2823,7 +2843,7 @@ let listOfStyles = {widthForActive:"", widthForClosed:"", marginForActive:"", ma
 
 if (width >= 1400){
 	listOfStyles.widthForActive = "85";
-	listOfStyles.widthForClosed = "70";
+	listOfStyles.widthForClosed = "50";
 	console.log(listOfStyles)
 }else if((width < 1400) && (currentWidth >= 600)){
 		listOfStyles.widthForActive = "98";
@@ -2854,7 +2874,7 @@ for (i = 0; i < acc.length; i++) {
 		acc[i].style.borderRadius = "10px 10px 0px 0px"
 		var panel = acc[i].nextElementSibling;
 		panel.style.display="block"
-		panel.style.maxHeight = panel.scrollHeight + 30 + "px";
+		panel.style.maxHeight = panel.scrollHeight + "px";
 	}
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
