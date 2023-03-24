@@ -42,7 +42,7 @@
 
 		/*style for intro section*/
 		.intro{
-        width: 70%;
+        width: 60%;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -207,7 +207,9 @@
       padding: 2px;
     }
 
-
+	.accordion.accordion0.accordion1.prs-panel{
+		margin-top: 0.7vw;
+	}
 
 
 	/* accordions styles*/
@@ -988,21 +990,8 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 
 <p>Longevity pathways encompass a fascinating realm of biological processes and signaling pathways that play a crucial role in regulating aging and lifespan. Recent advancements in our understanding of these pathways have yielded valuable insights, including the identification of specific genes that impact the aging process [PMID:<a href="https://pubmed.ncbi.nlm.nih.gov/33891896/">33891896</a>].</p>
 
-<p>To help you better understand the role your genes play in longevity, we have categorized them into 11 distinct groups. These groups include:</p>
+<p>To help you better understand the role your genes play in longevity, we have categorized them into 11 distinct groups.</p>
 
-<ol>
-	<li>Genes involved in lipid transfer and lipid signaling</li>
-	<li>Genes involved in the insulin/IGF-1 signaling pathway</li>
-	<li>Genes involved in antioxidant defense</li>
-	<li>Genes related to mitochondria function</li>
-	<li>Genes related to the sirtuin pathway</li>
-	<li>Genes related to mTOR pathway</li>
-	<li>Tumor-suppressor genes</li>
-	<li>Genes of the renin-angiotensin system</li>
-	<li>Heat-shock protein genes</li>
-	<li>Inflammation and related pathways</li>
-	<li>Genome maintenance and post-transcriptional processes</li>
-</ol>
 <p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.</p>
 </div>
 <button class="accordion accordion0 accordion1 prs-panel module-button"><div></div>Longevity Polygenic Risk Scores (PRSs)</button>
@@ -2627,7 +2616,7 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 		<thead>
 		<tr><th style="width:1%" class="clickable title" onclick="collapseExpandAll(this, 'cardioTBody')"><div class="ui tiny circular compact positive button">+</div></th><th>#</th>
 				<th>Gene</th><th>rsID</th><th>cDNA change</th><th>Your genotype</th><th>Sequence ontology</th><th>SIFT prediction</th>
-				<th>Allele Frequency</th><th>Phenotype Name</th><th>Significance</th><th>ClinVar ID</th><th>OMIM</th></tr>
+				<th>Allele Frequency</th><th>Significance</th><th>ClinVar ID</th><th>OMIM</th></tr>
 		</thead>
 		<tbody id="cardioTBody">
 			<% i = 1 %>
@@ -2636,7 +2625,7 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 					<td>${row['rsid']}</td></a></td>
 					<td>${row['cdnachange']}</td>
 					<td>${row['genotype']}</td><td>${row['sequence_ontology']}</td><td>${row['sift_pred']}</td>
-					<td>${row['alelfreq']}</td><td>${row['phenotype']}</td>
+					<td>${row['alelfreq']}</td>
 					<td>${row['significance']}</td>
 					% if row['clinvarid']:
 					<td><a href="https://www.ncbi.nlm.nih.gov/clinvar/variation/${row['clinvarid']}/">${row['clinvarid']}</a></td>
@@ -2649,7 +2638,9 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 					<td>${row['clinvarid']}</td>
 					% endif
 					</tr>
-					<tr class="hidden" style="display:none;"><td colspan="11">NCBI gene: ${row['ncbi']}</td></tr>
+					<tr class="hidden" style="display:none;"><td colspan="11">NCBI gene: ${row['ncbi']}
+						<p>Phenotype Name: ${row['phenotype']}</p>
+						</td></tr>
 				<% i += 1 %>
 			% endfor
 		</tbody>
