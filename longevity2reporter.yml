@@ -19,6 +19,7 @@ requires:
   - just_prs
   - just_lipidmetabolism
   - just_thrombophilia
+  - just_superhuman
 pypi_dependencies:
 - mako
 tags:
