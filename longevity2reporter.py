@@ -31,7 +31,6 @@ class Reporter(CravatReport):
         outpath = f'{self.savepath}.longevity2.html'
         self.outfile = open(outpath, 'w', encoding='utf-8')
         self.template = Template(filename=str(Path(__file__).parent / "template.html"))
-        self.table_names = ["prs", "longevitymap", "cancer", "coronary", "drugs", "cardio", "lipidmetabilsm", "thrombophilia"]
 
 
     def write_table(self, name, json_fields = [], sort_field = "", sort_revers = False):
