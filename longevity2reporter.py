@@ -31,6 +31,7 @@ class Reporter(CravatReport):
         outpath = f'{self.savepath}.longevity2.html'
         self.outfile = open(outpath, 'w', encoding='utf-8')
         self.template = Template(filename=str(Path(__file__).parent / "template.html"))
+        self.table_names = ["prs", "longevitymap", "cancer", "coronary", "drugs", "cardio", "lipidmetabilsm", "thrombophilia"]
 
 
     def write_table(self, name, json_fields = [], sort_field = "", sort_revers = False):
@@ -45,7 +46,14 @@ class Reporter(CravatReport):
 
             if name == "longevitymap":
                 res = {}
-                self.db_cursor.execute("SELECT * FROM "+name+sort_sql + ", category_name")
+
+                try:
+                    self.db_cursor.execute("SELECT * FROM "+name+sort_sql + ", category_name")
+                except:
+                    print(f"No module just_{name}")
+                    res = []
+                    return res
+                
                 rows = self.db_cursor.fetchall()
                 categories = ('other', 'tumor-suppressor', 'inflammation', 'genome_maintenance', 'mitochondria', 'lipids', 'heat-shock', 'sirtuin', 'insulin', 'antioxidant', 'renin-angiotensin', 'mtor')
 
@@ -66,8 +74,12 @@ class Reporter(CravatReport):
                             res[category].append(tmp)
                 return res
 
-
-            self.db_cursor.execute("SELECT * FROM "+name+sort_sql)
+            try:
+                self.db_cursor.execute("SELECT * FROM "+name+sort_sql)
+            except:
+                print(f"No module just_{name}")
+                res = []
+                return res
             rows = self.db_cursor.fetchall()
             res = []
 
@@ -100,7 +112,13 @@ class Reporter(CravatReport):
             else:
                 sort_sql = sort_sql+" ASC"
 
-        self.db_cursor.execute("SELECT * FROM "+name+sort_sql)
+        try:
+            self.db_cursor.execute("SELECT * FROM "+name+sort_sql)
+        except:
+            print(f"No module just_{name}")
+            res = []
+            return res
+
         rows = self.db_cursor.fetchall()
         res = dict()
 
