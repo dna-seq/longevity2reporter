@@ -9,6 +9,7 @@ import zipfile
 from pathlib import Path
 import sqlite3
 from mako.template import Template
+from mako import exceptions
 
 class Reporter(CravatReport):
 
@@ -45,19 +46,22 @@ class Reporter(CravatReport):
 
             if name == "longevitymap":
                 res = {}
+                categories = (
+                'other', 'tumor-suppressor', 'inflammation', 'genome_maintenance', 'mitochondria', 'lipids',
+                'heat-shock', 'sirtuin', 'insulin', 'antioxidant', 'renin-angiotensin', 'mtor')
+
+                for category in categories:
+                    res[category]=[]
 
                 try:
                     self.db_cursor.execute("SELECT * FROM "+name+sort_sql + ", category_name")
                 except:
                     print(f"No module just_{name}")
-                    res = []
                     return res
                 
                 rows = self.db_cursor.fetchall()
-                categories = ('other', 'tumor-suppressor', 'inflammation', 'genome_maintenance', 'mitochondria', 'lipids', 'heat-shock', 'sirtuin', 'insulin', 'antioxidant', 'renin-angiotensin', 'mtor')
 
                 for category in categories:
-                    res[category]=[]
                     for row in rows:
                         tmp = {}
                         if category == row[18]:
@@ -153,7 +157,10 @@ class Reporter(CravatReport):
         data["cardio"] = self.write_table("cardio", [], "id", True)
         data["lipidmetabolism"] = self.write_table("lipid_metabolism", [], "weight", False)
         data["thrombophilia"] = self.write_table("thrombophilia", [], "weight", False)
-        self.outfile.write(self.template.render(data=data))
+        try:
+            self.outfile.write(self.template.render(data=data))
+        except:
+            print(exceptions.text_error_template().render())
 
 
     def end(self):
