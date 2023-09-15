@@ -20,6 +20,7 @@ requires:
   - just_lipidmetabolism
   - just_thrombophilia
   - just_superhuman
+  - just_vo2max
 pypi_dependencies:
 - mako
 tags:

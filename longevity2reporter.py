@@ -157,6 +157,7 @@ class Reporter(CravatReport):
         data["cardio"] = self.write_table("cardio", [], "id", True)
         data["lipidmetabolism"] = self.write_table("lipid_metabolism", [], "weight", False)
         data["thrombophilia"] = self.write_table("thrombophilia", [], "weight", False)
+        data["vo2max"] = self.write_table("vo2max", [], "weight", False)
         try:
             self.outfile.write(self.template.render(data=data))
         except:
