@@ -71,9 +71,6 @@
         font-weight: 400;
         font-size: 1.3vw;
     }
-	#prs, #prs1{
-		color: #b2e457;
-	}
 	.attention strong{
 		color: rgb(71, 155, 148);
 		font-size: 1.25vw;
@@ -267,11 +264,6 @@
 	.accordion-heading:hover{
 		background-color: rgba(255, 255, 255, 0.5);
 	}
-
-
-
-
-			
 
 /*used in each div after description and recommendation buttons*/
     
@@ -830,127 +822,6 @@ function collapseExpandAll(obj, id){
 	}
 }
 
-
-var normalData = {'x': {'max': 2.82, 'min': -2.794, 'data': [-2.794, -2.569, -2.428, -2.323, -2.238, -2.167, -2.106, -2.052, -2.003, -1.958, -1.917, -1.879, -1.844, -1.811, -1.779, -1.75, -1.721, -1.694, -1.669, -1.644, -1.62, -1.597, -1.575, -1.554, -1.533, -1.513, -1.494, -1.475, -1.457, -1.439, -1.421, -1.404, -1.388, -1.372, -1.356, -1.34, -1.325, -1.31, -1.295, -1.281, -1.267, -1.253, -1.239, -1.226, -1.213, -1.2, -1.187, -1.174, -1.162, -1.15, -1.138, -1.126, -1.114, -1.103, -1.091, -1.08, -1.069, -1.058, -1.047, -1.036, -1.025, -1.015, -1.004, -0.994, -0.984, -0.974, -0.964, -0.954, -0.944, -0.934, -0.925, -0.915, -0.906, -0.896, -0.887, -0.878, -0.868, -0.859, -0.85, -0.841, -0.832, -0.824, -0.815, -0.806, -0.797, -0.789, -0.78, -0.772, -0.763, -0.755, -0.747, -0.739, -0.73, -0.722, -0.714, -0.706, -0.698, -0.69, -0.682, -0.674, -0.666, -0.659, -0.651, -0.643, -0.635, -0.628, -0.62, -0.613, -0.605, -0.597, -0.59, -0.583, -0.575, -0.568, -0.56, -0.553, -0.546, -0.539, -0.531, -0.524, -0.517, -0.51, -0.503, -0.496, -0.488, -0.481, -0.474, -0.467, -0.46, -0.453, -0.447, -0.44, -0.433, -0.426, -0.419, -0.412, -0.405, -0.399, -0.392, -0.385, -0.378, -0.372, -0.365, -0.358, -0.352, -0.345, -0.338, -0.332, -0.325, -0.318, -0.312, -0.305, -0.299, -0.292, -0.286, -0.279, -0.273, -0.266, -0.26, -0.253, -0.247, -0.24, -0.234, -0.227, -0.221, -0.214, -0.208, -0.202, -0.195, -0.189, -0.182, -0.176, -0.17, -0.163, -0.157, -0.151, -0.144, -0.138, -0.132, -0.125, -0.119, -0.113, -0.106, -0.1, -0.094, -0.088, -0.081, -0.075, -0.069, -0.062, -0.056, -0.05, -0.044, -0.037, -0.031, -0.025, -0.019, -0.012, -0.006, 0.0, 0.007, 0.013, 0.019, 0.025, 0.032, 0.038, 0.044, 0.05, 0.057, 0.063, 0.069, 0.076, 0.082, 0.088, 0.094, 0.101, 0.107, 0.113, 0.12, 0.126, 0.132, 0.139, 0.145, 0.151, 0.158, 0.164, 0.17, 0.177, 0.183, 0.189, 0.196, 0.202, 0.209, 0.215, 0.221, 0.228, 0.234, 0.241, 0.247, 0.254, 0.26, 0.267, 0.273, 0.28, 0.286, 0.293, 0.299, 0.306, 0.312, 0.319, 0.326, 0.332, 0.339, 0.345, 0.352, 0.359, 0.365, 0.372, 0.379, 0.386, 0.392, 0.399, 0.406, 0.413, 0.42, 0.426, 0.433, 0.44, 0.447, 0.454, 0.461, 0.468, 0.475, 0.482, 0.489, 0.496, 0.503, 0.51, 0.518, 0.525, 0.532, 0.539, 0.546, 0.554, 0.561, 0.568, 0.576, 0.583, 0.591, 0.598, 0.606, 0.613, 0.621, 0.628, 0.636, 0.644, 0.651, 0.659, 0.667, 0.675, 0.683, 0.691, 0.699, 0.707, 0.715, 0.723, 0.731, 0.739, 0.747, 0.756, 0.764, 0.773, 0.781, 0.79, 0.798, 0.807, 0.815, 0.824, 0.833, 0.842, 0.851, 0.86, 0.869, 0.878, 0.888, 0.897, 0.906, 0.916, 0.925, 0.935, 0.945, 0.955, 0.964, 0.975, 0.985, 0.995, 1.005, 1.016, 1.026, 1.037, 1.048, 1.059, 1.07, 1.081, 1.092, 1.104, 1.115, 1.127, 1.139, 1.151, 1.163, 1.175, 1.188, 1.201, 1.214, 1.227, 1.24, 1.254, 1.268, 1.282, 1.297, 1.311, 1.326, 1.341, 1.357, 1.373, 1.389, 1.406, 1.423, 1.44, 1.458, 1.477, 1.495, 1.515, 1.535, 1.556, 1.577, 1.599, 1.622, 1.646, 1.671, 1.696, 1.723, 1.752, 1.782, 1.813, 1.847, 1.882, 1.92, 1.962, 2.007, 2.056, 2.111, 2.173, 2.245, 2.33, 2.437, 2.583, 2.82]}, 'y': {'max': 0.399, 'min': 0.007, 'data': [0.008, 0.015, 0.021, 0.027, 0.033, 0.038, 0.043, 0.049, 0.054, 0.059, 0.063, 0.068, 0.073, 0.077, 0.082, 0.086, 0.091, 0.095, 0.099, 0.103, 0.107, 0.111, 0.115, 0.119, 0.123, 0.127, 0.131, 0.134, 0.138, 0.142, 0.145, 0.149, 0.152, 0.156, 0.159, 0.163, 0.166, 0.169, 0.172, 0.176, 0.179, 0.182, 0.185, 0.188, 0.191, 0.194, 0.197, 0.2, 0.203, 0.206, 0.209, 0.212, 0.214, 0.217, 0.22, 0.223, 0.225, 0.228, 0.231, 0.233, 0.236, 0.238, 0.241, 0.243, 0.246, 0.248, 0.251, 0.253, 0.256, 0.258, 0.26, 0.262, 0.265, 0.267, 0.269, 0.271, 0.274, 0.276, 0.278, 0.28, 0.282, 0.284, 0.286, 0.288, 0.29, 0.292, 0.294, 0.296, 0.298, 0.3, 0.302, 0.304, 0.306, 0.307, 0.309, 0.311, 0.313, 0.314, 0.316, 0.318, 0.32, 0.321, 0.323, 0.324, 0.326, 0.328, 0.329, 0.331, 0.332, 0.334, 0.335, 0.337, 0.338, 0.34, 0.341, 0.342, 0.344, 0.345, 0.346, 0.348, 0.349, 0.35, 0.352, 0.353, 0.354, 0.355, 0.356, 0.358, 0.359, 0.36, 0.361, 0.362, 0.363, 0.364, 0.365, 0.366, 0.367, 0.368, 0.369, 0.37, 0.371, 0.372, 0.373, 0.374, 0.375, 0.376, 0.377, 0.378, 0.378, 0.379, 0.38, 0.381, 0.382, 0.382, 0.383, 0.384, 0.384, 0.385, 0.386, 0.386, 0.387, 0.388, 0.388, 0.389, 0.389, 0.39, 0.39, 0.391, 0.391, 0.392, 0.392, 0.393, 0.393, 0.394, 0.394, 0.394, 0.395, 0.395, 0.395, 0.396, 0.396, 0.396, 0.397, 0.397, 0.397, 0.397, 0.398, 0.398, 0.398, 0.398, 0.398, 0.398, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.399, 0.398, 0.398, 0.398, 0.398, 0.398, 0.398, 0.397, 0.397, 0.397, 0.397, 0.396, 0.396, 0.396, 0.395, 0.395, 0.395, 0.394, 0.394, 0.394, 0.393, 0.393, 0.392, 0.392, 0.391, 0.391, 0.39, 0.39, 0.389, 0.389, 0.388, 0.388, 0.387, 0.386, 0.386, 0.385, 0.384, 0.384, 0.383, 0.382, 0.381, 0.381, 0.38, 0.379, 0.378, 0.378, 0.377, 0.376, 0.375, 0.374, 0.373, 0.372, 0.371, 0.37, 0.369, 0.368, 0.367, 0.366, 0.365, 0.364, 0.363, 0.362, 0.361, 0.36, 0.359, 0.358, 0.356, 0.355, 0.354, 0.353, 0.351, 0.35, 0.349, 0.348, 0.346, 0.345, 0.344, 0.342, 0.341, 0.339, 0.338, 0.337, 0.335, 0.334, 0.332, 0.331, 0.329, 0.327, 0.326, 0.324, 0.323, 0.321, 0.319, 0.318, 0.316, 0.314, 0.313, 0.311, 0.309, 0.307, 0.305, 0.304, 0.302, 0.3, 0.298, 0.296, 0.294, 0.292, 0.29, 0.288, 0.286, 0.284, 0.282, 0.28, 0.278, 0.276, 0.273, 0.271, 0.269, 0.267, 0.265, 0.262, 0.26, 0.258, 0.255, 0.253, 0.251, 0.248, 0.246, 0.243, 0.241, 0.238, 0.236, 0.233, 0.23, 0.228, 0.225, 0.222, 0.22, 0.217, 0.214, 0.211, 0.209, 0.206, 0.203, 0.2, 0.197, 0.194, 0.191, 0.188, 0.185, 0.182, 0.179, 0.175, 0.172, 0.169, 0.166, 0.162, 0.159, 0.155, 0.152, 0.149, 0.145, 0.141, 0.138, 0.134, 0.13, 0.127, 0.123, 0.119, 0.115, 0.111, 0.107, 0.103, 0.099, 0.095, 0.09, 0.086, 0.082, 0.077, 0.073, 0.068, 0.063, 0.058, 0.053, 0.048, 0.043, 0.038, 0.032, 0.026, 0.02, 0.014, 0.007]}, 'p': [0.003, 0.005, 0.008, 0.01, 0.013, 0.015, 0.018, 0.02, 0.023, 0.025, 0.028, 0.03, 0.033, 0.035, 0.038, 0.04, 0.043, 0.045, 0.048, 0.05, 0.053, 0.055, 0.058, 0.06, 0.063, 0.065, 0.068, 0.07, 0.073, 0.075, 0.078, 0.08, 0.083, 0.085, 0.088, 0.09, 0.093, 0.095, 0.098, 0.1, 0.103, 0.105, 0.108, 0.11, 0.113, 0.115, 0.118, 0.12, 0.123, 0.125, 0.128, 0.13, 0.133, 0.135, 0.138, 0.14, 0.143, 0.145, 0.148, 0.15, 0.153, 0.155, 0.158, 0.16, 0.163, 0.165, 0.168, 0.17, 0.173, 0.175, 0.178, 0.18, 0.183, 0.185, 0.188, 0.19, 0.193, 0.195, 0.198, 0.2, 0.203, 0.205, 0.208, 0.21, 0.213, 0.215, 0.218, 0.22, 0.223, 0.225, 0.228, 0.23, 0.233, 0.235, 0.238, 0.24, 0.243, 0.245, 0.248, 0.25, 0.253, 0.255, 0.258, 0.26, 0.263, 0.265, 0.268, 0.27, 0.273, 0.275, 0.278, 0.28, 0.283, 0.285, 0.288, 0.29, 0.293, 0.295, 0.298, 0.3, 0.303, 0.305, 0.308, 0.31, 0.313, 0.315, 0.318, 0.32, 0.323, 0.325, 0.328, 0.33, 0.333, 0.335, 0.338, 0.34, 0.343, 0.345, 0.348, 0.35, 0.353, 0.355, 0.358, 0.36, 0.363, 0.365, 0.368, 0.37, 0.373, 0.375, 0.378, 0.38, 0.383, 0.385, 0.388, 0.39, 0.393, 0.395, 0.398, 0.4, 0.403, 0.405, 0.408, 0.41, 0.413, 0.415, 0.418, 0.42, 0.423, 0.425, 0.428, 0.43, 0.433, 0.435, 0.438, 0.44, 0.443, 0.445, 0.448, 0.45, 0.453, 0.455, 0.458, 0.46, 0.463, 0.465, 0.468, 0.47, 0.473, 0.475, 0.478, 0.48, 0.483, 0.485, 0.488, 0.49, 0.493, 0.495, 0.498, 0.5, 0.503, 0.505, 0.508, 0.51, 0.513, 0.515, 0.518, 0.52, 0.523, 0.525, 0.528, 0.53, 0.533, 0.535, 0.538, 0.54, 0.543, 0.545, 0.548, 0.55, 0.553, 0.555, 0.558, 0.56, 0.563, 0.565, 0.568, 0.57, 0.573, 0.575, 0.578, 0.58, 0.583, 0.585, 0.588, 0.59, 0.593, 0.595, 0.598, 0.6, 0.603, 0.605, 0.608, 0.61, 0.613, 0.615, 0.618, 0.62, 0.623, 0.625, 0.628, 0.63, 0.633, 0.635, 0.638, 0.64, 0.643, 0.645, 0.648, 0.65, 0.653, 0.655, 0.658, 0.66, 0.663, 0.665, 0.668, 0.67, 0.673, 0.675, 0.678, 0.68, 0.683, 0.685, 0.688, 0.69, 0.693, 0.695, 0.698, 0.7, 0.703, 0.705, 0.708, 0.71, 0.713, 0.715, 0.718, 0.72, 0.723, 0.725, 0.728, 0.73, 0.733, 0.735, 0.738, 0.74, 0.743, 0.745, 0.748, 0.75, 0.753, 0.755, 0.758, 0.76, 0.763, 0.765, 0.768, 0.77, 0.773, 0.775, 0.778, 0.78, 0.783, 0.785, 0.788, 0.79, 0.793, 0.795, 0.798, 0.8, 0.803, 0.805, 0.808, 0.81, 0.813, 0.815, 0.818, 0.82, 0.823, 0.825, 0.828, 0.83, 0.833, 0.835, 0.838, 0.84, 0.843, 0.845, 0.848, 0.85, 0.853, 0.855, 0.858, 0.86, 0.863, 0.865, 0.868, 0.87, 0.873, 0.875, 0.878, 0.88, 0.883, 0.885, 0.888, 0.89, 0.893, 0.895, 0.898, 0.9, 0.903, 0.905, 0.908, 0.91, 0.913, 0.915, 0.918, 0.92, 0.923, 0.925, 0.928, 0.93, 0.933, 0.935, 0.938, 0.94, 0.943, 0.945, 0.948, 0.95, 0.953, 0.955, 0.958, 0.96, 0.963, 0.965, 0.968, 0.97, 0.973, 0.975, 0.978, 0.98, 0.983, 0.985, 0.988, 0.99, 0.993, 0.995, 0.998]}
-
-function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledColor, invers=0){
-
-	if (invers == 1){
-		if (p <= 0.25){
-			var filledColor = '#ff9b00';
-			var strokeColor = '#895510';
-		} else if (p > 0.25 && p <= 0.45){
-			var filledColor = '#ffdb33';
-			var strokeColor = '#846925';
-		} else {
-			var filledColor = '#b4ea54';
-			var strokeColor = '#097050';
-		}
-	}else{
-		if (p <= 0.55){
-			var filledColor = '#b4ea54';
-			var strokeColor = '#097050';
-		} else if (p > 0.55 && p <= 0.75){
-			var filledColor = '#ffdb33';
-			var strokeColor = '#846925';
-		} else {
-			var filledColor = '#ff9b00';
-			var strokeColor = '#895510';
-		}
-	}
-
-	var gausianStrokeColor = '#165863';
-
-	var percColor = {0.05: '#146d40', 0.25: '#1faa5d', 0.5: '#aaaa5d', 0.75: '#b45b5d', 0.95: '#680000'};
-	if (invers == 1)
-		percColor = {0.05: '#680000', 0.25: '#b45b5d', 0.5: '#aaaa5d', 0.75:  '#1faa5d', 0.95: '#146d40'};
-
-
-	var canvas = document.getElementById(cnvasId);
-	//ctx.fillStyle = "blue";
-	//ctx.fillRect(0, 0, , canvas.height);
-	var width = canvas.width;
-	var height = canvas.height;
-
-	var xdata = normalData['x']['data'];
-	var ydata = normalData['y']['data'];
-	var paddingH = 50;
-	var paddingT = 5;
-	var bottomShift = 2;
-	var xRatio = width / (normalData['x']['max'] - normalData['x']['min'])
-	var yRatio = (height - paddingH) / (normalData['y']['max'] - normalData['y']['min'])
-
-	var fillVal = 0;
-	var pdata = normalData['p'];
-	var pindex = -1;
-	for (var i in pdata){
-		if (pdata[i] >= p){
-			fillVal = xdata[i]*xRatio + width/2;
-			pindex = i;
-			break;
-		}
-	}
-
-	var ctx = canvas.getContext("2d");
-	ctx.save();
-
-	ctx.fillStyle=bgColor;
-	ctx.fillRect(0,0,width,height);
-
-
-	for (var i in pdata){
-		if(pdata[i] == 0.05 || pdata[i] == 0.25 || pdata[i] == 0.5 || pdata[i] == 0.75 || pdata[i] == 0.95){
-			ctx.strokeStyle = percColor[pdata[i]];
-			ctx.fillStyle = percColor[pdata[i]];
-			ctx.lineWidth = 2;
-			ctx.beginPath();
-			ctx.moveTo(xdata[i]*xRatio + width/2, 32);
-			ctx.lineTo(xdata[i]*xRatio + width/2, height);
-			ctx.stroke();
-			ctx.font = "14px serif";
-			ctx.fillText((pdata[i]*100) + "%", xdata[i]*xRatio + width/2 + paddingT - 15, paddingT*2 + 12);
-		}
-	}
-
-	ctx.fillStyle=gausianColor;
-	ctx.strokeStyle=gausianStrokeColor;
-
-    ctx.beginPath();
-	ctx.lineWidth = 2.5;
-	ctx.moveTo(xdata[0]*xRatio + width/2, ydata[0]*-yRatio + height + bottomShift);
-	for (var i in xdata){
-		ctx.lineTo(xdata[i]*xRatio + width/2, ydata[i]*-yRatio + height + bottomShift);
-	}
-	ctx.lineTo(width,height);
-	ctx.lineTo(0,height);
-	ctx.closePath();
-	ctx.fill();
-	ctx.stroke();
-
-	ctx.fillStyle = filledColor;
-	ctx.strokeStyle = strokeColor;
-    ctx.beginPath();
-	ctx.lineWidth = 2.5;
-	ctx.moveTo(xdata[0]*xRatio + width/2, ydata[0]*-yRatio + height + bottomShift);
-	for (var i = 1; i <= pindex; i++){
-		ctx.lineTo(xdata[i]*xRatio + width/2, ydata[i]*-yRatio + height + bottomShift);
-	}
-	--i;
-	ctx.lineTo(xdata[i]*xRatio + width/2, height);
-	ctx.lineTo(0,height);
-	ctx.closePath();
-	ctx.fill();
-	ctx.stroke();
-
-	ctx.fillStyle = strokeColor;
-	ctx.font = "bold 20px serif";
-	var textX = xdata[pindex]*xRatio + width/2 + paddingT - 50;
-	if (textX < 0)
-		textX = 0;
-	ctx.fillText(Math.round(p*100) + "%", textX, height - paddingT*2 - 5);
-
-    ctx.restore();
-}
 </script>
 </head>
 
@@ -980,7 +851,6 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 	<li><a href="#variants" class="li1 second_li">Longevity variants</a></li>
 	<li><a href="#drugs" class="li1 third_li">Longevity drugs</a></li>
 	<li><a href="#cancer" class="li1 forth_li">Major risks</a></li>
-	<li><a href="#prs" class="li1 forth_li">All polygentic risk scores</a></li>
 </ul>
 <p></p>
 </div>
@@ -1003,45 +873,7 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 
 <p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.</p>
 </div>
-<button class="accordion accordion0 accordion1 prs-panel module-button"><div></div>Longevity Polygenic Risk Scores (PRSs)</button>
-		<div class="board variants prs-panel panel">
-			<p></p>
-<p>There is data on <u>Polygenic risk scores (PRSs)</u> for gaining longevity.</p>
-<p>PRSs aggregate the effect of many common genetic variants to estimate a person&rsquo;s chances of gaining extreme longevity. Each variant on its own tends little to the total outcome, but when added together, these differences can have a more significant impact.
-</p>
-<p></p>
-<p>PRS results are highly dependent on the population. PPS is calculated as a weighted sum of trait-associated alleles. PRS gives an estimate of how likely an individual is to have a given trait
-       <u>only based on genetics, without taking environmental factors into account</u>.</p>
-<p></p>
-<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a <u>percentile</u> within a given population. For example, you have the 95th percentile, which means your genetic chances to gain extreme longevity is higher than 95 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased genetic predisposition to longevity, &lt;50 - decreased one.
-</p>
-<p></p>
-<p></p>
-<p></p>
-<p class="how_to">PRS info</p>
-<p>This PRS includes an analysis of 332 variants that significantly discriminated between centenarians and older adults.</p>
-<p>PRS source: <a style="word-wrap: break-word;;" href="https://www.google.com/url?q=https://doi.org/10.1093/gerona/glaa289&amp;sa=D&amp;source=editors&amp;ust=1664211538645453&amp;usg=AOvVaw3xUB1M87YH6DdNAFu4Oipq">https://doi.org/10.1093/gerona/glaa289</a></p>
-<p></p>
-<% g = "PRS5" %>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-</div>
+
 <button class="accordion accordion-heading">Genes involved in lipid transfer and lipid signaling</button >
 <div class="basic-panel">
 <button class="accordion accordion0 accordion1"><div></div> Description</button>
@@ -2558,33 +2390,9 @@ Although genes associated with longevity can be classified into 11 definite path
 		<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
 	<div class="board variants panel prs-panel major-risk">
 		<p>Coronary artery disease (CAD) is a condition in which the blood vessels that supply the heart muscle with oxygen and nutrients become narrowed or blocked, leading to reduced blood flow to the heart. Age is a major risk factor for CAD, as the risk of developing CAD increases with age. Genetic factors plays an important role in the development of coronary artery disease (CAD).</p>
-		<p>This report contains data of PRS for coronary disease development (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>) and the list with genes, associated with an increased risk of CAD.</p>
 		<p>However, it's important to note that genetics is just one of many factors that contribute to the development of CAD, and having a genetic predisposition to the disease does not necessarily mean that an individual will develop it.</p>
 		</div>
-		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel prs-panel major-risk">
-		<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased risk, &lt;50 - decreased one.</p>
-<p></p>
-<% g = "PGS000818"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-		</div>
+
 
 		<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
@@ -2665,33 +2473,6 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 As we age, our lipid metabolism tends to change. For example, LDL cholesterol levels tend to increase, while HDL cholesterol levels tend to decrease. This can increase the risk of CAD and other heart diseases.
 </p>
 		<p>Genetics plays an important role in lipid metabolism and the development of heart disease. Genes control the production, transport, and metabolism of cholesterol and other lipids.</p>
-		<p>This report contains data of the PRS of Coronary atherosclerosis development (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>), and the list with genes, associated with an increased risk of CAD.
-It's important to note, however, that genetics is just one of many factors that contribute to lipid metabolism and the development of heart disease. Lifestyle factors, such as diet and physical activity, are also important contributors to lipid metabolism and the development of heart disease, and they can modify the effects of genetic factors.
-</p>
-		</div>
-		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel prs-panel major-risk">
-		<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased risk, &lt;50 - decreased one.</p>
-<p></p>
-<% g = "PGS001839"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
 		</div>
 	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
@@ -2732,32 +2513,7 @@ It's important to note, however, that genetics is just one of many factors that 
 	<button class="accordion accordion0 accordion1 major-risk"><div></div>Description</button>
 	<div class="board variants panel panel-description major-risk">
 		<p>Thrombophilia is a condition in which an individual has an increased tendency to develop blood clots. This can be caused by genetic or acquired factors, and the risk of developing thrombophilia increases with age. Thrombophilia risk has a strong genetic component, as certain genetic mutations can increase the risk of developing blood clots. The most common genetic mutations associated with thrombophilia are mutations in the genes that control the production and function of clotting factors.</p>
-		<p>This report contains data of blood clot or deep vein thrombosis (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>), and the list with genes, associated with an increased risk of thrombophilia.</p>
 		<p>However, it's important to note that having a genetic mutation does not necessarily mean that an individual will develop thrombophilia. Other factors, such as lifestyle factors and medical conditions, can also contribute to the development of thrombophilia.</p>
-		</div>
-		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel panel-description major-risk">
-		<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased risk, &lt;50 - decreased one.</p>
-<p></p>
-<% g = "PGS000931"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
 		</div>
 	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
@@ -2832,175 +2588,6 @@ It's important to note, however, that genetics is just one of many factors that 
 
 
 
-
-
-<h2 id="prs" style="color:rgb(57, 145, 123);">All polygentic risk scores</h2>
-<button class="accordion accordion0 accordion1 prs-panel major-risk special" ><div></div>PRS</button>
-<div class="board variants panel prs-panel major-risk">
-	<div class="board variants prs-panel panel">
-		</div>
-		<% g = "PRS5" %>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-<% g = "PGS000818"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-<% g = "PGS001839"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-<% g = "PGS000931"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-<% g = "PGS000314"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000314/">PGS000314</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-<% g = "PGS001273"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001273/">PGS001273</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-<% g = "PGS001141"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001141/">PGS001141</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-<% g = "PGS001298"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001298/">PGS001298</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-<% g = "PGS001272.txt"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001272/">PGS001272</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-<% g = "PGS000957.txt"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000957/">PGS000957</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-
-
-	</div>
 <div class="last outside"></div>
 </div>
 <script>

@@ -1,5 +1,5 @@
 title: Longevity2
-version: 0.4.2
+version: 0.4.3
 type: reporter
 description: Create report with longevity ralated information (pre alpha version). It deppends on postagregators .
 output_filename_schema:
@@ -7,8 +7,8 @@ output_filename_schema:
 developer:
   name: DNA-seq
   organization: DNA-seq
-  email: karmazinalex@gmail.com
-  website: https://github.com/dna-seq/opencravat-longevity
+  email: just.dna.seq@gmail.com
+  website: https://dna-seq.github.io/
   citation: ''
 requires:
   - just_cardio
@@ -16,7 +16,6 @@ requires:
   - just_coronary
   - just_drugs
   - just_longevitymap
-  - just_prs
   - just_lipidmetabolism
   - just_thrombophilia
   - just_superhuman
@@ -42,3 +41,4 @@ release_note:
 0.4.0: added just_lipidmetabolism and just_thrombophilia modules, longevitymap report divided into separate tables, changed visuals
 0.4.1: added just_vo2max module
 0.4.2: small fix for compatibility with new version of oakvar
+0.4.3: deleting prs module and adding LLM recommendations generation
