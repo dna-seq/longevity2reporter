@@ -1,5 +1,5 @@
 title: Longevity2
-version: 0.4.2
+version: 0.4.3
 type: reporter
 description: Create report with longevity ralated information (pre alpha version). It deppends on postagregators .
 output_filename_schema:
@@ -41,3 +41,4 @@ release_note:
 0.4.0: added just_lipidmetabolism and just_thrombophilia modules, longevitymap report divided into separate tables, changed visuals
 0.4.1: added just_vo2max module
 0.4.2: small fix for compatibility with new version of oakvar
+0.4.3: deleted prs from report
