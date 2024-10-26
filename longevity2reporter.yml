@@ -16,7 +16,6 @@ requires:
   - just_coronary
   - just_drugs
   - just_longevitymap
-  - just_prs
   - just_lipidmetabolism
   - just_thrombophilia
   - just_superhuman

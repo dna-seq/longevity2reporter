@@ -980,7 +980,6 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 	<li><a href="#variants" class="li1 second_li">Longevity variants</a></li>
 	<li><a href="#drugs" class="li1 third_li">Longevity drugs</a></li>
 	<li><a href="#cancer" class="li1 forth_li">Major risks</a></li>
-	<li><a href="#prs" class="li1 forth_li">All polygentic risk scores</a></li>
 </ul>
 <p></p>
 </div>
@@ -1003,45 +1002,7 @@ function drawGausian(cnvasId, p, bgColor, gausianColor, percentileColor, filledC
 
 <p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.</p>
 </div>
-<button class="accordion accordion0 accordion1 prs-panel module-button"><div></div>Longevity Polygenic Risk Scores (PRSs)</button>
-		<div class="board variants prs-panel panel">
-			<p></p>
-<p>There is data on <u>Polygenic risk scores (PRSs)</u> for gaining longevity.</p>
-<p>PRSs aggregate the effect of many common genetic variants to estimate a person&rsquo;s chances of gaining extreme longevity. Each variant on its own tends little to the total outcome, but when added together, these differences can have a more significant impact.
-</p>
-<p></p>
-<p>PRS results are highly dependent on the population. PPS is calculated as a weighted sum of trait-associated alleles. PRS gives an estimate of how likely an individual is to have a given trait
-       <u>only based on genetics, without taking environmental factors into account</u>.</p>
-<p></p>
-<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a <u>percentile</u> within a given population. For example, you have the 95th percentile, which means your genetic chances to gain extreme longevity is higher than 95 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased genetic predisposition to longevity, &lt;50 - decreased one.
-</p>
-<p></p>
-<p></p>
-<p></p>
-<p class="how_to">PRS info</p>
-<p>This PRS includes an analysis of 332 variants that significantly discriminated between centenarians and older adults.</p>
-<p>PRS source: <a style="word-wrap: break-word;;" href="https://www.google.com/url?q=https://doi.org/10.1093/gerona/glaa289&amp;sa=D&amp;source=editors&amp;ust=1664211538645453&amp;usg=AOvVaw3xUB1M87YH6DdNAFu4Oipq">https://doi.org/10.1093/gerona/glaa289</a></p>
-<p></p>
-<% g = "PRS5" %>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-</div>
+
 <button class="accordion accordion-heading">Genes involved in lipid transfer and lipid signaling</button >
 <div class="basic-panel">
 <button class="accordion accordion0 accordion1"><div></div> Description</button>
@@ -1667,6 +1628,7 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 				positive = 0
 				negative = 0
 			%>
+			%if data['longevitymap']['mtor']:
 			% for row in data['longevitymap']['mtor']:
 				% if  row['weight'] > 0:
 					<% positive += 1 %>
@@ -1740,6 +1702,7 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 				</table>
 			</td></tr>
 			% endfor
+			% endif
 		</tbody>
 	</table>
 	</div>
@@ -2561,30 +2524,6 @@ Although genes associated with longevity can be classified into 11 definite path
 		<p>This report contains data of PRS for coronary disease development (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>) and the list with genes, associated with an increased risk of CAD.</p>
 		<p>However, it's important to note that genetics is just one of many factors that contribute to the development of CAD, and having a genetic predisposition to the disease does not necessarily mean that an individual will develop it.</p>
 		</div>
-		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel prs-panel major-risk">
-		<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased risk, &lt;50 - decreased one.</p>
-<p></p>
-<% g = "PGS000818"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-		</div>
 
 		<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
@@ -2669,30 +2608,7 @@ As we age, our lipid metabolism tends to change. For example, LDL cholesterol le
 It's important to note, however, that genetics is just one of many factors that contribute to lipid metabolism and the development of heart disease. Lifestyle factors, such as diet and physical activity, are also important contributors to lipid metabolism and the development of heart disease, and they can modify the effects of genetic factors.
 </p>
 		</div>
-		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel prs-panel major-risk">
-		<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased risk, &lt;50 - decreased one.</p>
-<p></p>
-<% g = "PGS001839"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-		</div>
+	
 	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
 		<table class="ui selectable celled teal table  table cancer bigger">
@@ -2735,30 +2651,7 @@ It's important to note, however, that genetics is just one of many factors that 
 		<p>This report contains data of blood clot or deep vein thrombosis (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>), and the list with genes, associated with an increased risk of thrombophilia.</p>
 		<p>However, it's important to note that having a genetic mutation does not necessarily mean that an individual will develop thrombophilia. Other factors, such as lifestyle factors and medical conditions, can also contribute to the development of thrombophilia.</p>
 		</div>
-		<button class="accordion accordion0 accordion1 prs-panel major-risk"><div></div>PRS</button>
-	<div class="board variants panel panel-description major-risk">
-		<p class="how_to">How to read the result?</p>
-<p></p>
-<p>PRS is represented as a&nbsp;<u>percentile</u> within a given population. For example, you have the 70th percentile, which means your personal genetic risk of the disease development is higher than 70 out of every 100 people in a chosen population.
-</p>
-<p></p>
-<p>So percentile &gt;50 shows an increased risk, &lt;50 - decreased one.</p>
-<p></p>
-<% g = "PGS000931"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-		</div>
+	
 	<button class="accordion0 accordion accordion-result major-risk"><div></div>Results</button>
 <div class="content content-variants major-risk">
 		<table class="ui selectable celled teal table table cancer bigger">
@@ -2827,180 +2720,6 @@ It's important to note, however, that genetics is just one of many factors that 
 </div>
 
 
-
-
-
-
-
-
-
-<h2 id="prs" style="color:rgb(57, 145, 123);">All polygentic risk scores</h2>
-<button class="accordion accordion0 accordion1 prs-panel major-risk special" ><div></div>PRS</button>
-<div class="board variants panel prs-panel major-risk">
-	<div class="board variants prs-panel panel">
-		</div>
-		<% g = "PRS5" %>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (${data['prs'][g]['name']})</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-<% g = "PGS000818"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000818/">PGS000818</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-<% g = "PGS001839"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001839/">PGS001839</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-<% g = "PGS000931"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000931/">PGS000931</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-<% g = "PGS000314"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000314/">PGS000314</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}1_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}1_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-<% g = "PGS001273"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001273/">PGS001273</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-<% g = "PGS001141"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001141/">PGS001141</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-<% g = "PGS001298"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001298/">PGS001298</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-<% g = "PGS001272.txt"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS001272/">PGS001272</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-<% g = "PGS000957.txt"%>
-<table class="ui celled teal table prs">
-	<tr><td>Title</td><td  style="width:100%">${data['prs'][g]['title']} (<a href="https://www.pgscatalog.org/score/PGS000957/">PGS000957</a>)</td><td rowspan="6"><canvas id="${data['prs'][g]['name']}_canvas"></canvas></td></tr>
-    <tr><td>Sum</td><td>${data['prs'][g]['sum']}</td></tr>
-    <tr><td>Count/total</td><td>${data['prs'][g]['count']}/${data['prs'][g]['total']}</td></tr>
-    <tr><td>Average</td><td>${data['prs'][g]['avg']}</td></tr>
-    <tr><td>Percentile</td><td>${data['prs'][g]['percent']}%</td></tr>
-</table>
-<br/>
-<script>
-	window.addEventListener('load', function() {
-	drawGausian("${data['prs'][g]['name']}_canvas", ${data['prs'][g]['fraction']}, "#ffffff", "#c2f3ec", "#000000", "#b4ea54", ${data['prs'][g]['invers']});
-})
-</script>
-
-
-
-
-
-	</div>
 <div class="last outside"></div>
 </div>
 <script>
