@@ -5,9 +5,9 @@ description: Create report with longevity ralated information (pre alpha version
 output_filename_schema:
 - '{run_name}.longevity2.html'
 developer:
-  name: DNA-seq
-  organization: DNA-seq
-  email: karmazinalex@gmail.com
+  name: Just-DNA-Seq
+  organization: Just-DNA-Seq
+  email: just.dna.seq@gmail.com
   website: https://github.com/dna-seq/opencravat-longevity
   citation: ''
 requires:
