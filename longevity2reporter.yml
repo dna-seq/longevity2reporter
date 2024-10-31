@@ -8,7 +8,7 @@ developer:
   name: Just-DNA-Seq
   organization: Just-DNA-Seq
   email: just.dna.seq@gmail.com
-  website: https://github.com/dna-seq/opencravat-longevity
+  website: "https://dna-seq.github.io/"
   citation: ''
 requires:
   - just_cardio
