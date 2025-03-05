@@ -874,6 +874,7 @@ function collapseExpandAll(obj, id){
 <p> Our analysis has allowed us to identify which of your genes contribute to different longevity pathways, giving you a clearer picture of which genes are performing well and which ones may need additional attention.</p>
 </div>
 
+
 <button class="accordion accordion-heading">Genes involved in lipid transfer and lipid signaling</button >
 <div class="basic-panel">
 <button class="accordion accordion0 accordion1"><div></div> Description</button>
@@ -882,109 +883,106 @@ function collapseExpandAll(obj, id){
 	</div>
 <button class="accordion accordion0 accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
-	<table class="ui selectable celled teal table table variants">
-		<thead>
-			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longlipidsTBody')"><div class="ui tiny circular compact positive button">+</div></th>
-				<th>RSID</th><th>Population</th><th>Gene</th>
-				<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
-				<th>Weight</th>
-			</tr>
-		</thead>
-		<tbody id="longlipidsTBody">
-			<%
-				positive = 0
-				negative = 0
-			%>
-			% for row in data['longevitymap']['lipids']:
-				% if  row['weight'] > 0:
-					<% positive += 1 %>
-				% else:
-				<% negative += 1 %>
-				% endif
-			<tr class="clickable" onclick="doOnClick(this)">
-				<td><div class="ui tiny circular compact positive button">+</div></td>
-				<td><a href="https://www.ncbi.nlm.nih.gov/snp/${row['snp']}">${row['snp']}</a></td><td>${row['population']}</td>
-				<td><a href="https://genomics.senescence.info/longevity/gene.php?id=${row['gene']}">${row['gene']}</a></td>
-				<td>${row['nucleotides']}</td><td>${row['ref']}</td><td>${row['alt']}</td><td>${row['zegot']}</td><td style="background-color:#${row['weightcolor']}">${row['weight']}</td>
-			</tr>
-			<tr class="hidden" style="display:none;"><td colspan="8">
-				<table class="ui padded table">
-				% if row['cdnachange']:
-				<tr><th>cDNA change</th><td>${row['cdnachange']}</td></tr>
-				% endif
-				% if row['alelfreq']:
-				<tr><th>Substitution frequency (GnomAD)</th><td>${row['alelfreq']}</td></tr>
-				% endif
-				<tr><td colspan="2">
-				% if row['conflicted_rows']:
-				<table class="ui selectable celled teal table table variants">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Association</th>
-							<th>Population</th>
-							<th>Identifier</th>
-							<th>Gene</th>
-							<th>Pubmed ID</th>
-						</tr>
-					</thead>
-					<tbody>
-						% for item in row['conflicted_rows']:
-						<tr>
-							% for element in item:
-							<th style="font-weight: normal; background-color: rgb(255, 251, 251)smoke;">${item[element]}</th>
+	% if 'lipids' in data['longevitymap']:
+		<table class="ui selectable celled teal table table variants">
+			<thead>
+				<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longlipidsTBody')"><div class="ui tiny circular compact positive button">+</div></th>
+					<th>RSID</th><th>Population</th><th>Gene</th>
+					<th>Your genotype</th><th>Ref allele</th><th>Alt allele</th><th>Zygosity</th>
+					<th>Weight</th>
+				</tr>
+			</thead>
+			<tbody id="longlipidsTBody">
+				<%
+					positive = 0
+					negative = 0
+				%>
+				% for row in data['longevitymap']['lipids']:
+					% if  row['weight'] > 0:
+						<% positive += 1 %>
+					% else:
+					<% negative += 1 %>
+					% endif
+				<tr class="clickable" onclick="doOnClick(this)">
+					<td><div class="ui tiny circular compact positive button">+</div></td>
+					<td><a href="https://www.ncbi.nlm.nih.gov/snp/${row['snp']}">${row['snp']}</a></td><td>${row['population']}</td>
+					<td><a href="https://genomics.senescence.info/longevity/gene.php?id=${row['gene']}">${row['gene']}</a></td>
+					<td>${row['nucleotides']}</td><td>${row['ref']}</td><td>${row['alt']}</td><td>${row['zegot']}</td><td style="background-color:#${row['weightcolor']}">${row['weight']}</td>
+				</tr>
+				<tr class="hidden" style="display:none;"><td colspan="8">
+					<table class="ui padded table">
+					% if row['cdnachange']:
+					<tr><th>cDNA change</th><td>${row['cdnachange']}</td></tr>
+					% endif
+					% if row['alelfreq']:
+					<tr><th>Substitution frequency (GnomAD)</th><td>${row['alelfreq']}</td></tr>
+					% endif
+					<tr><td colspan="2">
+					% if row['conflicted_rows']:
+					<table class="ui selectable celled teal table table variants">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Association</th>
+								<th>Population</th>
+								<th>Identifier</th>
+								<th>Gene</th>
+								<th>Pubmed ID</th>
+							</tr>
+						</thead>
+						<tbody>
+							% for item in row['conflicted_rows']:
+							<tr>
+								% for element in item:
+								<th style="font-weight: normal; background-color: rgb(255, 251, 251)smoke;">${item[element]}</th>
+								% endfor
+							</tr>
 							% endfor
-						</tr>
-						% endfor
-					</tbody>
-				</table>
-				% endif
-				</td></tr>
-				<tr><td colspan="2">
-				% if row['description']:
-				<table class="ui selectable celled teal table table variants">
-					<thead>
-						<tr>
-							<th>Pubmed ID</th>
-							<th>Study design</th>
-							<th>Conclusions</th>
-						</tr>
-					</thead>
-					<tbody>
-						% for item in row['description']:
-						<tr>
-							% for element in item:
-							<th style="font-weight: normal; background-color: rgb(255, 251, 251)smoke;">${item[element]}</th>
+						</tbody>
+					</table>
+					% endif
+					</td></tr>
+					<tr><td colspan="2">
+					% if row['description']:
+					<table class="ui selectable celled teal table table variants">
+						<thead>
+							<tr>
+								<th>Pubmed ID</th>
+								<th>Study design</th>
+								<th>Conclusions</th>
+							</tr>
+						</thead>
+						<tbody>
+							% for item in row['description']:
+							<tr>
+								% for element in item:
+								<th style="font-weight: normal; background-color: rgb(255, 251, 251)smoke;">${item[element]}</th>
+								% endfor
+							</tr>
 							% endfor
-						</tr>
-						% endfor
-					</tbody>
-				</table>
-				% endif
+						</tbody>
+					</table>
+					% endif
+					</td></tr>
+					% if row['ncbidesc']:
+						<tr><th>Gene Description (${row['gene']})</th><td>${row['ncbidesc']}</td></tr>
+					% endif
+					</table>
 				</td></tr>
-				% if row['ncbidesc']:
-					<tr><th>Gene Description (${row['gene']})</th><td>${row['ncbidesc']}</td></tr>
-				% endif
-				</table>
-			</td></tr>
-			% endfor
-		</tbody>
-	</table>
+				% endfor
+			</tbody>
+		</table>
+		% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 	<button class="accordion0 accordion"><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p> From ${positive+negative} gene variants involved in lipid metabolism and longevity pathways, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
-	<br>
-	<p>If your genetic testing reveals that you have unfavorable forms of genes involved in lipid and cholesterol transfer, there are several things you can do to manage your risk and improve your health: </p>
-	<p><b>Monitor your health:</b> Regular check-ups and monitoring of your cholesterol levels, blood pressure, and other health parameters can help to identify any issues early and allow for prompt intervention. </p>
-	<p><b>Biochemical markers for check-ups: </b>Triglycerides, Total cholesterol level, LDL and HDL cholesterol, and the atherogenicity index (AI). It is a good idea to monitor these markers on a regular basis, at least once per year.
- </p>
-	<p><b>Adopt a healthy lifestyle:</b> it sounds not innovative, but getting regular exercise and maintaining a healthy weight can help to lower your risk of unfavorable lipid metabolism genes.
- </p>
-	<p><b>Take medications if recommended:</b> Your healthcare professional may recommend medications such as statins, which can help to lower your cholesterol levels and reduce your risk of developing cardiovascular disease. Do not take any medicaments if they are not prescribed by a doctor. 
- </p>
-	<p><b>Look at pharmacogenetics:</b> If your biochemical lipid profile is disturbed, consider that variations in these genes may be associated with differences in response to statin therapy.
- </p>
+	%if 'lipids' in data['summarization']:	
+	${data['summarization']['lipids']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -998,6 +996,7 @@ function collapseExpandAll(obj, id){
 	</div>
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'insulin' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longinsulinTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1086,29 +1085,22 @@ function collapseExpandAll(obj, id){
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 <button class=" accordion0 accordion"><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p> From  ${positive+negative} gene variants involved in insulin/IGF-1 signaling pathways, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
-	<br>
-	<p>If you have unfavorable variants of  insulin/IGF-1 signaling pathway genes, there are several lifestyle changes you can make to help promote healthy aging and reduce the risk of age-related diseases:
- </p>
-	<p><b>Diet:</b> A healthy, balanced diet that is low in sugar and processed foods can help to regulate insulin and IGF-1 levels, which may help to mitigate the effects of unfavorable genes. 
- </p>
-	<p><b>Exercise:</b> Regular exercise has been shown to improve insulin sensitivity and promote healthy aging. Aim for at least 30 minutes of moderate-intensity exercise most days of the week, such as brisk walking, cycling, or swimming.
- </p>
-	<p><b>Stress management:</b> Chronic stress can contribute to insulin resistance and age-related diseases. Incorporating stress-management techniques such as meditation, yoga, or deep breathing into your daily routine can help to reduce stress and promote healthy aging.
- </p>
-	<p><b>Sleep:</b> Poor sleep has been linked to insulin resistance and other age-related diseases. Aim for at least 7-8 hours of sleep each night and establish a regular sleep routine to support healthy aging.
- </p>
-	<p><b>Biochemical markers for check-ups:</b> insulin, fasting glucose level, Hemoglobin A1c (HbA1c), and C-peptide.  It is a good idea to monitor these markers on a regular basis, at least once per year.
- </p>
+	%if 'insulin' in data['summarization']:	
+	${data['summarization']['insulin']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
 
-	
 	<button class="accordion accordion-heading"  >Genes involved in antioxidant defense</button>
 	<div class="basic-panel">
 <button class="accordion0 accordion accordion1"><div></div>Description</button>
@@ -1123,6 +1115,7 @@ The body has various mechanisms to defend against oxidative stress, including an
 
 <button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'antioxidant' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longantioxidantTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1211,25 +1204,18 @@ The body has various mechanisms to defend against oxidative stress, including an
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 <button class="accordion0 accordion"><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p> From ${positive+negative} gene variants involved in antioxidant defense, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
-	<p>If you have unfavorable variants of  antioxidant system genes, there are several lifestyle changes you can make to help promote healthy aging and reduce the risk of age-related diseases:
-</p>
-	<p><b>Ensure the uptake of all components needed for your antioxidant system works appropriately: </b></p>
-	<p><u>Glutathione</u> (which is an important component of your defense) is composed of the amino acids glutamate, cysteine, and glycine. Its’ synthesis requires magnesium, zinc, selenium, and vitamins B2, B6, and B12 as cofactors. Ensure you take all these components from food. NAC supplementation can be used to boost glutathione synthesis.</p>
-	<p><u>Flavonoids:</u> They are a group of plant compounds that have antioxidant and anti-inflammatory properties. Good food sources of flavonoids include berries, apples, citrus fruits, and tea.
-</p>
-	<p><u>Selenium:</u> It is a mineral that is important for the production of antioxidant enzymes in the body. Good food sources of selenium include Brazil nuts, seafood, and organ meats.
-</p>
-	<p>Polyphenols are a group of naturally occurring compounds found in plant-based foods, including fruits, vegetables, nuts, seeds, and grains. They are known to have antioxidant properties, which means they can help protect the body against damage caused by free radicals.
-</p>
-	<p><u>Polyphenols</u> work by neutralizing free radicals and preventing them from causing oxidative damage to cells and tissues. They can also boost the activity of the body's own antioxidant enzymes, including glutathione peroxidase and superoxide dismutase.Some of the most commonly studied polyphenols include resveratrol, found in grapes and red wine, catechins, found in green tea, and quercetin, found in onions, apples, and berries. Other sources of polyphenols include cocoa, dark chocolate, coffee, and many types of fruits and vegetables.
-</p>
-	<p><b>Biochemical markers for a check-up:</b> oxidized low-density lipoprotein (oxLDL), Fe/Cu ratio, glutathione, 8-hydroxy-2’-deoxyguanosine (8-OHdG) (a marker of oxidative damage to DNA), malondialdehyde (MDA) (it is a byproduct of lipid peroxidation and is used as a marker of oxidative stress). It is a good idea to monitor these markers on a regular basis, at least once per year.
-</p>
+	%if 'antioxidant' in data['summarization']:	
+	${data['summarization']['antioxidant']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -1245,6 +1231,7 @@ The body has various mechanisms to defend against oxidative stress, including an
 
 <button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'mitochondria' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longmitoTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1333,17 +1320,18 @@ The body has various mechanisms to defend against oxidative stress, including an
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion"><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p>From ${positive+negative} gene variants involved in mitochondrial function, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
-	<br>
-	<p>If you have unfavorable variants in genes involved in mitochondrial function, there are several steps you can take to improve your health outcomes potentially:</p>
-	<br>
-	<p><b>Biochemical markers for check-ups:</b> lactate, pyruvate, and creatine kinase, markers of oxidative stress, such as glutathione level and Fe/Cu ratio.</p>
-	<p><b>Consider adequate uptake of trace elements and vitamins essential for mitochondria function:</b> magnesium, B vitamins (particularly thiamine (B1), riboflavin (B2), and niacin (B3)), selenium, iron, copper, and vitamin E.</p>
-	<p><b>Exercise:</b> Regular exercise has been shown to increase mitochondrial biogenesis (the process of creating new mitochondria) and improve mitochondrial function. This is thought to be due to increased energy demand during exercise, which triggers the body to produce more mitochondria.</p>
+	%if 'mitochondria' in data['summarization']:	
+	${data['summarization']['mitochondria']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 
@@ -1364,6 +1352,7 @@ The body has various mechanisms to defend against oxidative stress, including an
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'sirtuin' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longsirtuinTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1452,19 +1441,18 @@ The body has various mechanisms to defend against oxidative stress, including an
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p> From ${positive+negative} gene variants involved in the sirtuin pathway, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
-	<br>
-	<p>There are several ways to activate the sirtuin pathway if your genes are not favorable:</p>
-	<br>
-	<p><b>Exercise:</b> Exercise has been shown to increase sirtuin activity in multiple tissues, including skeletal muscle, liver, and brain. Both endurance and resistance exercise may be effective in activating the sirtuin pathway.</p>
-	<p><b>Supplementation:</b> Supplementation with compounds such as resveratrol and nicotinamide riboside has been shown to increase sirtuin activity in multiple tissues. These compounds are thought to work by mimicking the effects of caloric restriction on sirtuin activity. <u>Consider that in human trials effect of these compounds has not yet been shown. So before taking any supplements, consult your healthcare practitioner.</u> 
-</p>
-	<p><b>Intermittent fasting:</b> Intermittent fasting is a dietary strategy that involves cycling between periods of fasting and non-fasting. Intermittent fasting has been shown to increase sirtuin activity in multiple tissues and may activate the sirtuin pathway.
-</p>
+	%if 'sirtuin' in data['summarization']:	
+	${data['summarization']['sirtuin']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -1486,6 +1474,7 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'mtor' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longmTORTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1499,6 +1488,7 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 				positive = 0
 				negative = 0
 			%>
+			%if data['longevitymap']['mtor']:
 			% for row in data['longevitymap']['mtor']:
 				% if  row['weight'] > 0:
 					<% positive += 1 %>
@@ -1572,26 +1562,22 @@ Genetic variants in the MTOR gene may be associated with differences in lifespan
 				</table>
 			</td></tr>
 			% endfor
+			% endif
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
-<div class="board variants   panel">
-	<p> From ${positive+negative} gene variants involved in mTOR pathway, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. </p>
-
-	<br>
-	<p>There are several ways to influence mTOR pathway if your genes are not favorable:
-</p>
-	<br>
-	<p><b>Fasting:</b> Intermittent fasting or periodic fasting has been shown to decrease mTOR activity.
-</p>
-	<p><b>Use spices:</b> Curcumin is a compound found in turmeric, which has been shown to inhibit mTOR activity.
-</p>
-	<p><b>Plant-based diet:</b> A diet rich in fruits, vegetables, whole grains, and legumes has been associated with decreased mTOR activity.
-</p>
-	</div>
-
+		<div class="board variants   panel">
+			%if 'mtor' in data['summarization']:	
+			${data['summarization']['mtor']}
+			%else:
+			<p>There wasn't found any recommendations for this pathway.</p>
+			%endif
+		</div>
 	<div class="last inside"></div>
 </div>
 	<button class="accordion accordion-heading"  >Tumor-suppressor genes</button>
@@ -1608,6 +1594,7 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'tumor-suppressor' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longTumorTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1696,20 +1683,18 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p>From ${positive+negative} gene variants of tumor-suppressive genes, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable <b>regarding their impact on longevity</b>*.  </p>
-<br>
-<p>If you have unfavorable variants in genes involved in genome maintenance, there are several steps you can take to improve your health outcomes potentially:
-</p>
-<br>
-	<p><b>Ensure methylation processes in your body work well:</b> monitor blood levels of B12, B9, B2, B6, Zn, and Co[PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/31601260/">31601260</a>, PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36203899/">36203899</a>]. These components are needed for methylation enzymes' appropriate work. Methylation is important for genome maintenance because it is involved in the regulation of gene expression and DNA repair [PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34209979/">34209979</a>].</p>
-	<p><b>Reduce exposure to environmental toxins</b>, such as pollution, pesticides, and chemicals. Air-control indoor systems can help with this point.</p>
-	<p><b>Protect the skin</b> from UV radiation by wearing protective clothing and using sunscreen.</p>
-	<p><b>Avoid tobacco:</b> Tobacco use is a leading cause of cancer, so avoiding tobacco in all forms, including smoking, vaping, and chewing, can significantly decrease the risk of cancer.</p>
-	<p><i>*In our analysis, we have categorized tumor-suppressive gene variants based solely on their effect on longevity as either favorable or unfavorable. We would like to clarify that our report does not provide an assessment of whether these variants have an increased risk for cancer or not.</i></p>
+	%if 'tumor-suppressor' in data['summarization']:	
+	${data['summarization']['tumor-suppressor']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -1731,6 +1716,7 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'renin-angiotensin' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longreninTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1819,22 +1805,18 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
 <div class="board variants panel">
-	<p>From ${positive+negative} gene variants of genes related to the renin-angiotensin system, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable regarding their impact on longevity. 
- </p>
- <br>
-	<p>There are several ways to activate the sirtuin pathway if your genes are not favorable:
-</p>
-<br>
-	<p><b>Control your blood pressure level
-</b></p>
-	<p><b>Look at pharmacogenetics:</b> you may have a low response to angiotensin-converting enzyme (ACE) inhibitors, depending on the variants carrying,  so talk to your healthcare practitioner. 
-</p>
-	<p><b>Diet:</b> A healthy diet can help prevent hypertension and improve overall cardiovascular health. Here are some dietary tips to follow: limit processed and high-fat foods, as well as sugary drinks and snacks; reduce your salt intake by using herbs and spices to flavor your food instead of salt, and avoid high-sodium packaged and processed foods; incorporate calcium-rich foods such as low-fat dairy products, tofu, and leafy greens into your diet.
-</p>
+	%if 'renin-angiotensin' in data['summarization']:	
+	${data['summarization']['renin-angiotensin']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 	</div>
@@ -1851,6 +1833,7 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'heat-shock' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longHeatTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -1939,18 +1922,18 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p> From ${positive+negative} gene variants related to heat-shock proteins, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. 
-</p><br>
-<p>If you have unfavorable heat shock protein (HSP) gene variants, there are several things you can do to reduce cell stress:
-</p><br>
-<p><b>Environmental factors:</b> Avoiding exposure to environmental toxins, such as cigarette smoke, pollution, and pesticides, can help reduce cellular stress and inflammation.
-</p>
-<p><b>Sleep:</b> Getting adequate sleep is important for reducing cellular stress and promoting cellular repair and regeneration.
-</p>
+	%if 'heat-shock' in data['summarization']:	
+	${data['summarization']['heat-shock']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -1973,6 +1956,7 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'inflammation' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longInflamTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -2061,24 +2045,18 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p>From ${positive+negative} gene variants related to inflammation, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable.  </p>
-	<br>
-	<p>If you have unfavorable variants in genes involved in chronic inflammation, there are several steps you can take to improve your health outcomes potentially:
-</p>
-	<br>
-	<p><b>Biochemical markers for check-ups:</b> C-reactive protein (CRP), ferritin, tumor necrosis factor-alpha (TNF-alpha).
-</p>
-	<p><b>Diet:</b> Consuming a balanced diet that is rich in anti-inflammatory foods such as fruits, vegetables, whole grains, and fatty fish can help reduce inflammation. Some herbs and spices have an antiinflammatory action so that they can be added to the diet: garlic, ginger, turmeric, cinnamon, and oregano.
-</p>
-	<p><b>Dentist check-ups:</b> regular dental check-ups and good oral hygiene practices can help prevent chronic inflammation in the gums and other oral tissues. Periodontal disease, which is caused by bacteria and leads to inflammation and tissue destruction in the gums, is a common cause of chronic inflammation.
-</p>
-<p><b>Air cleaning:</b> air pollutants are a common source of chronic inflammation. Control your air quality indoors, and use filter systems if needed.
-
-	</p>
+	%if 'inflammation' in data['summarization']:	
+	${data['summarization']['inflammation']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -2094,6 +2072,7 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 	</div>
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'genome_maintenance' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longGenomeTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -2182,27 +2161,18 @@ Similarly, cell cycle regulators such as cyclin-dependent kinases (CDKs) are inv
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
 
 	<button class="accordion0 accordion "><div></div>Recommendations</button>
 <div class="board variants   panel">
-	<p>From ${positive+negative} gene variants related to genome maintenance and post-transcriptional processes, you have <b>${positive}</b> favorable and <b>${negative}</b> unfavorable. 
- </p>
-	<br>
-	<p>If you have unfavorable variants in genes involved in genome maintenance, there are several steps you can take to improve your health outcomes potentially:
-</p>
-	<br>
-	<p><b>Ensure methylation processes in your body work well:</b> monitor blood levels of B12, B9, B2, B6, Zn, and Co[PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/31601260/">31601260</a>, PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36203899/">36203899</a>]. These components are needed for methylation enzymes' appropriate work. Methylation is important for genome maintenance because it is involved in the regulation of gene expression and DNA repair [PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34209979/">34209979</a>].</p>
-	<p><b>Reduce exposure to environmental toxins</b>, such as pollution, pesticides, and chemicals. Air-control indoor systems can help with this point. 
-</p>
-<p><b>Check vitamin D level: </b>Vitamin D plays a role in DNA repair and has been shown to have a protective effect regarding genome maintenance [PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11295155/">11295155</a>].
-
-	<p><b>Protect the skin</b> from UV radiation by wearing protective clothing and using sunscreen.
-</p>
-	<br>
-	<p>
-Although genes associated with longevity can be classified into 11 definite pathways, there are other genes that do not fall into these categories, which are presented in this table.
-</p>
+	%if 'genome_maintenance' in data['summarization']:	
+	${data['summarization']['genome_maintenance']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
 	</div>
 	<div class="last inside"></div>
 </div>
@@ -2221,6 +2191,7 @@ Although genes associated with longevity can be classified into 11 definite path
 
 	<button class="accordion0 accordion accordion-result"><div></div>Results</button>
 	<div class="content content-variants">
+	% if 'other' in data['longevitymap']:
 	<table class="ui selectable celled teal table table variants">
 		<thead>
 			<tr><th class="clickable title" onclick="collapseExpandAll(this, 'longOtherTBody')"><div class="ui tiny circular compact positive button">+</div></th>
@@ -2309,7 +2280,20 @@ Although genes associated with longevity can be classified into 11 definite path
 			% endfor
 		</tbody>
 	</table>
+	% else:
+        <p>There wasn't found any variants for this pathway.</p>
+        % endif
 	</div>
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
+	%if 'other' in data['summarization']:	
+	${data['summarization']['other']}
+	%else:
+	<p>There wasn't found any recommendations for this pathway.</p>
+	%endif
+	</div>
+	<div class="last inside"></div>
+</div>
 	<div class="last inside"></div>
 </div>
 	<p></p>
@@ -2383,6 +2367,14 @@ Although genes associated with longevity can be classified into 11 definite path
 		</tbody>
 	</table>
 	</div>
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+	<div class="board variants   panel">
+		%if 'cancer' in data['summarization']:	
+		${data['summarization']['cancer']}
+		%else:
+		<p>There wasn't found any recommendations for this report.</p>
+		%endif
+	</div>
 	<div class="last"></div>
 </div>
 	<button class="accordion accordion-heading major-risk"  >Coronary artery Disease</button>
@@ -2417,6 +2409,15 @@ Although genes associated with longevity can be classified into 11 definite path
 		</tbody>
 	</table>
 </div>
+<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">	
+	%if 'coronary' in data['summarization']:	
+	${data['summarization']['coronary']}
+	%else:
+	<p>There wasn't found any recommendations for this report.</p>
+	%endif
+</div>
+<div class="last"></div>
 <div class="last"></div>
 </div>
 <button class="accordion accordion-heading major-risk"  >Cardio Hereditary</button>
@@ -2463,6 +2464,15 @@ Analyzed gene abnormalities may cause the following syndromes: Long and short QT
 		</tbody>
 	</table>
 	</div>
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+	<div class="board variants   panel">
+		%if 'cardio' in data['summarization']:	
+		${data['summarization']['cardio']}
+		%else:
+		<p>There wasn't found any recommendations for this report.</p>
+		%endif
+	</div>
+	<div class="last"></div>
 	<div class="last"></div>
 </div>
 <button class="accordion accordion-heading major-risk"  >Lipid Metabolism</button>
@@ -2502,8 +2512,13 @@ As we age, our lipid metabolism tends to change. For example, LDL cholesterol le
 		
 	</table>
 	</div>
-	<div class="content content-variants major-risk">
-		
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+	<div class="board variants   panel">
+		%if 'lipid_metabolism' in data['summarization']:	
+		${data['summarization']['lipid_metabolism']}
+		%else:
+		<p>There wasn't found any recommendations for this report.</p>
+		%endif
 	</div>
 	<div class="last"></div>
 	</div>
@@ -2542,6 +2557,15 @@ As we age, our lipid metabolism tends to change. For example, LDL cholesterol le
 		</tbody>
 	</table>
 	</div>
+	<button class="accordion0 accordion "><div></div>Recommendations</button>
+	<div class="board variants   panel">
+		%if 'thrombophilia' in data['summarization']:	
+		${data['summarization']['thrombophilia']}
+		%else:
+		<p>There wasn't found any recommendations for this report.</p>
+		%endif
+	</div>
+	<div class="last"></div>
 	<div class="last"></div>
 </div>
 
@@ -2580,6 +2604,25 @@ As we age, our lipid metabolism tends to change. For example, LDL cholesterol le
 		</tbody>
 	</table>
 </div>
+<button class="accordion0 accordion "><div></div>Recommendations</button>
+<div class="board variants   panel">
+	%if 'vo2max' in data['summarization']:	
+	${data['summarization']['vo2max']}
+	%else:
+	<p>There wasn't found any recommendations for this report.</p>
+	%endif
+</div>
+	<div class="last"></div>
+</div>
+<button class="accordion accordion0 accordion1 module-button"><div></div>Final Conclusion</button>
+<div class="board variants panel panel-description accord_drugs">
+	%if 'final_sum' in data['summarization']:	
+	${data['summarization']['final_sum']}
+	%else:
+	<p>Final conclusion was not found.</p>
+	%endif
+</div>
+<div class="last"></div>
 </div>
 
 

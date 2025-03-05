@@ -5,10 +5,10 @@ description: Create report with longevity ralated information (pre alpha version
 output_filename_schema:
 - '{run_name}.longevity2.html'
 developer:
-  name: DNA-seq
-  organization: DNA-seq
+  name: Just-DNA-Seq
+  organization: Just-DNA-Seq
   email: just.dna.seq@gmail.com
-  website: https://dna-seq.github.io/
+  website: "https://dna-seq.github.io/"
   citation: ''
 requires:
   - just_cardio
